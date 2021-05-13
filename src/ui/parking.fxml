@@ -13,7 +13,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="signInPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="parkingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <Pane prefHeight="364.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
@@ -293,11 +293,6 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <ImageView fitHeight="174.0" fitWidth="228.0" layoutX="475.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../docs/parq.jpg" />
-               </image>
-            </ImageView>
          </children>
       </Pane>
    </center>
