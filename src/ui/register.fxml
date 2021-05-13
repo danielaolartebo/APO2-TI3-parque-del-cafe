@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="registerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <Pane prefHeight="364.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="641.0" fitWidth="1501.0" layoutX="-453.0" layoutY="-23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../docs/torre.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="323.0" layoutY="14.0" text="Crear cuenta " textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Black" size="42.0" />
+               </font>
+            </Label>
+            <Label layoutX="148.0" layoutY="139.0" prefHeight="34.0" prefWidth="92.0" text="Usuario:" textFill="WHITE">
+               <font>
+                  <Font name="Tw Cen MT Condensed Extra Bold" size="28.0" />
+               </font>
+            </Label>
+            <Label layoutX="118.0" layoutY="207.0" prefHeight="34.0" prefWidth="130.0" text="Contraseña:" textFill="WHITE">
+               <font>
+                  <Font name="Tw Cen MT Condensed Extra Bold" size="28.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtUsername" layoutX="320.0" layoutY="137.0" prefHeight="35.0" prefWidth="290.0" />
+            <TextField fx:id="txtPassword" layoutX="323.0" layoutY="205.0" prefHeight="35.0" prefWidth="290.0" />
+            <Button layoutX="400.0" layoutY="474.0" mnemonicParsing="false" onAction="#optCreateAccount" prefHeight="39.0" prefWidth="132.0" text="CREAR">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="27.0" layoutY="525.0" mnemonicParsing="false" onAction="#sub15GoBack" prefHeight="36.0" prefWidth="91.0" text="Atrás">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </Button>
+            <Label layoutX="150.0" layoutY="264.0" prefHeight="34.0" prefWidth="104.0" text="Nombre:" textFill="WHITE">
+               <font>
+                  <Font name="Tw Cen MT Condensed Extra Bold" size="28.0" />
+               </font>
+            </Label>
+            <Label layoutX="143.0" layoutY="332.0" prefHeight="34.0" prefWidth="119.0" text="Apellido:" textFill="WHITE">
+               <font>
+                  <Font name="Tw Cen MT Condensed Extra Bold" size="28.0" />
+               </font>
+            </Label>
+            <Label layoutX="205.0" layoutY="390.0" prefHeight="34.0" prefWidth="38.0" text="ID:" textFill="WHITE">
+               <font>
+                  <Font name="Tw Cen MT Condensed Extra Bold" size="28.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtFirstName" layoutX="323.0" layoutY="263.0" prefHeight="35.0" prefWidth="290.0" />
+            <TextField fx:id="txtLastName" layoutX="321.0" layoutY="330.0" prefHeight="35.0" prefWidth="290.0" />
+            <TextField fx:id="txtId" layoutX="323.0" layoutY="388.0" prefHeight="35.0" prefWidth="290.0" />
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
