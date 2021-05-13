@@ -25,7 +25,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Label fx:id="txtDateUpdate" layoutX="14.0" layoutY="14.0" text="DD/MM/YYYY">
+            <Label fx:id="txtDateUpdate" layoutX="2.0" layoutY="6.0" text="DD/MM/YYYY">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -61,17 +61,17 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <Button layoutX="98.0" layoutY="416.0" mnemonicParsing="false" onAction="#menuSingOut" prefHeight="59.0" prefWidth="197.0" text="Atracciones">
+            <Button layoutX="98.0" layoutY="416.0" mnemonicParsing="false" onAction="#menuGames" prefHeight="59.0" prefWidth="197.0" text="Atracciones">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Button layoutX="325.0" layoutY="416.0" mnemonicParsing="false" onAction="#menuSingOut" prefHeight="59.0" prefWidth="197.0" text="Comederos">
+            <Button layoutX="325.0" layoutY="416.0" mnemonicParsing="false" onAction="#menuFoodCourt" prefHeight="59.0" prefWidth="197.0" text="Comederos">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Button layoutX="554.0" layoutY="416.0" mnemonicParsing="false" onAction="#menuSingOut" prefHeight="59.0" prefWidth="197.0" text="Parqueadero">
+            <Button layoutX="554.0" layoutY="416.0" mnemonicParsing="false" onAction="#menuParking" prefHeight="59.0" prefWidth="197.0" text="Parqueadero">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>

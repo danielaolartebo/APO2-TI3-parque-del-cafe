@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="signInPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <Pane prefHeight="364.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="410.0" fitWidth="811.0" layoutX="-5.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../docs/atracciones-map.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="289.0" prefHeight="60.0" prefWidth="326.0" text="ATRACCIONES">
+               <font>
+                  <Font name="Segoe UI Black" size="42.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.9333333333333333">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.6315789222717285" green="0.09941520541906357" blue="0.09941520541906357" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Button layoutX="598.0" layoutY="297.0" mnemonicParsing="false" onAction="#optKrater" prefHeight="30.0" prefWidth="83.0" text="KRATER">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="157.0" layoutY="357.0" mnemonicParsing="false" onAction="#optYippe" prefHeight="30.0" prefWidth="89.0" text="YIPPE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="114.0" fitWidth="116.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../docs/parque_del_cafe.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="407.0" layoutY="275.0" mnemonicParsing="false" onAction="#optRapidos" prefHeight="24.0" prefWidth="73.0" text="RÁPIDOS">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="143.0" layoutY="262.0" mnemonicParsing="false" onAction="#optMontañaAcuatica" prefHeight="25.0" prefWidth="146.0" text="MONTAÑA ACUÁTICA">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="192.0" layoutY="81.0" mnemonicParsing="false" onAction="#optMontañaRusa" prefHeight="25.0" prefWidth="146.0" text="MONTAÑA RUSA">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="282.0" layoutY="186.0" mnemonicParsing="false" onAction="#optKarts" prefHeight="24.0" prefWidth="73.0" text="KARTS">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="496.0" layoutY="87.0" mnemonicParsing="false" onAction="#optTorreCumbre" prefHeight="25.0" prefWidth="111.0" text="TORRE CUMBRE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="664.0" layoutY="100.0" mnemonicParsing="false" onAction="#optRueda" prefHeight="24.0" prefWidth="73.0" text="RUEDA">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="444.0" layoutY="199.0" mnemonicParsing="false" onAction="#optBotesChocones" prefHeight="25.0" prefWidth="125.0" text="BOTES CHOCONES">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="681.0" layoutY="199.0" mnemonicParsing="false" onAction="#optRueda" prefHeight="25.0" prefWidth="80.0" text="CARRUSEL">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="701.0" layoutY="13.0" mnemonicParsing="false" onAction="#sub5GoBack" prefHeight="35.0" prefWidth="88.0" text="Atrás">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </Button>
+            <TableView fx:id="tbProductList" editable="true" layoutX="-5.0" layoutY="471.0" prefHeight="124.0" prefWidth="810.0" style="-fx-background-color: black;">
+               <columns>
+                  <TableColumn fx:id="tcRusa" prefWidth="63.0" text="RUSA" />
+                  <TableColumn fx:id="tcKarts" prefWidth="69.0" text="KARTS" />
+                  <TableColumn fx:id="tcAcuatica" maxWidth="279.0" prefWidth="70.0" text="ACUÁTICA" />
+                  <TableColumn fx:id="tcYippe" maxWidth="339.0" prefWidth="92.0" text="YIPPE" />
+                  <TableColumn fx:id="tcCumbre" maxWidth="376.0" prefWidth="79.0" text="CUMBRE" />
+                  <TableColumn fx:id="tcChocones" maxWidth="440.0" minWidth="0.0" prefWidth="96.0" text="CHOCONES" />
+                  <TableColumn fx:id="tcRapidos" maxWidth="170.0" prefWidth="89.0" text="RÁPIDOS" />
+                  <TableColumn fx:id="tcRueda" maxWidth="105.0" prefWidth="82.0" text="RUEDA" />
+                  <TableColumn fx:id="tcCarrusel" maxWidth="440.0" prefWidth="87.0" text="CARRUSEL" />
+                  <TableColumn fx:id="tcKrater" maxWidth="376.0" prefWidth="82.0" text="KRATER" />
+               </columns>
+            </TableView>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

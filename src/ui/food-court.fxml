@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="signInPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <Pane prefHeight="364.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="367.0" fitWidth="800.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../docs/comederos-map.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="289.0" prefHeight="60.0" prefWidth="326.0" text="COMEDEROS">
+               <font>
+                  <Font name="Segoe UI Black" size="42.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.9333333333333333">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.6315789222717285" green="0.09941520541906357" blue="0.09941520541906357" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Button layoutX="602.0" layoutY="357.0" mnemonicParsing="false" onAction="#optParrilla" prefHeight="30.0" prefWidth="153.0" text="PARRILLA DEL PARQUE" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="103.0" fitWidth="106.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../docs/parque_del_cafe.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="452.0" layoutY="360.0" mnemonicParsing="false" onAction="#optGuadual" prefHeight="25.0" prefWidth="98.0" text="EL GUADUAL">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="636.0" layoutY="132.0" mnemonicParsing="false" onAction="#optHeladeria" prefHeight="25.0" prefWidth="167.0" text="HELADERÍAS DEL PARQUE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="443.0" layoutY="107.0" mnemonicParsing="false" onAction="#optPandebono" prefHeight="25.0" prefWidth="172.0" text="PANDEBONO DEL PARQUE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="679.0" layoutY="230.0" mnemonicParsing="false" onAction="#optSubway" prefHeight="25.0" prefWidth="80.0" text="SUBWAY">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="701.0" layoutY="13.0" mnemonicParsing="false" onAction="#sub6GoBack" prefHeight="35.0" prefWidth="88.0" text="Atrás">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </Button>
+            <TableView fx:id="tbProductList" editable="true" layoutX="-5.0" layoutY="440.0" prefHeight="107.0" prefWidth="810.0" style="-fx-background-color: black;">
+               <columns>
+                  <TableColumn fx:id="tcPandebono" prefWidth="178.0" text="PANDEBONO DEL PARQUE" />
+                  <TableColumn fx:id="tcHeladeria" prefWidth="171.0" text="HELADERÍA DEL PARQUE" />
+                  <TableColumn fx:id="tcSubway" maxWidth="279.0" prefWidth="97.0" text="SUBWAY" />
+                  <TableColumn fx:id="tcParrilla" maxWidth="361.0" prefWidth="187.0" text="PARRILLA DEL PARQUE" />
+                  <TableColumn fx:id="tcGuadual" maxWidth="513.0" prefWidth="174.0" text="EL GUADUAL" />
+               </columns>
+            </TableView>
+            <Button layoutX="40.0" layoutY="550.0" mnemonicParsing="false" onAction="#verMenuPandebono" prefHeight="11.0" prefWidth="89.0" text="VER MENÚ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="208.0" layoutY="550.0" mnemonicParsing="false" onAction="#verMenuHeladeria" prefHeight="11.0" prefWidth="89.0" text="VER MENÚ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="356.0" layoutY="550.0" mnemonicParsing="false" onAction="#verMenuSubway" prefHeight="11.0" prefWidth="89.0" text="VER MENÚ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="501.0" layoutY="550.0" mnemonicParsing="false" onAction="#verMenuParrilla" prefHeight="11.0" prefWidth="89.0" text="VER MENÚ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="675.0" layoutY="550.0" mnemonicParsing="false" onAction="#verMenuGuadual" prefHeight="11.0" prefWidth="89.0" text="VER MENÚ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
