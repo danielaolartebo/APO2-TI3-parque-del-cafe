@@ -2,9 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -18,22 +15,17 @@
    <center>
       <Pane prefHeight="449.0" prefWidth="359.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="162.0" fitWidth="128.0" layoutX="2.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="107.0" fitWidth="764.0" layoutX="32.0" layoutY="486.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../docs/parque_del_cafe.png" />
+                  <Image url="@../../docs/2021-05-13%20(23).png" />
                </image>
             </ImageView>
-            <Button layoutX="700.0" layoutY="544.0" mnemonicParsing="false" onAction="#menuSingOut" prefHeight="22.0" prefWidth="86.0" text="SALIR">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Button>
             <Label fx:id="txtHourUpdate" layoutX="18.0" layoutY="527.0" prefHeight="17.0" prefWidth="97.0" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="66.0" layoutY="51.0" prefHeight="62.0" prefWidth="669.0" style="-fx-content-display: red;" text="Bienvenido a El Parque Del Café">
+            <Label layoutX="310.0" layoutY="58.0" prefHeight="62.0" prefWidth="253.0" style="-fx-content-display: red;" text="PLANES">
                <font>
                   <Font name="Segoe UI Black" size="42.0" />
                </font>
@@ -59,56 +51,36 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <Button layoutX="19.0" layoutY="426.0" mnemonicParsing="false" onAction="#menuGames" prefHeight="41.0" prefWidth="123.0" text="Atracciones">
+            <Button layoutX="97.0" layoutY="416.0" mnemonicParsing="false" onAction="#menuGames" prefHeight="60.0" prefWidth="169.0" text="Pasaporte multiple">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Button layoutX="173.0" layoutY="426.0" mnemonicParsing="false" onAction="#menuFoodCourt" prefHeight="41.0" prefWidth="123.0" text="Comederos">
+            <Button layoutX="321.0" layoutY="416.0" mnemonicParsing="false" onAction="#menuFoodCourt" prefHeight="60.0" prefWidth="169.0" text="Tiquete almuerzo">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Button layoutX="339.0" layoutY="426.0" mnemonicParsing="false" onAction="#menuParking" prefHeight="41.0" prefWidth="123.0" text="Parqueadero">
+            <Button layoutX="544.0" layoutY="416.0" mnemonicParsing="false" onAction="#menuParking" prefHeight="60.0" prefWidth="169.0" text="Tiquete parqueadero">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <ImageView fitHeight="210.0" fitWidth="162.0" layoutX="323.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="312.0" fitWidth="230.0" layoutX="510.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../docs/tiquete-parqueadero.jpg" />
+                  <Image url="@../../docs/tiquete_parqueadero.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="187.0" fitWidth="173.0" layoutX="157.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="304.0" fitWidth="228.0" layoutX="293.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../docs/mocaccino.jpg" />
+                  <Image url="@../../docs/tiquete_almuerzo.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="199.0" fitWidth="132.0" layoutX="14.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="301.0" fitWidth="230.0" layoutX="70.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../docs/2021-05-13%20(12).png" />
+                  <Image url="@../../docs/multiple.jpg" />
                </image>
             </ImageView>
-            <Button layoutX="492.0" layoutY="426.0" mnemonicParsing="false" onAction="#menuOccupancy" prefHeight="41.0" prefWidth="123.0" text="Ocupación">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Button>
-            <ImageView fitHeight="196.0" fitWidth="150.0" layoutX="478.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../docs/ocupancia.jpg" />
-               </image>
-            </ImageView>
-            <MenuBar layoutX="-4.0" prefHeight="25.0" prefWidth="808.0">
-              <menus>
-                <Menu mnemonicParsing="false" text="Datos del parque">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Importar" />
-                        <MenuItem mnemonicParsing="false" text="Exportar" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
             <Label layoutX="666.0" layoutY="25.0" prefHeight="26.0" prefWidth="138.0" style="-fx-content-display: red;" text="Usuario:__________________">
                <font>
                   <Font name="Segoe UI Black" size="11.0" />
@@ -135,16 +107,31 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <Button layoutX="655.0" layoutY="426.0" mnemonicParsing="false" onAction="#menuMyAccount" prefHeight="41.0" prefWidth="123.0" text="Mi cuenta">
+            <Label layoutX="130.0" layoutY="321.0" prefWidth="107.0" style="-fx-border-color: black;" text="\$58.000 COP">
                <font>
-                  <Font name="System Bold" size="13.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
-            </Button>
-            <ImageView fitHeight="203.0" fitWidth="144.0" layoutX="645.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
+            </Label>
+            <Label layoutX="575.0" layoutY="322.0" prefWidth="107.0" style="-fx-border-color: black;" text="\$5.000 COP">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="352.0" layoutY="322.0" prefWidth="107.0" style="-fx-border-color: black;" text="\$12.000 COP">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="148.0" fitWidth="158.0" layoutX="-4.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../docs/2021-05-13%20(21).png" />
+                  <Image url="@../../docs/parque_del_cafe.png" />
                </image>
             </ImageView>
+            <Button layoutX="696.0" layoutY="544.0" mnemonicParsing="false" onAction="#sub9GoBack" prefHeight="35.0" prefWidth="88.0" text="Atrás">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </center>

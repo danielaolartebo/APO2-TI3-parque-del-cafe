@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -23,19 +24,19 @@
                   <Font name="Segoe UI Black" size="42.0" />
                </font>
             </Label>
-            <Label layoutX="148.0" layoutY="139.0" prefHeight="34.0" prefWidth="92.0" text="Usuario:" textFill="WHITE">
+            <Label layoutX="151.0" layoutY="105.0" prefHeight="34.0" prefWidth="92.0" text="Usuario:" textFill="WHITE">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="28.0" />
                </font>
             </Label>
-            <Label layoutX="118.0" layoutY="207.0" prefHeight="34.0" prefWidth="130.0" text="Contraseña:" textFill="WHITE">
+            <Label layoutX="118.0" layoutY="162.0" prefHeight="34.0" prefWidth="130.0" text="Contraseña:" textFill="WHITE">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="28.0" />
                </font>
             </Label>
-            <TextField fx:id="txtUsername" layoutX="320.0" layoutY="137.0" prefHeight="35.0" prefWidth="290.0" />
-            <TextField fx:id="txtPassword" layoutX="323.0" layoutY="205.0" prefHeight="35.0" prefWidth="290.0" />
-            <Button layoutX="400.0" layoutY="474.0" mnemonicParsing="false" onAction="#optCreateAccount" prefHeight="39.0" prefWidth="132.0" text="CREAR">
+            <TextField fx:id="txtUsername" layoutX="323.0" layoutY="104.0" prefHeight="35.0" prefWidth="290.0" />
+            <TextField fx:id="txtPassword" layoutX="323.0" layoutY="161.0" prefHeight="35.0" prefWidth="290.0" />
+            <Button layoutX="402.0" layoutY="435.0" mnemonicParsing="false" onAction="#optCreateAccount" prefHeight="39.0" prefWidth="132.0" text="CREAR">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -45,24 +46,26 @@
                   <Font name="System Bold" size="11.0" />
                </font>
             </Button>
-            <Label layoutX="150.0" layoutY="264.0" prefHeight="34.0" prefWidth="104.0" text="Nombre:" textFill="WHITE">
+            <Label layoutX="44.0" layoutY="222.0" prefHeight="34.0" prefWidth="214.0" text="Nombre y apellido:" textFill="WHITE">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="28.0" />
                </font>
             </Label>
-            <Label layoutX="143.0" layoutY="332.0" prefHeight="34.0" prefWidth="119.0" text="Apellido:" textFill="WHITE">
+            <Label layoutX="190.0" layoutY="283.0" prefHeight="34.0" prefWidth="79.0" text="Sexo:" textFill="WHITE">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="28.0" />
                </font>
             </Label>
-            <Label layoutX="205.0" layoutY="390.0" prefHeight="34.0" prefWidth="38.0" text="ID:" textFill="WHITE">
+            <Label layoutX="183.0" layoutY="333.0" prefHeight="34.0" prefWidth="65.0" text="Edad:" textFill="WHITE">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="28.0" />
                </font>
             </Label>
-            <TextField fx:id="txtFirstName" layoutX="323.0" layoutY="263.0" prefHeight="35.0" prefWidth="290.0" />
-            <TextField fx:id="txtLastName" layoutX="321.0" layoutY="330.0" prefHeight="35.0" prefWidth="290.0" />
-            <TextField fx:id="txtId" layoutX="323.0" layoutY="388.0" prefHeight="35.0" prefWidth="290.0" />
+            <TextField fx:id="txtFirstLastName" layoutX="323.0" layoutY="221.0" prefHeight="35.0" prefWidth="290.0" />
+            <TextField fx:id="txtAge" layoutX="323.0" layoutY="332.0" prefHeight="35.0" prefWidth="290.0" />
+            <CheckBox layoutX="323.0" layoutY="283.0" mnemonicParsing="false" onAction="#txtMale" prefHeight="35.0" prefWidth="86.0" style="-fx-background-color: white;" text="Hombre" />
+            <CheckBox layoutX="423.0" layoutY="283.0" mnemonicParsing="false" onAction="#txtFemale" prefHeight="35.0" prefWidth="86.0" style="-fx-background-color: white;" text="Mujer" />
+            <CheckBox layoutX="527.0" layoutY="283.0" mnemonicParsing="false" onAction="#txtOther" prefHeight="35.0" prefWidth="86.0" style="-fx-background-color: white;" text="Otro" />
          </children>
       </Pane>
    </center>
