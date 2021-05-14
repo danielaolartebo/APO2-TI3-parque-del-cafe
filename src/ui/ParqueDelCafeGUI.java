@@ -71,6 +71,34 @@ public class ParqueDelCafeGUI {
     private BorderPane datePickerPane;
     @FXML
     private TextField txtParkingNumber;
+    @FXML
+    private BorderPane montañaRusaPane;
+    @FXML
+    private BorderPane montañaAcuaticaPane;
+    @FXML
+    private BorderPane yippePane;
+    @FXML
+    private BorderPane torreCumbrePane;
+    @FXML
+    private BorderPane botesChoconesPane;
+    @FXML
+    private BorderPane rapidosPane;
+    @FXML
+    private BorderPane ruedaPane;
+    @FXML
+    private BorderPane carruselPane;
+    @FXML
+    private BorderPane kraterPane;
+    @FXML
+    private BorderPane elGuadualPane;
+    @FXML
+    private BorderPane parrillaDelParquePane;
+    @FXML
+    private BorderPane subwayPane;
+    @FXML
+    private BorderPane heladeriasDelParquePane;
+
+
     
     
     // PLAN MINI TABLE VIEW 
@@ -144,10 +172,137 @@ public class ParqueDelCafeGUI {
     private TableColumn<?, ?> tcTotalPriceAccount;
     @FXML
     private TableColumn<?, ?> tcBenefitsAccount;
+    
+    // MONTAÑA RUSA MINI TABLE VIEW 
+    
+    @FXML
+    private TableView<?> tbMontañaRusaList;
+    @FXML
+    private TableColumn<?, ?> tcMontañaRusaName;
+    @FXML
+    private ComboBox<?> namesMontañaRusa;
+    
+    // KARTS MINI TABLE VIEW
+    
+    @FXML
+    private TableView<?> tbKartsList;
+    @FXML
+    private TableColumn<?, ?> tcKartsName;
+    @FXML
+    private ComboBox<?> namesKarts;
+    
+    // MONTAÑA ACUATICA MINI TABLE VIEW
 
+    @FXML
+    private TableView<?> tbMontañaAcuaticaList;
+    @FXML
+    private TableColumn<?, ?> tcMontañaAcuaticaName;
+    @FXML
+    private ComboBox<?> namesMontañaAcuatica;
+    
+    // YIPPE MINI TABLE VIEW
 
+    @FXML
+    private TableView<?> tbYippeList;
+    @FXML
+    private TableColumn<?, ?> tcYippeName;
+    @FXML
+    private ComboBox<?> namesYippe;
+    
+    // TORRE CUMBRE MINI TABLE VIEW
 
+    @FXML
+    private TableView<?> tbTorreCumbreList;
+    @FXML
+    private TableColumn<?, ?> tcTorreCumbreName;
+    @FXML
+    private ComboBox<?> namesTorreCumbre;
+    
+    // BOTES CHOCONES MINI TABLE VIEW
+    
+    @FXML
+    private TableView<?> tbBotesChoconesList;
+    @FXML
+    private TableColumn<?, ?> tcBotesChoconesName;
+    @FXML
+    private ComboBox<?> namesBotesChocones;
+    
+    // RAPIDOS MINI TABLE VIEW
+    
+    @FXML
+    private TableView<?> tbRapidosList;
+    @FXML
+    private TableColumn<?, ?> tcRapidosName;
+    @FXML
+    private ComboBox<?> namesRapidos;
+    
+    // RUEDA MINI TABLE VIEW
 
+    @FXML
+    private TableView<?> tbRuedaList;
+    @FXML
+    private TableColumn<?, ?> tcRuedaName;
+    @FXML
+    private ComboBox<?> namesRueda;
+    
+    // CARRUSEL MINI TABLE VIEW
+
+    @FXML
+    private TableView<?> tbCarruselList;
+    @FXML
+    private TableColumn<?, ?> tcCarruselName;
+    @FXML
+    private ComboBox<?> namesCarrusel;
+    
+    // KRATER MINI TABLE VIEW
+    
+    @FXML
+    private TableView<?> tbKraterList;
+    @FXML
+    private TableColumn<?, ?> tcKraterName;
+    @FXML
+    private ComboBox<?> namesKrater;
+    
+    // EL GUADUAL MINI TABLE VIEW
+    
+    @FXML
+    private TableView<?> tbGuadualList;
+    @FXML
+    private TableColumn<?, ?> tcGuadualName;
+    @FXML
+    private ComboBox<?> namesGuadual;
+    
+    // PARRILLA DEL PARQUE MINI TABLE VIEW
+    
+    @FXML
+    private TableView<?> tbParrillaList;
+    @FXML
+    private TableColumn<?, ?> tcParrillaName;
+    @FXML
+    private ComboBox<?> namesParrilla;
+    
+    // SUBWAY DEL PARQUE MINI TABLE VIEW
+    
+    @FXML
+    private TableView<?> tbSubwayList;
+    @FXML
+    private TableColumn<?, ?> tcSubwayName;
+    @FXML
+    private ComboBox<?> namesSubway;
+    
+    // HELADERÍAS DEL PARQUE MINI TABLE VIEW
+    
+    @FXML
+    private TableView<?> tbHeladeriasList;
+    @FXML
+    private TableColumn<?, ?> tcHeladeriasName;
+    @FXML
+    private ComboBox<?> namesHeladerias;
+    
+    
+
+    
+    
     private RadioButton rbSelected;
 	private ParqueDelCafe parqueDelCafe;
 	public final static String SAVE_PATH_FILE = "data.parqueDelCafe.csv";
@@ -403,48 +558,83 @@ public class ParqueDelCafeGUI {
      */
     
     @FXML
-    public void optBotesChocones(ActionEvent event) {
-
+    public void optBotesChocones(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("botes-chocones.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent botesChoconesPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(botesChoconesPane);
     }
 
     @FXML
-    public void optKarts(ActionEvent event) {
-
+    public void optKarts(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("karts.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent kartsPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(kartsPane);
+    }
+    
+    @FXML
+    public void optCarrusel(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("carrusel.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent carruselPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(carruselPane);
     }
 
     @FXML
-    public void optKrater(ActionEvent event) {
-
+    public void optKrater(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("krater.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent kraterPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(kraterPane);
     }
 
     @FXML
-    public void optMontañaAcuatica(ActionEvent event) {
-
+    public void optMontañaAcuatica(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("montaña-acuatica.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent montañaAcuaticaPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(montañaAcuaticaPane);
     }
 
     @FXML
-    public void optMontañaRusa(ActionEvent event) {
-
+    public void optMontañaRusa(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("montaña-rusa.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent montañaRusaPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(montañaRusaPane);
     }
 
     @FXML
-    public void optRapidos(ActionEvent event) {
-
+    public void optRapidos(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("rapidos.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent rapidosPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(rapidosPane);
     }
 
     @FXML
-    public void optRueda(ActionEvent event) {
-
+    public void optRueda(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("rueda.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent ruedaPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(ruedaPane);
     }
 
     @FXML
-    public void optTorreCumbre(ActionEvent event) {
-
+    public void optTorreCumbre(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("torre-cumbre.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent torreCumbrePane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(torreCumbrePane);
     }
 
     @FXML
-    public void optYippe(ActionEvent event) {
-
+    public void optYippe(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("yippe.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent yippePane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(yippePane);
     }
 
     @FXML
@@ -460,28 +650,35 @@ public class ParqueDelCafeGUI {
      */
     
     @FXML
-    public void optGuadual(ActionEvent event) {
-
+    public void optGuadual(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("el-guadual.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent elGuadualPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(elGuadualPane);
     }
 
     @FXML
-    public void optHeladeria(ActionEvent event) {
-
+    public void optHeladeria(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("heladerias-del-parque.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent heladeriasDelParquePane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(heladeriasDelParquePane);
     }
 
     @FXML
-    public void optPandebono(ActionEvent event) {
-
+    public void optParrilla(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("parrilla-del-parque.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent parrillaDelParquePane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(parrillaDelParquePane);
     }
 
     @FXML
-    public void optParrilla(ActionEvent event) {
-
-    }
-
-    @FXML
-    public void optSubway(ActionEvent event) {
-
+    public void optSubway(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("subway.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent subwayPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(subwayPane);
     }
 
     @FXML
@@ -531,6 +728,316 @@ public class ParqueDelCafeGUI {
     	fxmlLoader.setController(this);
     	Parent menuPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(menuPane);
+    }
+    
+    
+    /*
+     ***************************************************************************************************** MONTAÑA RUSA SCREEN (montaña-rusa.fxml) *******************************************************************
+     */
+    
+    @FXML
+    public void sub14GoBack(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("games.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent gamePane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(gamePane);
+    }
+    
+    @FXML
+    public void AddMontañaRusa(ActionEvent event) {
+
+    }
+    
+    @FXML
+    public void DeleteMontañaRusa(ActionEvent event) {
+
+    }
+    
+    /*
+     ***************************************************************************************************** KARTS SCREEN (karts.fxml) *******************************************************************
+     */
+    
+    @FXML
+    public void AddKarts(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void DeleteKarts(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void sub16GoBack(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("games.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent gamePane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(gamePane);
+    }
+    
+    /*
+     ***************************************************************************************************** MONTAÑA ACUÁTICA SCREEN (montaña-acuatica.fxml) *******************************************************************
+     */
+    
+    @FXML
+    public void AddMontañaAcuatica(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void DeleteMontañaAcuatica(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void sub17GoBack(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("games.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent gamePane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(gamePane);
+    }
+    
+    /*
+     ***************************************************************************************************** YIPPE SCREEN (yippe.fxml) *******************************************************************
+     */
+    
+    @FXML
+    public void AddYippe(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void DeleteYippe(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void sub18GoBack(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("games.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent gamePane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(gamePane);
+    }
+    
+    /*
+     ***************************************************************************************************** TORRE CUMBRE SCREEN (torre-cumbre.fxml) *******************************************************************
+     */
+    
+    @FXML
+    public void AddTorreCumbre(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void DeleteTorreCumbre(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void sub19GoBack(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("games.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent gamePane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(gamePane);
+    }
+    
+    /*
+     ***************************************************************************************************** BOTES CHOCONES SCREEN (botes-chocones.fxml) *******************************************************************
+     */
+    
+    @FXML
+    public void AddBotesChocones(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void DeleteBotesChocones(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void sub20GoBack(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("games.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent gamePane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(gamePane);
+    }
+    
+    /*
+     ***************************************************************************************************** RAPIDOS SCREEN (rapidos.fxml) *******************************************************************
+     */
+    
+    @FXML
+    public void AddRapidos(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void DeleteRapidos(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void sub21GoBack(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("games.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent gamePane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(gamePane);
+    }
+    
+    /*
+     ***************************************************************************************************** RUEDA SCREEN (rueda.fxml) *******************************************************************
+     */
+    
+    @FXML
+    public void AddRueda(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void DeleteRueda(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void sub22GoBack(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("games.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent gamePane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(gamePane);
+    }
+    
+    /*
+     ***************************************************************************************************** CARRUSEL SCREEN (carrusel.fxml) *******************************************************************
+     */
+    
+    @FXML
+    public void AddCarrusel(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void DeleteCarrusel(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void sub23GoBack(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("games.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent gamePane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(gamePane);
+    }
+    
+    /*
+     ***************************************************************************************************** KRATER SCREEN (krater.fxml) *******************************************************************
+     */
+    
+    @FXML
+    public void AddKrater(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void DeleteKrater(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void sub24GoBack(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("games.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent gamePane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(gamePane);
+    }
+    
+    /*
+     ***************************************************************************************************** EL GUADUAL SCREEN (el-guadual.fxml) *******************************************************************
+     */
+    
+    @FXML
+    public void AddGuadual(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void DeleteGuadual(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void sub25GoBack(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("food-court.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent foodCourtPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(foodCourtPane);
+    }
+    
+    /*
+     ***************************************************************************************************** PARRILLA DEL PARQUE SCREEN (parrilla-del-parque.fxml) *******************************************************************
+     */
+    
+    @FXML
+    public void AddParrilla(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void DeleteParrilla(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void sub26GoBack(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("food-court.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent foodCourtPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(foodCourtPane);
+    }
+    
+    /*
+     ***************************************************************************************************** SUBWAY SCREEN (subway.fxml) *******************************************************************
+     */
+
+    @FXML
+    public void AddSubway(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void DeleteSubway(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void sub27GoBack(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("food-court.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent foodCourtPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(foodCourtPane);
+    }
+    
+
+    /*
+     ***************************************************************************************************** HELADERIAS DEL PARQUE SCREEN (heladerias-del-parque.fxml) *******************************************************************
+     */
+    
+    @FXML
+    public void AddHeladerias(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void DeleteHeladerias(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void sub28GoBack(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("food-court.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent foodCourtPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(foodCourtPane);
     }
     
     /*

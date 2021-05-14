@@ -41,7 +41,7 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <Button layoutX="602.0" layoutY="357.0" mnemonicParsing="false" onAction="#optParrilla" prefHeight="30.0" prefWidth="153.0" text="PARRILLA DEL PARQUE" textAlignment="CENTER">
+            <Button layoutX="615.0" layoutY="358.0" mnemonicParsing="false" onAction="#optParrilla" prefHeight="30.0" prefWidth="153.0" text="PARRILLA DEL PARQUE" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -56,17 +56,12 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="636.0" layoutY="132.0" mnemonicParsing="false" onAction="#optHeladeria" prefHeight="25.0" prefWidth="167.0" text="HELADERÍAS DEL PARQUE">
+            <Button layoutX="467.0" layoutY="105.0" mnemonicParsing="false" onAction="#optHeladeria" prefHeight="25.0" prefWidth="167.0" text="HELADERÍAS DEL PARQUE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="443.0" layoutY="107.0" mnemonicParsing="false" onAction="#optPandebono" prefHeight="25.0" prefWidth="172.0" text="PANDEBONO DEL PARQUE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button layoutX="679.0" layoutY="230.0" mnemonicParsing="false" onAction="#optSubway" prefHeight="25.0" prefWidth="80.0" text="SUBWAY">
+            <Button layoutX="692.0" layoutY="230.0" mnemonicParsing="false" onAction="#optSubway" prefHeight="25.0" prefWidth="80.0" text="SUBWAY">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -76,7 +71,7 @@
                   <Font name="System Bold" size="11.0" />
                </font>
             </Button>
-            <ImageView fitHeight="151.0" fitWidth="155.0" layoutX="14.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="151.0" fitWidth="278.0" layoutX="14.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../docs/2021-05-14%20(7).png" />
                </image>
