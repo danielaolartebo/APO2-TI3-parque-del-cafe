@@ -15,9 +15,11 @@ import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
 import model.ParqueDelCafe;
 
@@ -65,9 +67,16 @@ public class ParqueDelCafeGUI {
     private BorderPane planPane;
     @FXML
     private Label totalPricePlan;
+    @FXML
+    private BorderPane datePickerPane;
+    @FXML
+    private TextField txtParkingNumber;
+    
     
     // PLAN MINI TABLE VIEW 
     
+    @FXML
+    private TableView<?> tbPlanList;
     @FXML
     private TableColumn<?, ?> tcPlan;
     @FXML
@@ -76,11 +85,68 @@ public class ParqueDelCafeGUI {
     private TextField quantityPlan;
     @FXML
     private ComboBox<?> planOptPlan;
-
-
-
     
+    // DATE PICKER MINI TABLE VIEW
     
+    @FXML
+    private TableView<?> tbDatePickerList;
+    @FXML
+    private TableColumn<?, ?> tcDateName;
+    @FXML
+    private TableColumn<?, ?> tcDateAge;
+    @FXML
+    private TableColumn<?, ?> tcDateGender;
+    @FXML
+    private TextField dateName;
+    @FXML
+    private DatePicker dateDate;
+    @FXML
+    private TextField dateAge;
+    @FXML
+    private ToggleGroup genderGroupDate;
+    
+    // OCCUPANCY TABLE VIEW
+    
+    @FXML
+    private TableView<?> tbOccupancyList;
+    @FXML
+    private TableColumn<?, ?> tcNumberOccupancy;
+    @FXML
+    private TableColumn<?, ?> tcNameOccupancy;
+    @FXML
+    private TableColumn<?, ?> tcAgeOccupancy;
+    @FXML
+    private TableColumn<?, ?> tcGenderOccupancy;
+    @FXML
+    private TableColumn<?, ?> tcGamesOccupancy;
+    @FXML
+    private TableColumn<?, ?> tcFoodCourtOccupancy;
+    @FXML
+    private TableColumn<?, ?> tcParkingOccupancy;
+    @FXML
+    private TableColumn<?, ?> tcTotalPriceOccupancy;
+    
+    // USER ACCOUNT TABLE VIEW
+    
+    @FXML
+    private TableView<?> tbUserAccountList;
+    @FXML
+    private TableColumn<?, ?> tcUserAccount;
+    @FXML
+    private TableColumn<?, ?> tcNameAccount;
+    @FXML
+    private TableColumn<?, ?> tcAgeAccount;
+    @FXML
+    private TableColumn<?, ?> tcGenderAccount;
+    @FXML
+    private TableColumn<?, ?> tcPlanAccount;
+    @FXML
+    private TableColumn<?, ?> tcTotalPriceAccount;
+    @FXML
+    private TableColumn<?, ?> tcBenefitsAccount;
+
+
+
 
     private RadioButton rbSelected;
 	private ParqueDelCafe parqueDelCafe;
@@ -137,19 +203,21 @@ public class ParqueDelCafeGUI {
     
     @FXML
     public void optLogIn(ActionEvent event) throws IOException {
-    	String userName=txtUsername.getText();
-     	String password=txtPassword.getText();
+   // 	String userName=txtUsername.getText();
+   //  	String password=txtPassword.getText();
      	
-     	if(parqueDelCafe.validateCustomer(userName, password)) {
-     		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("plan.fxml"));
+//     	if(parqueDelCafe.validateCustomer(userName, password)) {
+     	
+     		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("date-picker.fxml"));
         	fxmlLoader.setController(this);
-        	Parent planPane = fxmlLoader.load();
-        	mainPane.getChildren().setAll(planPane);
+        	Parent datePickerPane = fxmlLoader.load();
+        	mainPane.getChildren().setAll(datePickerPane);
         		
-     	}else if(!parqueDelCafe.validateCustomer(userName, password)) {
+    /* 	}else if(!parqueDelCafe.validateCustomer(userName, password)) {
      		loginErrorAlert();
-     	}
-    }
+     	} */
+    } 
+   
 
     @FXML
     public void optSignUp(ActionEvent event) throws IOException {
@@ -160,7 +228,7 @@ public class ParqueDelCafeGUI {
     }
    
     /*
-     ********************************************************************************** THIRD SCREEN CREATE CUSTOMER ACCOUNT (register.fxml) ****************************************************************
+     ********************************************************************************** THIRD SCREEN CREATE CUSTOMER ACCOUNT (register.fxml) *******************************************************************************************
      */
     
     @FXML
@@ -195,7 +263,39 @@ public class ParqueDelCafeGUI {
        	}  
     
     /*
-     **********************************************************************************************FOURTH SCREEN PLANS (plan.fxml) ********************************************************************************
+     **********************************************************************************************FOURTH SCREEN DATE PICKER (date-picker.fxml) ****************************************************************************************************
+     */
+    
+    @FXML
+    public void dateAdd(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void dateDelete(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void planContinue1(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("plan.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent planPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(planPane);
+    }
+
+    @FXML
+    public void sub12GoBack(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sign-in.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent signInPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(signInPane);
+    }
+    
+    
+    
+    /*
+     **********************************************************************************************FIFTH SCREEN PLANS (plan.fxml) ****************************************************************************************************
      */
     
     @FXML
@@ -228,15 +328,15 @@ public class ParqueDelCafeGUI {
 
     @FXML
     public void sub11GoBack(ActionEvent event) throws IOException {
-    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sign-in.fxml"));
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("date-picker.fxml"));
     	fxmlLoader.setController(this);
-    	Parent signInPane = fxmlLoader.load();
-    	mainPane.getChildren().setAll(signInPane);
+    	Parent datePickerPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(datePickerPane);
     }
 
     
     /*
-     **********************************************************************************************FIFTH SCREEN MENU (menu.fxml) ********************************************************************************
+     **********************************************************************************************SIXTH SCREEN MENU (menu.fxml) *****************************************************************************************************
      */
     
     @FXML
@@ -273,7 +373,7 @@ public class ParqueDelCafeGUI {
 
     @FXML
     public void menuOccupancy(ActionEvent event) throws IOException {
-    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("accupancy.fxml"));
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("occupancy.fxml"));
     	fxmlLoader.setController(this);
     	Parent occupancyPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(occupancyPane);
@@ -299,36 +399,142 @@ public class ParqueDelCafeGUI {
     
     
     /*
-     *****************************************************************************************************SIXTH SCREEN GAMES (games.fxml) ************************************************************
+     *****************************************************************************************************SEVENTH SCREEN GAMES (games.fxml) **************************************************************************************
      */
     
-    
+    @FXML
+    public void optBotesChocones(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void optKarts(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void optKrater(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void optMontañaAcuatica(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void optMontañaRusa(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void optRapidos(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void optRueda(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void optTorreCumbre(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void optYippe(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void sub13GoBack(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent menuPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(menuPane);
+    }
     
     /*
-     *****************************************************************************************************SEVENTH SCREEN FOOD COURT (food-court.fxml) ************************************************************
+     *****************************************************************************************************EIGHT SCREEN FOOD COURT (food-court.fxml) ****************************************************************************
      */
     
-    
+    @FXML
+    public void optGuadual(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void optHeladeria(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void optPandebono(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void optParrilla(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void optSubway(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void sub6GoBack(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent menuPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(menuPane);
+    }
     
     /*
-     *****************************************************************************************************EIGHT SCREEN PARKING (parking.fxml) ************************************************************
+     *****************************************************************************************************NINETH SCREEN PARKING (parking.fxml) ******************************************************************************
      */
     
+    @FXML
+    public void optSelectParking(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void sub7GoBack(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent menuPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(menuPane);
+    }
     
     /*
-     *****************************************************************************************************NINETH SCREEN OCCUPANCY (occupancy.fxml) ************************************************************
+     *****************************************************************************************************TENTH SCREEN OCCUPANCY (occupancy.fxml) ************************************************************************
      */
     
-    
+    @FXML
+    public void sub8GoBack(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent menuPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(menuPane);
+    }
     
     /*
-     *****************************************************************************************************TENTH SCREEN USER ACCOUNT (user-account.fxml) ************************************************************
+     *****************************************************************************************************TENTH SCREEN USER ACCOUNT (user-account.fxml) *******************************************************************
      */
 
-    
+    @FXML
+    public void sub10GoBack(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent menuPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(menuPane);
+    }
     
     /*
-     ************************************************************************************************************** ALERTS ****************************************************************
+     ************************************************************************************************************** ALERTS ***********************************************************************************************
      */
     
     @FXML

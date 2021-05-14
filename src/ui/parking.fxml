@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -15,9 +14,9 @@
 
 <BorderPane fx:id="parkingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <Pane prefHeight="364.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="364.0" prefWidth="600.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="388.0" fitWidth="867.0" layoutX="-7.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="329.0" fitWidth="809.0" layoutX="-7.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../docs/estacionamiento.jpg" />
                </image>
@@ -53,12 +52,12 @@
                   <Font name="System Bold" size="11.0" />
                </font>
             </Button>
-            <Button layoutX="365.0" layoutY="551.0" mnemonicParsing="false" onAction="#optSelectParking" prefHeight="25.0" prefWidth="102.0" text="SELECCIONAR">
+            <Button layoutX="498.0" layoutY="545.0" mnemonicParsing="false" onAction="#optSelectParking" prefHeight="25.0" prefWidth="102.0" text="SELECCIONAR">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Label layoutX="351.0" layoutY="458.0" prefHeight="32.0" prefWidth="151.0" text="Parqueadero:">
+            <Label layoutX="434.0" layoutY="458.0" prefHeight="32.0" prefWidth="245.0" text="Número de parqueadero:">
                <font>
                   <Font name="Segoe UI Black" size="18.0" />
                </font>
@@ -84,15 +83,6 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <TextField fx:id="txtParkingNumber" layoutX="304.0" layoutY="503.0" prefHeight="35.0" prefWidth="246.0">
-               <effect>
-                  <Shadow blurType="GAUSSIAN" height="15.07" radius="3.2675" width="0.0">
-                     <color>
-                        <Color red="0.7763158082962036" green="0.2120492160320282" blue="0.2120492160320282" />
-                     </color>
-                  </Shadow>
-               </effect>
-            </TextField>
             <Label layoutX="75.0" layoutY="311.0" text="1">
                <font>
                   <Font name="System Bold" size="15.0" />
@@ -293,6 +283,12 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
+            <TextField fx:id="txtParkingNumber" layoutX="428.0" layoutY="497.0" prefHeight="37.0" prefWidth="242.0" />
+            <ImageView fitHeight="181.0" fitWidth="401.0" layoutY="431.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../docs/parq.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </center>

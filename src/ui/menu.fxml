@@ -145,7 +145,7 @@
                   <Image url="@../../docs/2021-05-13%20(21).png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="132.0" fitWidth="690.0" layoutX="2.0" layoutY="494.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="79.0" fitWidth="636.0" layoutX="128.0" layoutY="505.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../docs/2021-05-13%20(23).png" />
                </image>

@@ -15,7 +15,7 @@
 
 <BorderPane fx:id="occupancyPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <Pane prefHeight="364.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="364.0" prefWidth="600.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="289.0" prefHeight="60.0" prefWidth="326.0" text="OCUPACIÓN">
                <font>
@@ -48,18 +48,23 @@
                   <Font name="System Bold" size="11.0" />
                </font>
             </Button>
-            <TableView fx:id="tbProductList" editable="true" layoutX="-5.0" layoutY="86.0" prefHeight="461.0" prefWidth="808.0" style="-fx-background-color: black;">
+            <TableView fx:id="tbOccupancyList" editable="true" layoutX="-5.0" layoutY="86.0" prefHeight="395.0" prefWidth="808.0" style="-fx-background-color: black;">
                <columns>
-                  <TableColumn fx:id="tcPandebono" prefWidth="61.0" text="#" />
-                  <TableColumn fx:id="tcHeladeria" prefWidth="121.0" text="Nombre" />
-                  <TableColumn fx:id="tcSubway" maxWidth="279.0" prefWidth="65.0" text="Edad" />
-                  <TableColumn fx:id="tcParrilla" maxWidth="112.0" prefWidth="65.0" text="Sexo" />
-                  <TableColumn fx:id="tcGuadual" maxWidth="513.0" minWidth="0.0" prefWidth="139.0" text="Atracciones recorridas" />
-                  <TableColumn fx:id="tcGuadual1" maxWidth="513.0" prefWidth="134.0" text="Comederos visitados" />
-                  <TableColumn fx:id="tcPandebono1" prefWidth="116.0" text="Parqueadero" />
-                  <TableColumn fx:id="tcPandebono11" prefWidth="105.0" text="Precio pagado" />
+                  <TableColumn fx:id="tcNumberOccupancy" prefWidth="61.0" text="#" />
+                  <TableColumn fx:id="tcNameOccupancy" prefWidth="121.0" text="Nombre" />
+                  <TableColumn fx:id="tcAgeOccupancy" maxWidth="279.0" prefWidth="65.0" text="Edad" />
+                  <TableColumn fx:id="tcGenderOccupancy" maxWidth="112.0" prefWidth="65.0" text="Sexo" />
+                  <TableColumn fx:id="tcGamesOccupancy" maxWidth="513.0" minWidth="0.0" prefWidth="139.0" text="Atracciones recorridas" />
+                  <TableColumn fx:id="tcFoodCourtOccupancy" maxWidth="513.0" prefWidth="134.0" text="Comederos visitados" />
+                  <TableColumn fx:id="tcParkingOccupancy" prefWidth="116.0" text="Parqueadero" />
+                  <TableColumn fx:id="tcTotalPriceOccupancy" prefWidth="105.0" text="Precio pagado" />
                </columns>
             </TableView>
+            <ImageView fitHeight="113.0" fitWidth="660.0" layoutX="95.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../docs/2021-05-13%20(23).png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </center>
