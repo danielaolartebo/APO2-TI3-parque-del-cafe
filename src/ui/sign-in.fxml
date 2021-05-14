@@ -153,6 +153,11 @@
             </Button>
             <TextField fx:id="txtUsername" layoutX="489.0" layoutY="171.0" prefHeight="35.0" prefWidth="290.0" />
             <TextField fx:id="txtPassword" layoutX="489.0" layoutY="240.0" prefHeight="35.0" prefWidth="290.0" />
+            <ImageView fitHeight="123.0" fitWidth="195.0" layoutX="349.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../docs/parque_del_cafe.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </center>

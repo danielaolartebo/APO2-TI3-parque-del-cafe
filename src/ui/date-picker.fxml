@@ -21,7 +21,7 @@
    <center>
       <Pane prefHeight="449.0" prefWidth="359.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="272.0" layoutY="82.0" prefHeight="62.0" prefWidth="288.0" style="-fx-content-display: red;" text="BIENVENIDO">
+            <Label layoutX="95.0" layoutY="101.0" prefHeight="62.0" prefWidth="645.0" style="-fx-content-display: red;" text="INGRESA FECHA Y VISITANTES">
                <font>
                   <Font name="Segoe UI Black" size="42.0" />
                </font>

@@ -71,6 +71,11 @@
             </RadioButton>
             <RadioButton fx:id="newFemale" layoutX="424.0" layoutY="283.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="89.0" style="-fx-background-color: white;" text="Mujer" toggleGroup="$genderGroup" />
             <RadioButton fx:id="newOther" layoutX="522.0" layoutY="283.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="92.0" style="-fx-background-color: white;" text="Otro" toggleGroup="$genderGroup" />
+            <ImageView fitHeight="173.0" fitWidth="194.0" layoutX="608.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../docs/parque_del_cafe.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </center>
