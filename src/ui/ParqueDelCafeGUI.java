@@ -97,7 +97,8 @@ public class ParqueDelCafeGUI {
     private BorderPane subwayPane;
     @FXML
     private BorderPane heladeriasDelParquePane;
-
+    @FXML
+    private BorderPane chooserPane;
 
     
     
@@ -363,10 +364,10 @@ public class ParqueDelCafeGUI {
      	
 //     	if(parqueDelCafe.validateCustomer(userName, password)) {
      	
-     		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("date-picker.fxml"));
+     		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("chooser.fxml"));
         	fxmlLoader.setController(this);
-        	Parent datePickerPane = fxmlLoader.load();
-        	mainPane.getChildren().setAll(datePickerPane);
+        	Parent chooserPane = fxmlLoader.load();
+        	mainPane.getChildren().setAll(chooserPane);
         		
     /* 	}else if(!parqueDelCafe.validateCustomer(userName, password)) {
      		loginErrorAlert();
@@ -418,6 +419,34 @@ public class ParqueDelCafeGUI {
        	}  
     
     /*
+     ********************************************************************************************** SCREEN CHOOSER (chooser.fxml) ****************************************************************************************************
+     */
+    
+    @FXML
+    public void continueMenu(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent menuPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(menuPane);
+    }
+
+    @FXML
+    public void continueRegister(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("date-picker.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent datePickerPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(datePickerPane);
+    }
+
+    @FXML
+    public void sub29GoBack(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sign-in.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent signInPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(signInPane);
+    }
+    
+    /*
      **********************************************************************************************FOURTH SCREEN DATE PICKER (date-picker.fxml) ****************************************************************************************************
      */
     
@@ -441,10 +470,10 @@ public class ParqueDelCafeGUI {
 
     @FXML
     public void sub12GoBack(ActionEvent event) throws IOException {
-    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sign-in.fxml"));
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("chooser.fxml"));
     	fxmlLoader.setController(this);
-    	Parent signInPane = fxmlLoader.load();
-    	mainPane.getChildren().setAll(signInPane);
+    	Parent chooserPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(chooserPane);
     }
     
     
@@ -550,6 +579,14 @@ public class ParqueDelCafeGUI {
     @FXML
     public void menuImport(ActionEvent event) {
 
+    }
+    
+    @FXML
+    public void sub30GoBack(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("chooser.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent chooserPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(chooserPane);
     }
     
     
