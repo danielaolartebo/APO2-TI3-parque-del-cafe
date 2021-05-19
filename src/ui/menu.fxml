@@ -23,7 +23,7 @@
                   <Image url="@../../docs/parque_del_cafe.png" />
                </image>
             </ImageView>
-            <Button layoutX="700.0" layoutY="544.0" mnemonicParsing="false" onAction="#menuSingOut" prefHeight="22.0" prefWidth="86.0" text="SALIR">
+            <Button layoutX="700.0" layoutY="555.0" mnemonicParsing="false" onAction="#menuSingOut" prefHeight="22.0" prefWidth="86.0" text="SALIR">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -150,6 +150,11 @@
                   <Image url="@../../docs/2021-05-13%20(23).png" />
                </image>
             </ImageView>
+            <Button layoutX="699.0" layoutY="515.0" mnemonicParsing="false" onAction="#sub30GoBack" prefHeight="31.0" prefWidth="88.0" text="Atrás">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </center>
