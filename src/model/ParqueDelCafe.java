@@ -8,9 +8,26 @@ import java.util.List;
 		
 		private static final long serialVersionUID = 1;
 		private List<CustomerAccount> customers;
-		
+		private Game rollerCoaster;
+		private Game karts;
+		private Game wheel;
+		private Game carousel;
+		private Game krater;
+		private Game crashingBoats;
+		private Game fast; //Cualquier cambio en el nombre de este sera bienvenidos porque ni idea como traducir rapidos
+		private Game yipe;
+		private Game mountain;
 		public ParqueDelCafe() {
 			customers = new ArrayList<>();
+			rollerCoaster = new Game("Montaña Rusa");
+			karts = new Game("Karts");
+			wheel = new Game("Rueda");
+			carousel = new Game("Carusel");
+			krater = new Game("Krater");
+			crashingBoats = new Game("Botes Chocones");
+			fast = new Game("Rapidos");
+			yipe = new Game("Yipe");
+			mountain = new Game("Montaña");
 		}
 		
 		public void addCustomer(String userName, String password, String name, String gender, String age) {
