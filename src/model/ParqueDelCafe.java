@@ -7,18 +7,32 @@ import java.util.List;
 	public class ParqueDelCafe implements Serializable{
 		
 		private static final long serialVersionUID = 1;
+		
 		private List<CustomerAccount> customers;
+		private List<Game> games;
+		private List<FoodCourt> foods;
+		private List<Parking> parkings;
+		//Games
 		private Game rollerCoaster;
 		private Game karts;
 		private Game wheel;
 		private Game carousel;
 		private Game krater;
 		private Game crashingBoats;
-		private Game fast; //Cualquier cambio en el nombre de este sera bienvenidos porque ni idea como traducir rapidos
+		private Game fast;
 		private Game yipe;
 		private Game mountain;
+		//Food court
+		private FoodCourt heladerias;
+		private FoodCourt subway;
+		private FoodCourt parrilla;
+		private FoodCourt guadual;
+		
 		public ParqueDelCafe() {
 			customers = new ArrayList<>();
+			games = new ArrayList<>();
+			foods = new ArrayList<>();
+			parkings = new ArrayList<>();
 			rollerCoaster = new Game("Montaña Rusa");
 			karts = new Game("Karts");
 			wheel = new Game("Rueda");
@@ -28,6 +42,10 @@ import java.util.List;
 			fast = new Game("Rapidos");
 			yipe = new Game("Yipe");
 			mountain = new Game("Montaña");
+			heladerias = new FoodCourt("Heladerias del Parque");
+			subway = new FoodCourt("Subway");
+			parrilla = new FoodCourt("Parrilla del Parque");
+			guadual = new FoodCourt("El Guadual");
 		}
 		
 		public void addCustomer(String userName, String password, String name, String gender, String age) {
