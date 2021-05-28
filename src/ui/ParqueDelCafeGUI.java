@@ -72,9 +72,9 @@ public class ParqueDelCafeGUI {
     @FXML
     private TextField txtParkingNumber;
     @FXML
-    private BorderPane montañaRusaPane;
+    private BorderPane montanaRusaPane;
     @FXML
-    private BorderPane montañaAcuaticaPane;
+    private BorderPane montanaAcuaticaPane;
     @FXML
     private BorderPane yippePane;
     @FXML
@@ -177,11 +177,11 @@ public class ParqueDelCafeGUI {
     // MONTAÑA RUSA MINI TABLE VIEW 
     
     @FXML
-    private TableView<?> tbMontañaRusaList;
+    private TableView<?> tbMontanaRusaList;
     @FXML
-    private TableColumn<?, ?> tcMontañaRusaName;
+    private TableColumn<?, ?> tcMontanaRusaName;
     @FXML
-    private ComboBox<?> namesMontañaRusa;
+    private ComboBox<?> namesMontanaRusa;
     
     // KARTS MINI TABLE VIEW
     
@@ -195,11 +195,11 @@ public class ParqueDelCafeGUI {
     // MONTAÑA ACUATICA MINI TABLE VIEW
 
     @FXML
-    private TableView<?> tbMontañaAcuaticaList;
+    private TableView<?> tbMontanaAcuaticaList;
     @FXML
-    private TableColumn<?, ?> tcMontañaAcuaticaName;
+    private TableColumn<?, ?> tcMontanaAcuaticaName;
     @FXML
-    private ComboBox<?> namesMontañaAcuatica;
+    private ComboBox<?> namesMontanaAcuatica;
     
     // YIPPE MINI TABLE VIEW
 
