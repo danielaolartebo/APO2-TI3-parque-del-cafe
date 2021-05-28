@@ -11,11 +11,15 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -23,6 +27,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
+import model.CustomerAccount;
 import model.ParqueDelCafe;
 
 public class ParqueDelCafeGUI{
@@ -156,21 +161,21 @@ public class ParqueDelCafeGUI{
     // USER ACCOUNT TABLE VIEW
     
     @FXML
-    private TableView<?> tbUserAccountList;
+    private TableView<CustomerAccount> tbUserAccountList;
     @FXML
-    private TableColumn<?, ?> tcUserAccount;
+    private TableColumn<CustomerAccount, String> tcUserAccount;
     @FXML
-    private TableColumn<?, ?> tcNameAccount;
+    private TableColumn<CustomerAccount, String> tcNameAccount;
     @FXML
-    private TableColumn<?, ?> tcAgeAccount;
+    private TableColumn<CustomerAccount, String> tcAgeAccount;
     @FXML
-    private TableColumn<?, ?> tcGenderAccount;
+    private TableColumn<CustomerAccount, String> tcGenderAccount;
+/*    @FXML
+    private TableColumn<CustomerAccount, String> tcPlanAccount;
     @FXML
-    private TableColumn<?, ?> tcPlanAccount;
+    private TableColumn<CustomerAccount, Double> tcTotalPriceAccount;
     @FXML
-    private TableColumn<?, ?> tcTotalPriceAccount;
-    @FXML
-    private TableColumn<?, ?> tcBenefitsAccount;
+    private TableColumn<CustomerAccount, String> tcBenefitsAccount;  */
     
     // MONTAÑA RUSA MINI TABLE VIEW 
     
@@ -577,6 +582,8 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent userAccountPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(userAccountPane);
+    	
+    	initializeCustomerTableView();
     }
     
     @FXML
@@ -773,6 +780,63 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent menuPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(menuPane);
+    }
+    
+    private void initializeCustomerTableView() {
+    	 ObservableList<CustomerAccount> observableList;
+         observableList = FXCollections.observableArrayList(parqueDelCafe.getCustomers());
+         tbUserAccountList.setItems(observableList);
+         
+         
+         tcUserAccount.setCellValueFactory(new PropertyValueFactory<CustomerAccount, String>("userName"));
+         tcNameAccount.setCellValueFactory(new PropertyValueFactory<CustomerAccount, String>("name"));
+         tcAgeAccount.setCellValueFactory(new PropertyValueFactory<CustomerAccount, String>("age"));
+         tcGenderAccount.setCellValueFactory(new PropertyValueFactory<CustomerAccount, String>("gender"));
+         
+         tcUserAccount.setCellFactory(TextFieldTableCell.forTableColumn());
+         tcNameAccount.setCellFactory(TextFieldTableCell.forTableColumn());
+         tcAgeAccount.setCellFactory(TextFieldTableCell.forTableColumn());
+         tcGenderAccount.setCellFactory(TextFieldTableCell.forTableColumn());
+         
+         tcUserAccount.setOnEditCommit(data -> {
+             System.out.println("New username: " +  data.getNewValue());
+             System.out.println("Old username: " + data.getOldValue());
+
+             CustomerAccount ca = data.getRowValue();
+             ca.setUserName(data.getNewValue());
+
+             System.out.println(ca);
+         });
+         
+         tcNameAccount.setOnEditCommit(data -> {
+             System.out.println("New name: " +  data.getNewValue());
+             System.out.println("Old  name: " + data.getOldValue());
+
+             CustomerAccount ca = data.getRowValue();
+             ca.setName(data.getNewValue());
+
+             System.out.println(ca);
+         });
+         
+         tcAgeAccount.setOnEditCommit(data -> {
+             System.out.println("New age: " +  data.getNewValue());
+             System.out.println("Old age: " + data.getOldValue());
+
+             CustomerAccount ca = data.getRowValue();
+             ca.setAge(data.getNewValue());
+
+             System.out.println(ca);
+         });
+         
+         tcGenderAccount.setOnEditCommit(data -> {
+             System.out.println("New gender: " +  data.getNewValue());
+             System.out.println("Old gender: " + data.getOldValue());
+
+             CustomerAccount ca = data.getRowValue();
+             ca.setGender(data.getNewValue());
+
+             System.out.println(ca);
+         });
     }
     
     
