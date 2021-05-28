@@ -10,7 +10,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import model.ParqueDelCafe;
 
-
+//Prueba 
 public class Main extends Application{
 	private ParqueDelCafe parqueDelCafe;
 	private ParqueDelCafeGUI parqueDelCafeGUI;
@@ -43,7 +43,7 @@ public class Main extends Application{
 		
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
-		primaryStage.setTitle("El Parque Del Café");
+		primaryStage.setTitle("El Parque Del Cafï¿½");
 		primaryStage.show();
 		
 		primaryStage.setMinHeight(640);
