@@ -9,9 +9,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="menuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
@@ -32,32 +29,6 @@
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
-            </Label>
-            <Label layoutX="66.0" layoutY="51.0" prefHeight="62.0" prefWidth="669.0" style="-fx-content-display: red;" text="Bienvenido a El Parque Del Café">
-               <font>
-                  <Font name="Segoe UI Black" size="42.0" />
-               </font>
-               <textFill>
-                  <LinearGradient endX="1.0" endY="1.0" startX="0.9285714285714286">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.5921052694320679" green="0.10690789669752121" blue="0.10690789669752121" />
-                           </color>
-                        </Stop>
-                        <Stop offset="0.8556701030927835">
-                           <color>
-                              <Color red="0.6100000143051147" green="0.14640000462532043" blue="0.14640000462532043" opacity="0.9100000262260437" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="1.0" green="1.0" blue="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </textFill>
             </Label>
             <Button layoutX="19.0" layoutY="426.0" mnemonicParsing="false" onAction="#menuGames" prefHeight="41.0" prefWidth="123.0" text="Atracciones">
                <font>
@@ -109,32 +80,6 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <Label layoutX="666.0" layoutY="25.0" prefHeight="26.0" prefWidth="138.0" style="-fx-content-display: red;" text="Usuario:__________________">
-               <font>
-                  <Font name="Segoe UI Black" size="11.0" />
-               </font>
-               <textFill>
-                  <LinearGradient endX="1.0" endY="1.0" startX="0.9285714285714286">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.5921052694320679" green="0.10690789669752121" blue="0.10690789669752121" />
-                           </color>
-                        </Stop>
-                        <Stop offset="0.8556701030927835">
-                           <color>
-                              <Color red="0.6100000143051147" green="0.14640000462532043" blue="0.14640000462532043" opacity="0.9100000262260437" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="1.0" green="1.0" blue="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-            </Label>
             <Button layoutX="655.0" layoutY="426.0" mnemonicParsing="false" onAction="#menuMyAccount" prefHeight="41.0" prefWidth="123.0" text="Mi cuenta">
                <font>
                   <Font name="System Bold" size="13.0" />
@@ -155,6 +100,16 @@
                   <Font name="System Bold" size="11.0" />
                </font>
             </Button>
+            <Label layoutX="668.0" layoutY="25.0" prefHeight="31.0" prefWidth="134.0" text="Usuario: _________" textFill="#b52727">
+               <font>
+                  <Font name="Tw Cen MT Condensed Extra Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="86.0" layoutY="73.0" prefHeight="58.0" prefWidth="629.0" text="Bienvenido a El Parque Del Café" textFill="#b52727">
+               <font>
+                  <Font name="Tw Cen MT Condensed Extra Bold" size="52.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </center>

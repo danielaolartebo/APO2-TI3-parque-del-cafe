@@ -61,7 +61,7 @@ import java.util.List;
 			boolean validate=false;
 			for(int i=0; i<customers.size() && !validate;i++) {
 				CustomerAccount customer = customers.get(i);
-				if(customer.getUserName().equals(customer.getUserName()) && customer.getPassword().equals(customer.getPassword())) {
+				if(customer.getUserName().equals(userName) && customer.getPassword().equals(password)) {
 					validate=true;
 				}
 			}

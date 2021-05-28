@@ -2,6 +2,7 @@ package ui;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -23,8 +25,20 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
 import model.ParqueDelCafe;
 
-public class ParqueDelCafeGUI {
-	
+public class ParqueDelCafeGUI{
+
+    @FXML
+    private RadioButton txtMale;
+    @FXML
+    private ToggleGroup genderGroup;
+    @FXML
+    private RadioButton txtFemale;
+    @FXML
+    private RadioButton txtOther;
+	@FXML
+	private TextField txtName;
+    @FXML
+    private TextField txtAge;
     @FXML
     private BorderPane mainPane;
     @FXML
@@ -35,22 +49,6 @@ public class ParqueDelCafeGUI {
     private TextField txtPassword;
     @FXML
     private BorderPane registerPane;
-    @FXML
-    private TextField newUsername;
-    @FXML
-    private TextField newPassword;
-    @FXML
-    private TextField newName;
-    @FXML
-    private TextField newAge;
-    @FXML
-    private RadioButton newMale;
-    @FXML
-    private ToggleGroup genderGroup;
-    @FXML
-    private RadioButton newFemale;
-    @FXML
-    private RadioButton newOther;
     @FXML
     private BorderPane menuPane;
     @FXML
@@ -301,10 +299,7 @@ public class ParqueDelCafeGUI {
     private ComboBox<?> namesHeladerias;
     
     
-
     
-    
-    private RadioButton rbSelected;
 	private ParqueDelCafe parqueDelCafe;
 	public final static String SAVE_PATH_FILE = "data.parqueDelCafe.csv";
 	
@@ -359,19 +354,19 @@ public class ParqueDelCafeGUI {
     
     @FXML
     public void optLogIn(ActionEvent event) throws IOException {
-   // 	String userName=txtUsername.getText();
-   //  	String password=txtPassword.getText();
+    	String userName=txtUsername.getText();
+     	String password=txtPassword.getText();
      	
-//     	if(parqueDelCafe.validateCustomer(userName, password)) {
+     	if(parqueDelCafe.validateCustomer(userName, password)) {
      	
      		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("chooser.fxml"));
         	fxmlLoader.setController(this);
         	Parent chooserPane = fxmlLoader.load();
         	mainPane.getChildren().setAll(chooserPane);
         		
-    /* 	}else if(!parqueDelCafe.validateCustomer(userName, password)) {
+     	}else if(!parqueDelCafe.validateCustomer(userName, password)) {
      		loginErrorAlert();
-     	} */
+     	} 
     } 
    
 
@@ -397,26 +392,39 @@ public class ParqueDelCafeGUI {
     
     @FXML
     public void optCreateAccount(ActionEvent event) throws IOException {
-    	String userName=newUsername.getText();
-    	String password=newPassword.getText();
-    	String name=newName.getText(); 
-    	String gender=rbSelected.getText();   	
-    	String age=newAge.getText();
-    	
-    	if (userName.isEmpty() || password.isEmpty() || name.isEmpty() || gender.isEmpty() || age.isEmpty()) {
-        	validationErrorAlert();
-        }else if(parqueDelCafe.validateCustomer(userName, password)) {
-        	
+    	String userName=null;
+    	if(!txtUsername.getText().equals("")) {
+    		userName=txtUsername.getText();
+    	}
+    	String password="";
+    	if(!txtPassword.getText().equals("")) {
+    		password = txtPassword.getText();
+    	}
+    	String name=""; 
+    	if(!txtName.getText().equals("")) {
+    		name = txtName.getText();
+    	}
+    	RadioButton rbSelected = (RadioButton)genderGroup.getSelectedToggle();
+    	String txtGender=rbSelected.getText();   
+    	String age="";
+    	if(!txtAge.getText().equals("")) {
+    		age = txtAge.getText();
+    	}
+
+    	if(!(txtUsername.getText().equals("")) && !(txtPassword.getText().equals("")) && !(txtName.getText().equals("")) && !(txtAge.getText().equals("")))  {
+        	parqueDelCafe.addCustomer(userName, password, name, txtGender, age);
         	accountCreatedAlert();
-        	parqueDelCafe.addCustomer(userName, password, name, gender, age);
         	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sign-in.fxml"));
         	fxmlLoader.setController(this);
+        	mainPane.getChildren().clear();
         	Parent signInPane = fxmlLoader.load();
         	mainPane.getChildren().setAll(signInPane);
-        	}else {
+        	}else if (userName.isEmpty() || password.isEmpty() || name.isEmpty() || txtGender=="" || age.isEmpty()) {
+            	validationErrorAlert();
+            }else{
         		customerValidationAlert();
         	}
-       	}  
+       	} 
     
     /*
      ********************************************************************************************** SCREEN CHOOSER (chooser.fxml) ****************************************************************************************************
@@ -1125,6 +1133,4 @@ public class ParqueDelCafeGUI {
 	    alert.setContentText("Nueva cuenta ha sido creada");
 	    alert.showAndWait();
     }
-    
-
 }

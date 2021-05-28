@@ -25,19 +25,19 @@
                   <Font name="Segoe UI Black" size="42.0" />
                </font>
             </Label>
-            <Label layoutX="151.0" layoutY="105.0" prefHeight="34.0" prefWidth="92.0" text="Usuario:" textFill="WHITE">
+            <Label layoutX="163.0" layoutY="105.0" prefHeight="34.0" prefWidth="92.0" style="-fx-background-color: black;" text="Usuario:" textFill="WHITE">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="28.0" />
                </font>
             </Label>
-            <Label layoutX="118.0" layoutY="162.0" prefHeight="34.0" prefWidth="130.0" text="Contraseña:" textFill="WHITE">
+            <Label layoutX="125.0" layoutY="162.0" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: black;" text="Contraseña:" textFill="WHITE">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="28.0" />
                </font>
             </Label>
-            <TextField fx:id="newUsername" layoutX="323.0" layoutY="104.0" prefHeight="35.0" prefWidth="290.0" />
-            <TextField fx:id="newPassword" layoutX="323.0" layoutY="161.0" prefHeight="35.0" prefWidth="290.0" />
-            <Button layoutX="393.0" layoutY="486.0" mnemonicParsing="false" onAction="#optCreateAccount" prefHeight="39.0" prefWidth="132.0" text="CREAR">
+            <TextField fx:id="txtUsername" layoutX="323.0" layoutY="104.0" prefHeight="35.0" prefWidth="290.0" />
+            <TextField fx:id="txtPassword" layoutX="323.0" layoutY="161.0" prefHeight="35.0" prefWidth="290.0" />
+            <Button layoutX="393.0" layoutY="496.0" mnemonicParsing="false" onAction="#optCreateAccount" prefHeight="39.0" prefWidth="132.0" text="CREAR">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -47,30 +47,30 @@
                   <Font name="System Bold" size="11.0" />
                </font>
             </Button>
-            <Label layoutX="44.0" layoutY="222.0" prefHeight="34.0" prefWidth="214.0" text="Nombre y apellido:" textFill="WHITE">
+            <Label layoutX="44.0" layoutY="222.0" prefHeight="34.0" prefWidth="214.0" style="-fx-background-color: black;" text="Nombre y apellido:" textFill="WHITE">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="28.0" />
                </font>
             </Label>
-            <Label layoutX="190.0" layoutY="283.0" prefHeight="34.0" prefWidth="79.0" text="Sexo:" textFill="WHITE">
+            <Label layoutX="190.0" layoutY="283.0" prefHeight="34.0" prefWidth="69.0" style="-fx-background-color: black;" text="Sexo:" textFill="WHITE">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="28.0" />
                </font>
             </Label>
-            <Label layoutX="183.0" layoutY="333.0" prefHeight="34.0" prefWidth="65.0" text="Edad:" textFill="WHITE">
+            <Label layoutX="183.0" layoutY="333.0" prefHeight="34.0" prefWidth="65.0" style="-fx-background-color: black;" text="Edad:" textFill="WHITE">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="28.0" />
                </font>
             </Label>
-            <TextField fx:id="newName" layoutX="323.0" layoutY="221.0" prefHeight="35.0" prefWidth="290.0" />
-            <TextField fx:id="newAge" layoutX="323.0" layoutY="332.0" prefHeight="35.0" prefWidth="290.0" />
-            <RadioButton fx:id="newMale" layoutX="323.0" layoutY="283.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="89.0" style="-fx-background-color: white;" text="Hombre">
+            <TextField fx:id="txtName" layoutX="323.0" layoutY="221.0" prefHeight="35.0" prefWidth="290.0" />
+            <TextField fx:id="txtAge" layoutX="323.0" layoutY="332.0" prefHeight="35.0" prefWidth="290.0" />
+            <RadioButton fx:id="txtMale" layoutX="323.0" layoutY="283.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="89.0" style="-fx-background-color: white;" text="Hombre">
                <toggleGroup>
                   <ToggleGroup fx:id="genderGroup" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="newFemale" layoutX="424.0" layoutY="283.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="89.0" style="-fx-background-color: white;" text="Mujer" toggleGroup="$genderGroup" />
-            <RadioButton fx:id="newOther" layoutX="522.0" layoutY="283.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="92.0" style="-fx-background-color: white;" text="Otro" toggleGroup="$genderGroup" />
+            <RadioButton fx:id="txtFemale" layoutX="424.0" layoutY="283.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="89.0" style="-fx-background-color: white;" text="Mujer" toggleGroup="$genderGroup" />
+            <RadioButton fx:id="txtOther" layoutX="522.0" layoutY="283.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="92.0" style="-fx-background-color: white;" text="Otro" toggleGroup="$genderGroup" />
             <ImageView fitHeight="173.0" fitWidth="194.0" layoutX="608.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../docs/parque_del_cafe.png" />

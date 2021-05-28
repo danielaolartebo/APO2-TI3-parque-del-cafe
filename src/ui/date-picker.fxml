@@ -12,67 +12,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="datePickerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: whit;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <Pane prefHeight="449.0" prefWidth="359.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="95.0" layoutY="101.0" prefHeight="62.0" prefWidth="645.0" style="-fx-content-display: red;" text="INGRESA FECHA Y VISITANTES">
-               <font>
-                  <Font name="Segoe UI Black" size="42.0" />
-               </font>
-               <textFill>
-                  <LinearGradient endX="1.0" endY="1.0" startX="0.9285714285714286">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.5921052694320679" green="0.10690789669752121" blue="0.10690789669752121" />
-                           </color>
-                        </Stop>
-                        <Stop offset="0.8556701030927835">
-                           <color>
-                              <Color red="0.6100000143051147" green="0.14640000462532043" blue="0.14640000462532043" opacity="0.9100000262260437" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="1.0" green="1.0" blue="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-            </Label>
-            <Label layoutX="666.0" layoutY="25.0" prefHeight="26.0" prefWidth="138.0" style="-fx-content-display: red;" text="Usuario:__________________">
-               <font>
-                  <Font name="Segoe UI Black" size="11.0" />
-               </font>
-               <textFill>
-                  <LinearGradient endX="1.0" endY="1.0" startX="0.9285714285714286">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.5921052694320679" green="0.10690789669752121" blue="0.10690789669752121" />
-                           </color>
-                        </Stop>
-                        <Stop offset="0.8556701030927835">
-                           <color>
-                              <Color red="0.6100000143051147" green="0.14640000462532043" blue="0.14640000462532043" opacity="0.9100000262260437" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="1.0" green="1.0" blue="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-            </Label>
             <ImageView fitHeight="148.0" fitWidth="158.0" layoutX="-4.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../docs/parque_del_cafe.png" />
@@ -139,6 +84,16 @@
                   <Image url="@../../docs/2021-05-13%20(29).png" />
                </image>
             </ImageView>
+            <Label layoutX="103.0" layoutY="90.0" prefHeight="58.0" prefWidth="629.0" text="INGRESA FECHA Y VISITANTES" textFill="#b52727">
+               <font>
+                  <Font name="Tw Cen MT Condensed Extra Bold" size="52.0" />
+               </font>
+            </Label>
+            <Label layoutX="665.0" layoutY="7.0" prefHeight="31.0" prefWidth="134.0" text="Usuario: _________" textFill="#b52727">
+               <font>
+                  <Font name="Tw Cen MT Condensed Extra Bold" size="16.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </center>
