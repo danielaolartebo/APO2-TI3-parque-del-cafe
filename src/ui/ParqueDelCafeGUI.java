@@ -10,6 +10,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -29,6 +33,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
 import model.CustomerAccount;
 import model.ParqueDelCafe;
+import model.Visitor;
 
 public class ParqueDelCafeGUI{
 
@@ -121,13 +126,13 @@ public class ParqueDelCafeGUI{
     // DATE PICKER MINI TABLE VIEW
     
     @FXML
-    private TableView<?> tbDatePickerList;
+    private TableView<Visitor> tbDatePickerList;
     @FXML
-    private TableColumn<?, ?> tcDateName;
+    private TableColumn<Visitor, String> tcDateName;
     @FXML
-    private TableColumn<?, ?> tcDateAge;
+    private TableColumn<Visitor, Integer> tcDateAge;
     @FXML
-    private TableColumn<?, ?> tcDateGender;
+    private TableColumn<Visitor, String> tcDateGender;
     @FXML
     private TextField dateName;
     @FXML
@@ -136,6 +141,21 @@ public class ParqueDelCafeGUI{
     private TextField dateAge;
     @FXML
     private ToggleGroup genderGroupDate;
+          
+    @FXML
+    private RadioButton dateMale;
+     
+
+    @FXML
+    private RadioButton dateFemale;
+
+    @FXML
+    private RadioButton dateOther;
+
+
+
+    
+
     
     // OCCUPANCY TABLE VIEW
     
@@ -177,7 +197,7 @@ public class ParqueDelCafeGUI{
     @FXML
     private TableColumn<CustomerAccount, String> tcBenefitsAccount;  */
     
-    // MONTAÑA RUSA MINI TABLE VIEW 
+    // MONTAï¿½A RUSA MINI TABLE VIEW 
     
     @FXML
     private TableView<?> tbMontanaRusaList;
@@ -195,7 +215,7 @@ public class ParqueDelCafeGUI{
     @FXML
     private ComboBox<?> namesKarts;
     
-    // MONTAÑA ACUATICA MINI TABLE VIEW
+    // MONTAï¿½A ACUATICA MINI TABLE VIEW
 
     @FXML
     private TableView<?> tbMontanaAcuaticaList;
@@ -294,7 +314,7 @@ public class ParqueDelCafeGUI{
     @FXML
     private ComboBox<?> namesSubway;
     
-    // HELADERÍAS DEL PARQUE MINI TABLE VIEW
+    // HELADERï¿½AS DEL PARQUE MINI TABLE VIEW
     
     @FXML
     private TableView<?> tbHeladeriasList;
@@ -347,9 +367,9 @@ public class ParqueDelCafeGUI{
     @FXML
     public void showAbout(ActionEvent event) {
     	Alert alert = new Alert(AlertType.INFORMATION);
-	    alert.setTitle("El Parque Del Café ");
+	    alert.setTitle("El Parque Del Cafï¿½ ");
 	    alert.setHeaderText("Creditos");
-	    alert.setContentText("Daniela Olarte, Santiago Gutierrez y Esteban Mendoza \nAlgoritmos y Promagración II \nUniversidad ICESI 2021");
+	    alert.setContentText("Daniela Olarte, Santiago Gutierrez y Esteban Mendoza \nAlgoritmos y Promagraciï¿½n II \nUniversidad ICESI 2021");
 	    alert.showAndWait();
     }
     
@@ -464,8 +484,41 @@ public class ParqueDelCafeGUI{
      */
     
     @FXML
-    public void dateAdd(ActionEvent event) {
-
+    public void dateAdd(ActionEvent event) throws ParseException {
+    	
+    	
+    	String chooseDate = dateDate.getAccessibleText();
+    	SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date date1 = dateFormat.parse(chooseDate);  
+        Date date2 = new Date();
+        dateFormat.format(date2);
+        if(date1.before(date2)){
+        	
+        	date1 = date2;
+        	
+        }
+        String chooseName = dateName.getAccessibleText();
+    	int chooseAge = Integer.parseInt(dateAge.getAccessibleText());
+    	int choose = 0;
+    	String sex = "";
+    	if(dateMale.isSelected()) {
+    		choose = 1;
+    	}else if(dateFemale.isSelected()) {
+    		choose = 2;
+    	}else {
+    		choose = 3;
+    	}
+    	switch(choose) {
+    	
+    	case 1: sex = "Male";
+    	break;
+    	case 2: sex = "Female";
+    	break;
+    	case 3: sex = "Other";
+    	break;
+    	}
+    	
+    	
     }
 
     @FXML
@@ -642,19 +695,19 @@ public class ParqueDelCafeGUI{
     }
 
     @FXML
-    public void optMontañaAcuatica(ActionEvent event) throws IOException {
-    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("montaña-acuatica.fxml"));
+    public void optMontanaAcuatica(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("montaï¿½a-acuatica.fxml"));
     	fxmlLoader.setController(this);
-    	Parent montañaAcuaticaPane = fxmlLoader.load();
-    	mainPane.getChildren().setAll(montañaAcuaticaPane);
+    	Parent montanaAcuaticaPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(montanaAcuaticaPane);
     }
 
     @FXML
-    public void optMontañaRusa(ActionEvent event) throws IOException {
-    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("montaña-rusa.fxml"));
+    public void optMontanaRusa(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("montaï¿½a-rusa.fxml"));
     	fxmlLoader.setController(this);
-    	Parent montañaRusaPane = fxmlLoader.load();
-    	mainPane.getChildren().setAll(montañaRusaPane);
+    	Parent montanaRusaPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(montanaRusaPane);
     }
 
     @FXML
@@ -841,7 +894,7 @@ public class ParqueDelCafeGUI{
     
     
     /*
-     ***************************************************************************************************** MONTAÑA RUSA SCREEN (montaña-rusa.fxml) *******************************************************************
+     ***************************************************************************************************** MONTAï¿½A RUSA SCREEN (montaï¿½a-rusa.fxml) *******************************************************************
      */
     
     @FXML
@@ -853,12 +906,12 @@ public class ParqueDelCafeGUI{
     }
     
     @FXML
-    public void AddMontañaRusa(ActionEvent event) {
+    public void AddMontanaRusa(ActionEvent event) {
 
     }
     
     @FXML
-    public void DeleteMontañaRusa(ActionEvent event) {
+    public void DeleteMontanaRusa(ActionEvent event) {
 
     }
     
@@ -885,16 +938,16 @@ public class ParqueDelCafeGUI{
     }
     
     /*
-     ***************************************************************************************************** MONTAÑA ACUÁTICA SCREEN (montaña-acuatica.fxml) *******************************************************************
+     ***************************************************************************************************** MONTAï¿½A ACUï¿½TICA SCREEN (montaï¿½a-acuatica.fxml) *******************************************************************
      */
     
     @FXML
-    public void AddMontañaAcuatica(ActionEvent event) {
+    public void AddMontanaAcuatica(ActionEvent event) {
 
     }
 
     @FXML
-    public void DeleteMontañaAcuatica(ActionEvent event) {
+    public void DeleteMontanaAcuatica(ActionEvent event) {
 
     }
 
@@ -1156,16 +1209,16 @@ public class ParqueDelCafeGUI{
     @FXML
     public void loginErrorAlert() {
     	Alert alert = new Alert(AlertType.INFORMATION);
-	    alert.setTitle("Inicio de sesión incorrecto");
+	    alert.setTitle("Inicio de sesiï¿½n incorrecto");
 	    alert.setHeaderText("");
-	    alert.setContentText("El usuario y/o contraseña no coinciden");
+	    alert.setContentText("El usuario y/o contraseï¿½a no coinciden");
 	    alert.showAndWait();
 	}
     
     @FXML
     public void validationErrorAlert() {
     	Alert alert = new Alert(AlertType.INFORMATION);
-	    alert.setTitle("Error de validación");
+	    alert.setTitle("Error de validaciï¿½n");
 	    alert.setHeaderText("");
 	    alert.setContentText("Llene todos los espacios");
 	    alert.showAndWait();

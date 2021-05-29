@@ -14,7 +14,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="montañaAcuaticaPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="montanaAcuaticaPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <Pane prefHeight="364.0" prefWidth="600.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
@@ -59,7 +59,7 @@
                   <Image url="@../../docs/2021-05-14%20(18)_LI.jpg" />
                </image>
             </ImageView>
-            <TableView fx:id="tbMontañaAcuaticaList" layoutX="425.0" layoutY="90.0" prefHeight="94.0" prefWidth="190.0" style="-fx-background-color: black;">
+            <TableView fx:id="tbMontanaAcuaticaList" layoutX="425.0" layoutY="90.0" prefHeight="94.0" prefWidth="190.0" style="-fx-background-color: black;">
                <columns>
                   <TableColumn fx:id="tcMontañaAcuaticaName" prefWidth="189.0" text="Nombre" />
                </columns>
@@ -69,9 +69,9 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <ComboBox fx:id="namesMontañaAcuatica" layoutX="166.0" layoutY="125.0" prefHeight="25.0" prefWidth="214.0" />
-            <Button layoutX="166.0" layoutY="159.0" mnemonicParsing="false" onAction="#AddMontañaAcuatica" prefHeight="25.0" prefWidth="106.0" text="Agregar" />
-            <Button layoutX="276.0" layoutY="159.0" mnemonicParsing="false" onAction="#DeleteMontañaAcuatica" prefHeight="25.0" prefWidth="104.0" text="Eliminar" />
+            <ComboBox fx:id="namesMontanaAcuatica" layoutX="166.0" layoutY="125.0" prefHeight="25.0" prefWidth="214.0" />
+            <Button layoutX="166.0" layoutY="159.0" mnemonicParsing="false" onAction="#AddMontanaAcuatica" prefHeight="25.0" prefWidth="106.0" text="Agregar" />
+            <Button layoutX="276.0" layoutY="159.0" mnemonicParsing="false" onAction="#DeleteMontanaAcuatica" prefHeight="25.0" prefWidth="104.0" text="Eliminar" />
          </children>
       </Pane>
    </center>
