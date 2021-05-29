@@ -108,4 +108,25 @@ import java.util.List;
 		}
 		
 	}
+	public ArrayList<Visitor> createVisitorList() {
+		
+		ArrayList<Visitor> visitorList = new ArrayList<Visitor>();
+		String name = customer.getName();
+		String age = customer.getAge();
+		String gender = customer.getGender();
+		Visitor customerVisitor = new Visitor(name,age,gender);
+		visitorList.add(customerVisitor);
+		if(customer.getFirstVisitor()!=null) {
+			visitorList.add(customer.getFirstVisitor());
+			Visitor tmp = customer.getFirstVisitor().getNextVisitor();
+			while(tmp!=null){
+				visitorList.add(tmp);
+				tmp = tmp.getNextVisitor();
+				
+			}
+		}
+		
+		
+		return visitorList;
+	}
 }

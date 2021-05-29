@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="chooserPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: whit;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="chooserPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: whit;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <Pane prefHeight="449.0" prefWidth="359.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
@@ -57,7 +57,7 @@
                   <Font name="Tw Cen MT Condensed Extra Bold" size="52.0" />
                </font>
             </Label>
-            <Label layoutX="652.0" layoutY="14.0" prefHeight="31.0" prefWidth="134.0" text="Usuario: _________" textFill="#b52727">
+            <Label fx:id="lbChooserUser" layoutX="652.0" layoutY="14.0" prefHeight="31.0" prefWidth="134.0" text="Usuario: _________" textFill="#b52727">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="16.0" />
                </font>

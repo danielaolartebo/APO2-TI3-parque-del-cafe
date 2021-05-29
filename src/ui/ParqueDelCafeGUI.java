@@ -12,6 +12,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 
 import com.sun.javafx.geom.PathConsumer2D;
@@ -109,7 +110,8 @@ public class ParqueDelCafeGUI{
     private BorderPane heladeriasDelParquePane;
     @FXML
     private BorderPane chooserPane;
-
+    @FXML
+    private Label lbChooserUser;
     
     
     // PLAN MINI TABLE VIEW 
@@ -132,7 +134,7 @@ public class ParqueDelCafeGUI{
     @FXML
     private TableColumn<Visitor, String> tcDateName;
     @FXML
-    private TableColumn<Visitor, Integer> tcDateAge;
+    private TableColumn<Visitor, String> tcDateAge;
     @FXML
     private TableColumn<Visitor, String> tcDateGender;
     @FXML
@@ -143,6 +145,8 @@ public class ParqueDelCafeGUI{
     private TextField dateAge;
     @FXML
     private ToggleGroup genderGroupDate;
+    @FXML
+    private Label lbDateUser;
           
     @FXML
     private RadioButton dateMale;
@@ -390,7 +394,8 @@ public class ParqueDelCafeGUI{
         	fxmlLoader.setController(this);
         	Parent chooserPane = fxmlLoader.load();
         	mainPane.getChildren().setAll(chooserPane);
-        		
+        	lbChooserUser.setText("User: "+ userName);
+        	
      	}else if(!parqueDelCafe.validateCustomer(userName, password)) {
      		loginErrorAlert();
      	} 
@@ -471,6 +476,8 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent datePickerPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(datePickerPane);
+    	lbDateUser.setText("User: "+parqueDelCafe.getCurrentCustomer().getUserName());	
+    	initializeMiniVisitorTableView();
     }
 
     @FXML
@@ -489,10 +496,16 @@ public class ParqueDelCafeGUI{
     public void dateAdd(ActionEvent event) throws ParseException {
     	
     	
-    	String chooseDate = dateDate.getAccessibleText();
+    	LocalDate chooseDate = dateDate.getValue(); 
+    	String day = Integer.toString(chooseDate.getDayOfMonth());
+    	String month = Integer.toString(chooseDate.getMonthValue());
+    	String year = Integer.toString(chooseDate.getYear());
+    	String date = day+"/"+month+"/"+year;
     	SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        Date date1 = dateFormat.parse(chooseDate);  
-        Date date2 = new Date();
+        Date date1 = dateFormat.parse(date);
+    
+      
+    	Date date2 = new Date();
         dateFormat.format(date2);
         if(date1.before(date2)){
         	
@@ -519,8 +532,32 @@ public class ParqueDelCafeGUI{
     	case 3: sex = "Other";
     	break;
     	}
-    	ObservableList<Visitor> visitorList; 
-    	parqueDelCafe.addVisitorToUser(chooseName, chooseAge, sex);
+    	ObservableList<Visitor> visitorList;
+    	if((dateName.getAccessibleText().equals(""))||(dateAge.getAccessibleText().equals(""))){
+    		
+    		visitorRegisterAlert();
+    		
+    	}else {
+    		if(((dateMale.isSelected()==false)&&(dateFemale.isSelected()==false)&&(dateOther.isSelected()==true)||(dateMale.isSelected()==false)&&(dateFemale.isSelected()==true)&&(dateOther.isSelected()==false))||(dateMale.isSelected()==true)&&(dateFemale.isSelected()==false)&&(dateOther.isSelected()==false)) {
+    			parqueDelCafe.addVisitorToUser(chooseName, chooseAge, sex);	
+    			tbDatePickerList.refresh();
+    			initializeMiniVisitorTableView();
+    		}else {
+    			visitorRegisterAlert();
+    		}
+    	}
+    	
+    	
+    }
+    public void initializeMiniVisitorTableView() {
+    	
+    	ObservableList<Visitor> observableList;
+    	observableList = FXCollections.observableArrayList(parqueDelCafe.createVisitorList());
+    	tbDatePickerList.setItems(observableList);
+    	
+    	tcDateName.setCellValueFactory(new PropertyValueFactory<Visitor,String>("name"));
+    	tcDateAge.setCellValueFactory(new PropertyValueFactory<Visitor,String>("age"));
+    	tcDateGender.setCellValueFactory(new PropertyValueFactory<Visitor,String>("gender"));
     	
     }
 
@@ -585,6 +622,7 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent datePickerPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(datePickerPane);
+    	initializeMiniVisitorTableView();
     }
 
     
@@ -1235,6 +1273,16 @@ public class ParqueDelCafeGUI{
 	    alert.setContentText("El nombre de usuario escogido ya existe");
 	    alert.showAndWait();
 	}
+    @FXML
+    public void visitorRegisterAlert() {
+    	
+    	Alert alert = new Alert(AlertType.INFORMATION);
+    	alert.setTitle("Error al Añadir Visitante");
+    	alert.setHeaderText("");
+    	alert.setContentText("Debe Llenar todos los datos para añadir un visitante");
+    	alert.showAndWait();
+    }
+    
     
     @FXML
     public void customerCreatedAlert() {
