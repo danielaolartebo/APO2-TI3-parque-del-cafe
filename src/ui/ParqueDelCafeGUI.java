@@ -14,6 +14,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.sun.javafx.geom.PathConsumer2D;
+
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -383,7 +385,7 @@ public class ParqueDelCafeGUI{
      	String password=txtPassword.getText();
      	
      	if(parqueDelCafe.validateCustomer(userName, password)) {
-     	
+     		parqueDelCafe.setUser(userName);
      		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("chooser.fxml"));
         	fxmlLoader.setController(this);
         	Parent chooserPane = fxmlLoader.load();
@@ -498,7 +500,7 @@ public class ParqueDelCafeGUI{
         	
         }
         String chooseName = dateName.getAccessibleText();
-    	int chooseAge = Integer.parseInt(dateAge.getAccessibleText());
+    	String chooseAge = dateAge.getAccessibleText();
     	int choose = 0;
     	String sex = "";
     	if(dateMale.isSelected()) {
@@ -517,7 +519,8 @@ public class ParqueDelCafeGUI{
     	case 3: sex = "Other";
     	break;
     	}
-    	
+    	ObservableList<Visitor> visitorList; 
+    	parqueDelCafe.addVisitorToUser(chooseName, chooseAge, sex);
     	
     }
 

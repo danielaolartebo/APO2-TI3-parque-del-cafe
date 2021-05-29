@@ -11,6 +11,8 @@ public class CustomerAccount implements Serializable{
 	private String gender;
 	private String age;
 	
+	private Visitor firstVisitor;
+	
 	public CustomerAccount(String userName, String password, String name, String gender, String age) {
 		this.userName=userName;
 		this.password=password;
@@ -58,5 +60,11 @@ public class CustomerAccount implements Serializable{
 
 	public void setAge(String age) {
 		this.age = age;
+	}
+	public void setFirstVisitor(Visitor first) {
+		firstVisitor = first;
+	}
+	public Visitor getFirstVisitor() {
+		return firstVisitor;
 	}
 }

@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="datePickerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: whit;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="datePickerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: whit;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <Pane prefHeight="449.0" prefWidth="359.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
@@ -63,12 +63,12 @@
                </font>
             </Label>
             <TextField fx:id="dateAge" layoutX="166.0" layoutY="298.0" prefHeight="35.0" prefWidth="251.0" />
-            <RadioButton layoutX="166.0" layoutY="353.0" mnemonicParsing="false" text="Hombre">
+            <RadioButton fx:id="dateMale" layoutX="166.0" layoutY="353.0" mnemonicParsing="false" text="Hombre">
                <toggleGroup>
                   <ToggleGroup fx:id="genderGroupDate" />
                </toggleGroup></RadioButton>
-            <RadioButton layoutX="272.0" layoutY="353.0" mnemonicParsing="false" text="Mujer" toggleGroup="$genderGroupDate" />
-            <RadioButton layoutX="370.0" layoutY="353.0" mnemonicParsing="false" text="Otro" toggleGroup="$genderGroupDate" />
+            <RadioButton fx:id="dateFemale" layoutX="272.0" layoutY="353.0" mnemonicParsing="false" text="Mujer" toggleGroup="$genderGroupDate" />
+            <RadioButton fx:id="dateOther" layoutX="370.0" layoutY="353.0" mnemonicParsing="false" text="Otro" toggleGroup="$genderGroupDate" />
             <Button layoutX="429.0" layoutY="382.0" mnemonicParsing="false" onAction="#dateAdd" prefHeight="35.0" prefWidth="123.0" text="Agregar">
                <font>
                   <Font name="System Bold" size="11.0" />

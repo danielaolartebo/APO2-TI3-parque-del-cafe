@@ -27,13 +27,15 @@ import java.util.List;
 		private FoodCourt subway;
 		private FoodCourt parrilla;
 		private FoodCourt guadual;
+		//user
+		private CustomerAccount customer;
 		
 		public ParqueDelCafe() {
 			customers = new ArrayList<>();
 			games = new ArrayList<>();
 			foods = new ArrayList<>();
 			parkings = new ArrayList<>();
-			rollerCoaster = new Game("Montaña Rusa");
+			rollerCoaster = new Game("Montaï¿½a Rusa");
 			karts = new Game("Karts");
 			wheel = new Game("Rueda");
 			carousel = new Game("Carusel");
@@ -41,7 +43,7 @@ import java.util.List;
 			crashingBoats = new Game("Botes Chocones");
 			fast = new Game("Rapidos");
 			yipe = new Game("Yipe");
-			mountain = new Game("Montaña");
+			mountain = new Game("Montaï¿½a");
 			heladerias = new FoodCourt("Heladerias del Parque");
 			subway = new FoodCourt("Subway");
 			parrilla = new FoodCourt("Parrilla del Parque");
@@ -77,4 +79,33 @@ import java.util.List;
 			}
 			return tempName;
 		}
+	public void setUser(String userName) {
+		
+		CustomerAccount tmp = findCustomer(userName);
+		setCustomerAccount(tmp);
+	}
+	public void setCustomerAccount(CustomerAccount ca) {
+		customer = ca;
+	}
+	public CustomerAccount getCurrentCustomer() {
+		return customer;
+	}
+	public void addVisitorToUser(String name, String age, String sex) {
+		
+		Visitor tmp = new Visitor(name,age,sex);
+		if(customer.getFirstVisitor()==null) {
+			customer.setFirstVisitor(tmp);
+		}else {
+			addVisitor(customer.getFirstVisitor(),tmp);
+		}
+	}
+	private void addVisitor(Visitor current, Visitor tmp) {
+		
+		if(current.getNextVisitor()==null) {
+			current.setNextVisitor(tmp);
+		}else {
+			addVisitor(current.getNextVisitor(),tmp);
+		}
+		
+	}
 }
