@@ -13,6 +13,7 @@ import java.io.ObjectOutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 
 import com.sun.javafx.geom.PathConsumer2D;
@@ -496,7 +497,7 @@ public class ParqueDelCafeGUI{
     public void dateAdd(ActionEvent event) throws ParseException {
     	
     	
-    	LocalDate chooseDate = dateDate.getValue(); 
+    	LocalDate chooseDate = dateDate.getValue();
     	String day = Integer.toString(chooseDate.getDayOfMonth());
     	String month = Integer.toString(chooseDate.getMonthValue());
     	String year = Integer.toString(chooseDate.getYear());
@@ -509,11 +510,10 @@ public class ParqueDelCafeGUI{
         dateFormat.format(date2);
         if(date1.before(date2)){
         	
-        	date1 = date2;
-        	
+        	chooseDate = date2.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         }
-        String chooseName = dateName.getAccessibleText();
-    	String chooseAge = dateAge.getAccessibleText();
+        String chooseName = dateName.getText();
+    	String chooseAge = dateAge.getText();
     	int choose = 0;
     	String sex = "";
     	if(dateMale.isSelected()) {
@@ -532,8 +532,8 @@ public class ParqueDelCafeGUI{
     	case 3: sex = "Other";
     	break;
     	}
-    	ObservableList<Visitor> visitorList;
-    	if((dateName.getAccessibleText().equals(""))||(dateAge.getAccessibleText().equals(""))){
+    	
+    	if((chooseName.equals(""))||(chooseAge.equals(""))){
     		
     		visitorRegisterAlert();
     		
