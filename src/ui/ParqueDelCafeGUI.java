@@ -118,15 +118,17 @@ public class ParqueDelCafeGUI{
     // PLAN MINI TABLE VIEW 
     
     @FXML
-    private TableView<?> tbPlanList;
+    private TableView<Visitor> tbPlanList;
     @FXML
-    private TableColumn<?, ?> tcPlan;
+    private TableColumn<Visitor, String> tcPlan;
     @FXML
-    private TableColumn<?, ?> tcQuantity;
+    private TableColumn<Visitor, String> tcQuantity;
     @FXML
     private TextField quantityPlan;
     @FXML
-    private ComboBox<?> planOptPlan;
+    private ComboBox<String> planOptPlan;
+    @FXML
+    private ComboBox<String> planOptPlan1;
     
     // DATE PICKER MINI TABLE VIEW
     
@@ -560,6 +562,29 @@ public class ParqueDelCafeGUI{
     	tcDateGender.setCellValueFactory(new PropertyValueFactory<Visitor,String>("gender"));
     	
     }
+   public void initializePlanComboBoxes() {
+	   
+	   for(int i=0; i < parqueDelCafe.namesList().size();i++) {
+		   String name = parqueDelCafe.namesList().get(i);
+		   planOptPlan1.getItems().add(name);
+		   
+	   }
+	   planOptPlan.getItems().addAll("Pasaporte Multiple","Almuerzo","Parqueadero");
+	   
+   }
+   public void initializePlansMiniTableView() {
+	   
+	ObservableList<Visitor> observableList;
+   	observableList = FXCollections.observableArrayList(parqueDelCafe.createVisitorList());
+   	tbPlanList.setItems(observableList);
+   	
+   	tcPlan.setCellValueFactory(new PropertyValueFactory<Visitor,String>("name"));
+   	tcQuantity.setCellValueFactory(new PropertyValueFactory<Visitor,String>("plan"));
+   	
+   	
+	   
+   }
+   
 
     @FXML
     public void dateDelete(ActionEvent event) {
@@ -572,6 +597,7 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent planPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(planPane);
+    	initializePlanComboBoxes();
     }
 
     @FXML
@@ -606,6 +632,30 @@ public class ParqueDelCafeGUI{
     @FXML
     public void AddPlan(ActionEvent event) {
 
+    	String name = planOptPlan1.getValue();
+    	String plan = planOptPlan.getValue();
+    	int quantity = Integer.parseInt(quantityPlan.getText());
+    	@SuppressWarnings("unused")
+		int price = 0;
+    	
+    	int totalPrice = 0;
+    	
+    	
+    	if(plan.equals("Pasaporte Multiple")) {
+    		
+    		price = 50000;
+    		
+    	}else if(plan.equals("Almuerzo")) {
+    		price = 12000;
+    	}else {
+    		price = 5000;
+    		
+    	}
+    	System.out.println(price);
+    	totalPrice = parqueDelCafe.calculateTotalprice(quantity, totalPrice);
+    	totalPricePlan.setText("$" + totalPrice);
+    	parqueDelCafe.addPlanToVisitor(name, plan);
+    	initializePlansMiniTableView();
     }
 
     @FXML

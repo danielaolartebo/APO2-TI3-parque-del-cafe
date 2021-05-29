@@ -8,6 +8,7 @@ import java.util.List;
 		
 		private static final long serialVersionUID = 1;
 		
+		private int planTotalPrice;
 		private List<CustomerAccount> customers;
 		private List<Game> games;
 		private List<FoodCourt> foods;
@@ -48,6 +49,7 @@ import java.util.List;
 			subway = new FoodCourt("Subway");
 			parrilla = new FoodCourt("Parrilla del Parque");
 			guadual = new FoodCourt("El Guadual");
+			planTotalPrice = 0;
 		}
 		
 		public void addCustomer(String userName, String password, String name, String gender, String age) {
@@ -128,5 +130,53 @@ import java.util.List;
 		
 		
 		return visitorList;
+	}
+	public ArrayList<String> namesList(){
+		
+		ArrayList<String> visitors = new ArrayList<String>();
+		ArrayList<Visitor> visitorsComplete = createVisitorList();
+		for(int i=0;i< visitorsComplete.size();i++) {
+			
+			String name = visitorsComplete.get(i).getName();
+			visitors.add(name);
+			
+		}
+		
+		
+		
+		return visitors;
+	}
+	public int calculateTotalprice(int quantity, int price) {
+		
+		int newprice = quantity*price;
+		System.out.println(newprice);
+		planTotalPrice += newprice;
+		System.out.println(planTotalPrice);
+		return planTotalPrice;
+	}
+	public int getPlanTotalPrice() {
+		return planTotalPrice;
+	}
+	public Visitor getVisitor(String name) {
+		
+		ArrayList<Visitor> visitors = createVisitorList();
+		Visitor visitorToReturn = null;
+		for(int i=0; i < createVisitorList().size();i++) {
+			
+			if(visitors.get(i).getName().equals(name)) {
+				visitorToReturn = visitors.get(i);
+			}
+			
+			
+		}
+		return visitorToReturn;
+	}	
+	
+	public void addPlanToVisitor(String name, String plan) {
+		
+		Visitor visitorToAddPlan = getVisitor(name);
+		visitorToAddPlan.setManyPlans(plan);
+		
+		
 	}
 }

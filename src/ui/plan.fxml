@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="planPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: whit;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="planPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: whit;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <Pane prefHeight="449.0" prefWidth="359.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
@@ -96,7 +96,7 @@
                </font>
             </Label>
             <ComboBox fx:id="planOptPlan1" layoutX="102.0" layoutY="396.0" prefHeight="25.0" prefWidth="103.0" />
-            <Label layoutX="308.0" layoutY="38.0" prefHeight="58.0" prefWidth="151.0" text="PLANES" textFill="#b52727">
+            <Label layoutX="308.0" layoutY="38.0" maxHeight="-Infinity" prefHeight="65.0" prefWidth="207.0" text="PLANES" textFill="#b52727">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="52.0" />
                </font>
