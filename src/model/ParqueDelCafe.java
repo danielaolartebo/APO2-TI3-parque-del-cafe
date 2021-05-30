@@ -185,4 +185,27 @@ import java.util.List;
 		
 		
 	}
-}
+	public void RemoveVisitor(String name) {
+		
+	
+		
+		Visitor previusVisitor = findNextVisitor(name, customer.getFirstVisitor());
+		Visitor nextVisitor = getVisitor(name).getNextVisitor();
+		Visitor toDelete = getVisitor(name);
+		
+		previusVisitor.setNextVisitor(nextVisitor);
+		toDelete.setNextVisitor(null);
+		
+	}
+	private Visitor findNextVisitor(String name, Visitor visitor) {
+		
+		if(visitor.getNextVisitor().getName().equals(name)) {
+			
+			return visitor;
+			
+		}else {
+			return findNextVisitor(name, visitor.getNextVisitor());
+		}
+		
+	}
+	}

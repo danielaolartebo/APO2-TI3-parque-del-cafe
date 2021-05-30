@@ -591,7 +591,22 @@ public class ParqueDelCafeGUI{
 
     @FXML
     public void dateDelete(ActionEvent event) {
-
+    	
+    		/*Visitor v = this.tbDatePickerList.getSelectionModel().getSelectedItem();
+    		if(v == null) {
+    		
+    		
+    			
+    		}else {
+    			
+    			this.parqueDelCafe.createVisitorList().remove(v);
+    			this.tbPlanList.refresh();
+    			initialize
+    		}
+    		*/	
+    	  parqueDelCafe.RemoveVisitor(tbDatePickerList.getSelectionModel().getSelectedItem().getName());
+    	  tbDatePickerList.getItems().remove(tbDatePickerList.getSelectionModel().getSelectedItem());
+    	  tbDatePickerList.refresh();
     }
 
     @FXML
