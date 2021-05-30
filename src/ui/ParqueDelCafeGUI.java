@@ -651,11 +651,12 @@ public class ParqueDelCafeGUI{
     		price = 5000;
     		
     	}
-    	System.out.println(price);
-    	totalPrice = parqueDelCafe.calculateTotalprice(quantity, totalPrice);
+    	
+    	totalPrice = parqueDelCafe.calculateTotalprice(quantity, price);
     	totalPricePlan.setText("$" + totalPrice);
     	parqueDelCafe.addPlanToVisitor(name, plan);
     	initializePlansMiniTableView();
+    	tbPlanList.refresh();
     }
 
     @FXML

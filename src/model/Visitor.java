@@ -17,7 +17,7 @@ public class Visitor {
 		this.name = name;
 		this.age = age;
 		this.gender = gender;
-		plan = " ";
+		
 	}
 	public String getName() {
 		return name;
@@ -56,13 +56,14 @@ public class Visitor {
 	}
 	public void setManyPlans(String newPlan) {
 		
-		if(plan=="") {
+		if(plan==null) {
 			
-			setPlan(newPlan);
-			
+			//setPlan(newPlan);
+			plan += newPlan;
+	
 		}else {
 			plan+= ", " + newPlan;
-			System.out.println("Llego aqui" + plan);
+			
 		}
 		
 	}

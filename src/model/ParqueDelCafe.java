@@ -149,9 +149,9 @@ import java.util.List;
 	public int calculateTotalprice(int quantity, int price) {
 		
 		int newprice = quantity*price;
-		System.out.println(newprice);
+		
 		planTotalPrice += newprice;
-		System.out.println(planTotalPrice);
+		
 		return planTotalPrice;
 	}
 	public int getPlanTotalPrice() {
@@ -174,8 +174,7 @@ import java.util.List;
 	
 	public void addPlanToVisitor(String name, String plan) {
 		
-		Visitor visitorToAddPlan = getVisitor(name);
-		visitorToAddPlan.setManyPlans(plan);
+		getVisitor(name).setManyPlans(plan);
 		
 		
 	}
