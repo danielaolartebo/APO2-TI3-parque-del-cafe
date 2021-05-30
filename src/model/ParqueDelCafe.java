@@ -85,6 +85,7 @@ import java.util.List;
 		
 		CustomerAccount tmp = findCustomer(userName);
 		setCustomerAccount(tmp);
+		customerAsVisitor();
 	}
 	public void setCustomerAccount(CustomerAccount ca) {
 		customer = ca;
@@ -110,14 +111,20 @@ import java.util.List;
 		}
 		
 	}
-	public ArrayList<Visitor> createVisitorList() {
+	public Visitor customerAsVisitor() {
 		
-		ArrayList<Visitor> visitorList = new ArrayList<Visitor>();
 		String name = customer.getName();
 		String age = customer.getAge();
 		String gender = customer.getGender();
 		Visitor customerVisitor = new Visitor(name,age,gender);
-		visitorList.add(customerVisitor);
+		customer.setFirstVisitor(customerVisitor);
+		return customerVisitor;
+		
+	}
+	public ArrayList<Visitor> createVisitorList() {
+		
+		ArrayList<Visitor> visitorList = new ArrayList<Visitor>();
+		
 		if(customer.getFirstVisitor()!=null) {
 			visitorList.add(customer.getFirstVisitor());
 			Visitor tmp = customer.getFirstVisitor().getNextVisitor();
@@ -146,9 +153,9 @@ import java.util.List;
 	public int calculateTotalprice(int quantity, int price) {
 		
 		int newprice = quantity*price;
-		System.out.println(newprice);
+		
 		planTotalPrice += newprice;
-		System.out.println(planTotalPrice);
+		
 		return planTotalPrice;
 	}
 	public int getPlanTotalPrice() {
@@ -171,9 +178,31 @@ import java.util.List;
 	
 	public void addPlanToVisitor(String name, String plan) {
 		
-		Visitor visitorToAddPlan = getVisitor(name);
-		visitorToAddPlan.setManyPlans(plan);
+		getVisitor(name).setManyPlans(plan);
 		
 		
 	}
-}
+	public void RemoveVisitor(String name) {
+		
+	
+		
+		Visitor previusVisitor = findNextVisitor(name, customer.getFirstVisitor());
+		Visitor nextVisitor = getVisitor(name).getNextVisitor();
+		Visitor toDelete = getVisitor(name);
+		
+		previusVisitor.setNextVisitor(nextVisitor);
+		toDelete.setNextVisitor(null);
+		
+	}
+	private Visitor findNextVisitor(String name, Visitor visitor) {
+		
+		if(visitor.getNextVisitor().getName().equals(name)) {
+			
+			return visitor;
+			
+		}else {
+			return findNextVisitor(name, visitor.getNextVisitor());
+		}
+		
+	}
+	}

@@ -130,6 +130,9 @@ public class ParqueDelCafeGUI{
     @FXML
     private ComboBox<String> planOptPlan1;
     
+    @FXML
+    private Label planCurrentUser;
+    
     // DATE PICKER MINI TABLE VIEW
     
     @FXML
@@ -479,7 +482,7 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent datePickerPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(datePickerPane);
-    	lbDateUser.setText("User: "+parqueDelCafe.getCurrentCustomer().getUserName());	
+    	lbDateUser.setText("Userio: "+parqueDelCafe.getCurrentCustomer().getUserName());	
     	initializeMiniVisitorTableView();
     }
 
@@ -588,7 +591,22 @@ public class ParqueDelCafeGUI{
 
     @FXML
     public void dateDelete(ActionEvent event) {
-
+    	
+    		/*Visitor v = this.tbDatePickerList.getSelectionModel().getSelectedItem();
+    		if(v == null) {
+    		
+    		
+    			
+    		}else {
+    			
+    			this.parqueDelCafe.createVisitorList().remove(v);
+    			this.tbPlanList.refresh();
+    			initialize
+    		}
+    		*/	
+    	  parqueDelCafe.RemoveVisitor(tbDatePickerList.getSelectionModel().getSelectedItem().getName());
+    	  tbDatePickerList.getItems().remove(tbDatePickerList.getSelectionModel().getSelectedItem());
+    	  tbDatePickerList.refresh();
     }
 
     @FXML
@@ -598,6 +616,8 @@ public class ParqueDelCafeGUI{
     	Parent planPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(planPane);
     	initializePlanComboBoxes();
+    	initializePlansMiniTableView();
+    	planCurrentUser.setText("Usuario: "+parqueDelCafe.getCurrentCustomer().getUserName());
     }
 
     @FXML
@@ -651,11 +671,12 @@ public class ParqueDelCafeGUI{
     		price = 5000;
     		
     	}
-    	System.out.println(price);
-    	totalPrice = parqueDelCafe.calculateTotalprice(quantity, totalPrice);
+    	
+    	totalPrice = parqueDelCafe.calculateTotalprice(quantity, price);
     	totalPricePlan.setText("$" + totalPrice);
     	parqueDelCafe.addPlanToVisitor(name, plan);
     	initializePlansMiniTableView();
+    	tbPlanList.refresh();
     }
 
     @FXML
