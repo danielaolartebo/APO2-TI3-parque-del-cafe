@@ -123,12 +123,9 @@ import java.util.List;
 			Visitor tmp = customer.getFirstVisitor().getNextVisitor();
 			while(tmp!=null){
 				visitorList.add(tmp);
-				tmp = tmp.getNextVisitor();
-				
+				tmp = tmp.getNextVisitor();	
 			}
 		}
-		
-		
 		return visitorList;
 	}
 	public ArrayList<String> namesList(){
