@@ -85,6 +85,7 @@ import java.util.List;
 		
 		CustomerAccount tmp = findCustomer(userName);
 		setCustomerAccount(tmp);
+		customerAsVisitor();
 	}
 	public void setCustomerAccount(CustomerAccount ca) {
 		customer = ca;
@@ -110,14 +111,20 @@ import java.util.List;
 		}
 		
 	}
-	public ArrayList<Visitor> createVisitorList() {
+	public Visitor customerAsVisitor() {
 		
-		ArrayList<Visitor> visitorList = new ArrayList<Visitor>();
 		String name = customer.getName();
 		String age = customer.getAge();
 		String gender = customer.getGender();
 		Visitor customerVisitor = new Visitor(name,age,gender);
-		visitorList.add(customerVisitor);
+		customer.setFirstVisitor(customerVisitor);
+		return customerVisitor;
+		
+	}
+	public ArrayList<Visitor> createVisitorList() {
+		
+		ArrayList<Visitor> visitorList = new ArrayList<Visitor>();
+		
 		if(customer.getFirstVisitor()!=null) {
 			visitorList.add(customer.getFirstVisitor());
 			Visitor tmp = customer.getFirstVisitor().getNextVisitor();

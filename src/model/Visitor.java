@@ -59,7 +59,7 @@ public class Visitor {
 		if(plan==null) {
 			
 			//setPlan(newPlan);
-			plan += newPlan;
+			plan = newPlan;
 	
 		}else {
 			plan+= ", " + newPlan;

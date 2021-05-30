@@ -130,6 +130,9 @@ public class ParqueDelCafeGUI{
     @FXML
     private ComboBox<String> planOptPlan1;
     
+    @FXML
+    private Label planCurrentUser;
+    
     // DATE PICKER MINI TABLE VIEW
     
     @FXML
@@ -479,7 +482,7 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent datePickerPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(datePickerPane);
-    	lbDateUser.setText("User: "+parqueDelCafe.getCurrentCustomer().getUserName());	
+    	lbDateUser.setText("Userio: "+parqueDelCafe.getCurrentCustomer().getUserName());	
     	initializeMiniVisitorTableView();
     }
 
@@ -598,6 +601,8 @@ public class ParqueDelCafeGUI{
     	Parent planPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(planPane);
     	initializePlanComboBoxes();
+    	initializePlansMiniTableView();
+    	planCurrentUser.setText("Usuario: "+parqueDelCafe.getCurrentCustomer().getUserName());
     }
 
     @FXML
