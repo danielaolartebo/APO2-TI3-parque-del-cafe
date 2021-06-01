@@ -714,7 +714,7 @@ public class ParqueDelCafeGUI{
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("games.fxml"));
     	fxmlLoader.setController(this);
     	Parent gamePane = fxmlLoader.load();
-    	mainPane.getChildren().setAll(gamePane);
+    	menuPane.getChildren().setAll(gamePane);
     }
     
     @FXML

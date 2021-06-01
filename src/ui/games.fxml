@@ -11,7 +11,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="gamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="gamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <Pane prefHeight="364.0" prefWidth="600.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
@@ -61,12 +61,12 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="143.0" layoutY="262.0" mnemonicParsing="false" onAction="#optMontañaAcuatica" prefHeight="25.0" prefWidth="146.0" text="MONTAÑA ACUÁTICA">
+            <Button layoutX="143.0" layoutY="262.0" mnemonicParsing="false" onAction="#optMontanaAcuatica" prefHeight="25.0" prefWidth="146.0" text="MONTAÑA ACUÁTICA">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="192.0" layoutY="81.0" mnemonicParsing="false" onAction="#optMontañaRusa" prefHeight="25.0" prefWidth="146.0" text="MONTAÑA RUSA">
+            <Button layoutX="192.0" layoutY="81.0" mnemonicParsing="false" onAction="#optMontanaRusa" prefHeight="25.0" prefWidth="146.0" text="MONTAÑA RUSA">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
