@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sun.prism.impl.ps.CachingRoundRectRep;
+
 public class ParqueDelCafe implements Serializable{
 		
 	private static final long serialVersionUID = 1;
@@ -37,14 +39,31 @@ public class ParqueDelCafe implements Serializable{
 		foods = new ArrayList<>();
 		parkings = new ArrayList<>();
 		rollerCoaster = new Game("Monta�a Rusa");
+		
 		karts = new Game("Karts");
+		rollerCoaster.setNextGame(karts);
+		
 		wheel = new Game("Rueda");
+		karts.setNextGame(wheel);
+		
 		carousel = new Game("Carusel");
+		wheel.setNextGame(carousel);
+		
 		krater = new Game("Krater");
+		carousel.setNextGame(krater);
+		
 		crashingBoats = new Game("Botes Chocones");
+		krater.setNextGame(crashingBoats);
+		
 		fast = new Game("Rapidos");
+		crashingBoats.setNextGame(fast);
+		
 		yipe = new Game("Yipe");
+		fast.setNextGame(crashingBoats);
+		
 		mountain = new Game("Monta�a");
+		yipe.setNextGame(mountain);
+		
 		heladerias = new FoodCourt("Heladerias del Parque");
 		subway = new FoodCourt("Subway");
 		parrilla = new FoodCourt("Parrilla del Parque");
@@ -204,6 +223,111 @@ public class ParqueDelCafe implements Serializable{
 		}else {
 			return findNextVisitor(name, visitor.getNextVisitor());
 		}
+		
+	}
+	/*
+	 Esto es muy provisional pero mientras sera el mismo que en el costructor
+	 Como con los rapidos, se aceptan ideas UwU
+	 1: Montana Rusa
+	 2: karts
+	 3: wheel
+	 4: carousel
+	 5: krater
+	 6: botes chocones
+	 7: rapidos
+	 8: yipe
+	 9:	montana
+	 Tambien podria cambiarse tanto metodo addVisitantTo usando un switch con los mismos
+	 numeros, luego me dicen, att: Esteban UmU
+	 */
+	public void moveVisitor(String name, int gameToMove) {
+		
+		Visitor toMove = getVisitor(name);
+		if(toMove.getPlaying()==false) {
+			
+			switch(gameToMove) {
+			
+			case 1: addVisitorToRollerCoaster(toMove);
+			break;
+			
+			case 2: addVisitorToKarts(toMove);
+			break;
+			
+			case 3: addVisitorToWheel(toMove);
+			break;
+			
+			case 4: addVisitorToCarousel(toMove);
+			break;
+			
+			case 5: addVisitorToKrater(toMove);
+			break;
+			
+			case 6: addVisitorToCrashingBoats(toMove);
+			break;
+			
+			case 7: addVisitorToFast(toMove);
+			break;
+			
+			case 8: addVisitorToYipe(toMove);
+			break;
+			
+			case 9: addVisitorToMontana(toMove);
+			break;
+			}
+		}
+		
+	}
+	/*
+	public Visitor findVisitorInGame(String name,Game game) {
+		
+		Visitor toReturn;
+		
+		
+		return toReturn;
+		}*/
+
+	private void addVisitorToMontana(Visitor toMove) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void addVisitorToYipe(Visitor toMove) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void addVisitorToFast(Visitor toMove) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void addVisitorToCrashingBoats(Visitor toMove) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void addVisitorToKrater(Visitor toMove) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void addVisitorToCarousel(Visitor toMove) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void addVisitorToWheel(Visitor toMove) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void addVisitorToKarts(Visitor toMove) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void addVisitorToRollerCoaster(Visitor toMove) {
+		// TODO Auto-generated method stub
 		
 	}
 	}

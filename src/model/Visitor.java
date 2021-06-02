@@ -10,14 +10,18 @@ public class Visitor {
 	
 	private String plan;
 	
+	private Boolean playing;
+	
 	private Visitor nextVisitor;
+	
+	private Visitor nextVisitorInGame;
 	
 	public Visitor(String name,String age,String gender) {
 		
 		this.name = name;
 		this.age = age;
 		this.gender = gender;
-		
+		playing = false;
 	}
 	public String getName() {
 		return name;
@@ -66,5 +70,17 @@ public class Visitor {
 			
 		}
 		
+	}
+	public Visitor getNextVisitorInGame() {
+		return nextVisitorInGame;
+	}
+	public void setNextVisitorInGame(Visitor nextVisitorInGame) {
+		this.nextVisitorInGame = nextVisitorInGame;
+	}
+	public void setPlaying(Boolean playing) {
+		this.playing = playing;
+	}
+	public Boolean getPlaying() {
+		return playing;
 	}
 }

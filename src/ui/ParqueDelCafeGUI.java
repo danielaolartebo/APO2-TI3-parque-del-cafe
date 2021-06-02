@@ -212,11 +212,11 @@ public class ParqueDelCafeGUI{
     // MONTA�A RUSA MINI TABLE VIEW 
     
     @FXML
-    private TableView<?> tbMontanaRusaList;
+    private TableView<Visitor> tbMontanaRusaList;
     @FXML
-    private TableColumn<?, ?> tcMontanaRusaName;
+    private TableColumn<Visitor, String> tcMontanaRusaName;
     @FXML
-    private ComboBox<?> namesMontanaRusa;
+    private ComboBox<String> namesMontanaRusa;
     
     // KARTS MINI TABLE VIEW
     
@@ -575,6 +575,15 @@ public class ParqueDelCafeGUI{
 	   planOptPlan.getItems().addAll("Pasaporte Multiple","Almuerzo","Parqueadero");
 	   
    }
+   public void initializeMontanaRusaComboBox() {
+	   
+	   for(int i=0; i < parqueDelCafe.namesList().size();i++) {
+		   String name = parqueDelCafe.namesList().get(i);
+		   namesMontanaRusa.getItems().add(name);
+		   
+	   }
+	   
+   }
    public void initializePlansMiniTableView() {
 	   
 	ObservableList<Visitor> observableList;
@@ -808,7 +817,7 @@ public class ParqueDelCafeGUI{
 
     @FXML
     public void optMontanaAcuatica(ActionEvent event) throws IOException {
-    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("monta�a-acuatica.fxml"));
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("montana-acuatica.fxml"));
     	fxmlLoader.setController(this);
     	Parent montanaAcuaticaPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(montanaAcuaticaPane);
@@ -816,10 +825,11 @@ public class ParqueDelCafeGUI{
 
     @FXML
     public void optMontanaRusa(ActionEvent event) throws IOException {
-    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("monta�a-rusa.fxml"));
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("montana-rusa.fxml"));
     	fxmlLoader.setController(this);
     	Parent montanaRusaPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(montanaRusaPane);
+    	initializeMontanaRusaComboBox();
     }
 
     @FXML
