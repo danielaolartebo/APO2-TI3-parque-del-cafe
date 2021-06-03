@@ -286,11 +286,43 @@ public class ParqueDelCafe implements Serializable{
 		return toReturn;
 		}*/
 
-	private void addVisitorToMontana(Visitor toMove) {
-		// TODO Auto-generated method stub
+	public void addVisitorToMontana(Visitor toMove) {
+		
+		if(rollerCoaster.getVisitors()==null) {
+			
+			rollerCoaster.setVisitors(toMove);
+			toMove.setPlaying(true);
+		}else {
+			addVisitorToMontana(rollerCoaster.getVisitors(),toMove);
+		}
+	}
+	private void addVisitorToMontana(Visitor current,Visitor toMove) {
+		
+		if(current.getNextVisitorInGame()==null) {
+			current.setNextVisitorInGame(toMove);
+			toMove.setPlaying(true);
+		}else {
+			addVisitor(current.getNextVisitorInGame(), toMove);
+		}
 		
 	}
-
+	public ArrayList<Visitor> createVisitorsinMontana(){
+		
+		ArrayList<Visitor> currentVisitors = new ArrayList<Visitor>();
+		
+		if(rollerCoaster.getVisitors()!=null) {
+			
+			currentVisitors.add(rollerCoaster.getVisitors());
+			Visitor tmp = rollerCoaster.getVisitors();
+			while(tmp.getNextVisitorInGame()!=null) {
+				currentVisitors.add(tmp.getNextVisitorInGame());
+				tmp = tmp.getNextVisitorInGame();
+			}
+		}
+		
+		
+		return currentVisitors; 
+	}
 	private void addVisitorToYipe(Visitor toMove) {
 		// TODO Auto-generated method stub
 		

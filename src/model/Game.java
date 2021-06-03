@@ -17,4 +17,10 @@ public class Game{
 	public void setNextGame(Game nextGame) {
 		this.nextGame = nextGame;
 	}
+	public Visitor getVisitors() {
+		return visitors;
+	}
+	public void setVisitors(Visitor visitors) {
+		this.visitors = visitors;
+	}
 }

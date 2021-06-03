@@ -580,8 +580,19 @@ public class ParqueDelCafeGUI{
 	   for(int i=0; i < parqueDelCafe.namesList().size();i++) {
 		   String name = parqueDelCafe.namesList().get(i);
 		   namesMontanaRusa.getItems().add(name);
-		   
+		   System.out.println(name);
 	   }
+	   
+   }
+   public void initializeMontanaRusaTableView() {
+	   
+	   
+		ObservableList<Visitor> observableList;
+	   	observableList = FXCollections.observableArrayList(parqueDelCafe.createVisitorsinMontana());
+	   	tbMontanaRusaList.setItems(observableList);
+	   	
+	   	tcMontanaRusaName.setCellValueFactory(new PropertyValueFactory<Visitor,String>("name"));
+	   	tbMontanaRusaList.refresh();
 	   
    }
    public void initializePlansMiniTableView() {
@@ -830,6 +841,7 @@ public class ParqueDelCafeGUI{
     	Parent montanaRusaPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(montanaRusaPane);
     	initializeMontanaRusaComboBox();
+    	initializeMontanaRusaComboBox();
     }
 
     @FXML
@@ -1029,7 +1041,9 @@ public class ParqueDelCafeGUI{
     
     @FXML
     public void AddMontanaRusa(ActionEvent event) {
-
+    	
+    	parqueDelCafe.moveVisitor(namesMontanaRusa.getValue(), 1);
+    	initializeMontanaRusaTableView();
     }
     
     @FXML
