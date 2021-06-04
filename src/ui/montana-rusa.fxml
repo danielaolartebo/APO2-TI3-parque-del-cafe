@@ -61,7 +61,7 @@
             </ImageView>
             <TableView fx:id="tbMontanaRusaList" layoutX="425.0" layoutY="90.0" prefHeight="94.0" prefWidth="190.0" style="-fx-background-color: black;">
               <columns>
-                <TableColumn fx:id="tcMontañaRusaName" prefWidth="189.0" text="Nombre" />
+                <TableColumn fx:id="tcMontanaRusaName" prefWidth="189.0" text="Nombre" />
               </columns>
             </TableView>
             <Label layoutX="166.0" layoutY="90.0" prefHeight="20.0" prefWidth="223.0" text="¿Quién difrutará de la atracción?">

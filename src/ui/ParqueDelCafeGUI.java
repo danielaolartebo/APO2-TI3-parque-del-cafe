@@ -588,7 +588,7 @@ public class ParqueDelCafeGUI{
 	   
 	   
 		ObservableList<Visitor> observableList;
-	   	observableList = FXCollections.observableArrayList(parqueDelCafe.createVisitorsinMontana());
+	   	observableList = FXCollections.observableArrayList(parqueDelCafe.createVisitorsInRollerCoaster());
 	   	tbMontanaRusaList.setItems(observableList);
 	   	
 	   	tcMontanaRusaName.setCellValueFactory(new PropertyValueFactory<Visitor,String>("name"));
@@ -1044,6 +1044,7 @@ public class ParqueDelCafeGUI{
     	
     	parqueDelCafe.moveVisitor(namesMontanaRusa.getValue(), 1);
     	initializeMontanaRusaTableView();
+    	System.out.println("Esta entrando");
     }
     
     @FXML

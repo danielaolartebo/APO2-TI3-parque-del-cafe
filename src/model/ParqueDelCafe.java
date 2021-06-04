@@ -243,6 +243,7 @@ public class ParqueDelCafe implements Serializable{
 	public void moveVisitor(String name, int gameToMove) {
 		
 		Visitor toMove = getVisitor(name);
+		System.out.println(toMove.getPlaying());
 		if(toMove.getPlaying()==false) {
 			
 			switch(gameToMove) {
@@ -288,15 +289,9 @@ public class ParqueDelCafe implements Serializable{
 
 	public void addVisitorToMontana(Visitor toMove) {
 		
-		if(rollerCoaster.getVisitors()==null) {
-			
-			rollerCoaster.setVisitors(toMove);
-			toMove.setPlaying(true);
-		}else {
-			addVisitorToMontana(rollerCoaster.getVisitors(),toMove);
-		}
+		
 	}
-	private void addVisitorToMontana(Visitor current,Visitor toMove) {
+	private void addVisitorToRoallerCoaster(Visitor current,Visitor toMove) {
 		
 		if(current.getNextVisitorInGame()==null) {
 			current.setNextVisitorInGame(toMove);
@@ -306,20 +301,20 @@ public class ParqueDelCafe implements Serializable{
 		}
 		
 	}
-	public ArrayList<Visitor> createVisitorsinMontana(){
+	public ArrayList<Visitor> createVisitorsInRollerCoaster(){
 		
 		ArrayList<Visitor> currentVisitors = new ArrayList<Visitor>();
 		
 		if(rollerCoaster.getVisitors()!=null) {
-			
-			currentVisitors.add(rollerCoaster.getVisitors());
-			Visitor tmp = rollerCoaster.getVisitors();
-			while(tmp.getNextVisitorInGame()!=null) {
-				currentVisitors.add(tmp.getNextVisitorInGame());
+			currentVisitors.add(customer.getFirstVisitor());
+			Visitor tmp = rollerCoaster.getVisitors().getNextVisitorInGame();
+			while(tmp!=null){
+				currentVisitors.add(tmp);
 				tmp = tmp.getNextVisitorInGame();
+				System.out.println("Esta entrando parte 2");
 			}
 		}
-		
+	
 		
 		return currentVisitors; 
 	}
@@ -359,7 +354,13 @@ public class ParqueDelCafe implements Serializable{
 	}
 
 	private void addVisitorToRollerCoaster(Visitor toMove) {
-		// TODO Auto-generated method stub
-		
+if(rollerCoaster.getVisitors()==null) {
+			
+			rollerCoaster.setVisitors(toMove);
+			toMove.setPlaying(true);
+			System.out.println("Esta entrando parte 1.5");
+		}else {
+			addVisitorToRoallerCoaster(rollerCoaster.getVisitors(),toMove);
+		}
 	}
 	}
