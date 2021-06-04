@@ -221,56 +221,56 @@ public class ParqueDelCafeGUI{
     // KARTS MINI TABLE VIEW
     
     @FXML
-    private TableView<?> tbKartsList;
+    private TableView<Visitor> tbKartsList;
     @FXML
-    private TableColumn<?, ?> tcKartsName;
+    private TableColumn<Visitor, String> tcKartsName;
     @FXML
-    private ComboBox<?> namesKarts;
+    private ComboBox<String> namesKarts;
     
     // MONTA�A ACUATICA MINI TABLE VIEW
 
     @FXML
-    private TableView<?> tbMontanaAcuaticaList;
+    private TableView<Visitor> tbMontanaAcuaticaList;
     @FXML
-    private TableColumn<?, ?> tcMontanaAcuaticaName;
+    private TableColumn<Visitor, String> tcMontanaAcuaticaName;
     @FXML
-    private ComboBox<?> namesMontanaAcuatica;
+    private ComboBox<String> namesMontanaAcuatica;
     
     // YIPPE MINI TABLE VIEW
 
     @FXML
-    private TableView<?> tbYippeList;
+    private TableView<Visitor> tbYippeList;
     @FXML
-    private TableColumn<?, ?> tcYippeName;
+    private TableColumn<Visitor, String> tcYippeName;
     @FXML
-    private ComboBox<?> namesYippe;
+    private ComboBox<String> namesYippe;
     
     // TORRE CUMBRE MINI TABLE VIEW
 
     @FXML
-    private TableView<?> tbTorreCumbreList;
+    private TableView<Visitor> tbTorreCumbreList;
     @FXML
-    private TableColumn<?, ?> tcTorreCumbreName;
+    private TableColumn<Visitor, String> tcTorreCumbreName;
     @FXML
-    private ComboBox<?> namesTorreCumbre;
+    private ComboBox<String> namesTorreCumbre;
     
     // BOTES CHOCONES MINI TABLE VIEW
     
     @FXML
-    private TableView<?> tbBotesChoconesList;
+    private TableView<Visitor> tbBotesChoconesList;
     @FXML
-    private TableColumn<?, ?> tcBotesChoconesName;
+    private TableColumn<Visitor, String> tcBotesChoconesName;
     @FXML
-    private ComboBox<?> namesBotesChocones;
+    private ComboBox<String> namesBotesChocones;
     
     // RAPIDOS MINI TABLE VIEW
     
     @FXML
-    private TableView<?> tbRapidosList;
+    private TableView<Visitor> tbRapidosList;
     @FXML
-    private TableColumn<?, ?> tcRapidosName;
+    private TableColumn<Visitor, String> tcRapidosName;
     @FXML
-    private ComboBox<?> namesRapidos;
+    private ComboBox<String> namesRapidos;
     
     // RUEDA MINI TABLE VIEW
 
@@ -284,20 +284,20 @@ public class ParqueDelCafeGUI{
     // CARRUSEL MINI TABLE VIEW
 
     @FXML
-    private TableView<?> tbCarruselList;
+    private TableView<Visitor> tbCarruselList;
     @FXML
-    private TableColumn<?, ?> tcCarruselName;
+    private TableColumn<Visitor, String> tcCarruselName;
     @FXML
-    private ComboBox<?> namesCarrusel;
+    private ComboBox<String> namesCarrusel;
     
     // KRATER MINI TABLE VIEW
     
     @FXML
-    private TableView<?> tbKraterList;
+    private TableView<Visitor> tbKraterList;
     @FXML
-    private TableColumn<?, ?> tcKraterName;
+    private TableColumn<Visitor, String> tcKraterName;
     @FXML
-    private ComboBox<?> namesKrater;
+    private ComboBox<String> namesKrater;
     
     // EL GUADUAL MINI TABLE VIEW
     
@@ -584,6 +584,45 @@ public class ParqueDelCafeGUI{
 	   }
 	   
    }
+   public void initializeKartsComboBox() {
+	   for(int i=0; i < parqueDelCafe.namesList().size();i++) {
+		   String name = parqueDelCafe.namesList().get(i);
+		   namesKarts.getItems().add(name);
+		   System.out.println(name);
+	   }
+   }
+   public void initializeKartsTableView() {
+	   ObservableList<Visitor> observableList;
+	   	observableList = FXCollections.observableArrayList(parqueDelCafe.createVisitorInKarts());
+	   	tbKartsList.setItems(observableList);
+	   	
+	   	tcKartsName.setCellValueFactory(new PropertyValueFactory<Visitor,String>("name"));
+	   	tbKartsList.refresh();
+   }
+   public void initializeCrashingBoatsComboBox() {
+	   for(int i=0; i < parqueDelCafe.namesList().size();i++) {
+		   String name = parqueDelCafe.namesList().get(i);
+		   namesBotesChocones.getItems().add(name);
+		   System.out.println(name);
+	   }
+   }
+   public void initializeYipeComboBox() {
+	
+	   for(int i=0; i < parqueDelCafe.namesList().size();i++) {
+		   String name = parqueDelCafe.namesList().get(i);
+		   namesMontanaRusa.getItems().add(name);
+		   System.out.println(name);
+	   }
+   }
+   public void initializeCrashingBoatsTableView() {
+	   
+	   ObservableList<Visitor> observableList;
+	   	observableList = FXCollections.observableArrayList(parqueDelCafe.createVisitorsInCrashingBoats());
+	   	tbBotesChoconesList.setItems(observableList);
+	   	
+	   	tcBotesChoconesName.setCellValueFactory(new PropertyValueFactory<Visitor,String>("name"));
+	   	tbBotesChoconesList.refresh();
+   }
    public void initializeMontanaRusaTableView() {
 	   
 	   
@@ -841,7 +880,7 @@ public class ParqueDelCafeGUI{
     	Parent montanaRusaPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(montanaRusaPane);
     	initializeMontanaRusaComboBox();
-    	initializeMontanaRusaComboBox();
+    	initializeMontanaRusaTableView();
     }
 
     @FXML

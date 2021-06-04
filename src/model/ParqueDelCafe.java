@@ -228,15 +228,15 @@ public class ParqueDelCafe implements Serializable{
 	/*
 	 Esto es muy provisional pero mientras sera el mismo que en el costructor
 	 Como con los rapidos, se aceptan ideas UwU
-	 1: Montana Rusa
-	 2: karts
-	 3: wheel
-	 4: carousel
-	 5: krater
-	 6: botes chocones
-	 7: rapidos
-	 8: yipe
-	 9:	montana
+	 1: Montana Rusa - 
+	 2: karts -
+	 3: wheel -
+	 4: carousel -
+	 5: krater -
+	 6: botes chocones - 
+	 7: rapidos -
+	 8: yipe - 
+	 9:	montana -
 	 Tambien podria cambiarse tanto metodo addVisitantTo usando un switch con los mismos
 	 numeros, luego me dicen, att: Esteban UmU
 	 */
@@ -289,7 +289,40 @@ public class ParqueDelCafe implements Serializable{
 
 	public void addVisitorToMontana(Visitor toMove) {
 		
+		if(mountain.getVisitors()==null) {
+			
+			 mountain.setVisitors(toMove);
+			toMove.setPlaying(true);
+			System.out.println("Esta entrando parte 1.5");
+		}else {
+			addVisitorToMountain(mountain.getVisitors(),toMove);
+		}
+	}
+	private void addVisitorToMountain(Visitor current,Visitor toMove) {
 		
+		if(current.getNextVisitorInGame()==null) {
+			current.setNextVisitorInGame(toMove);
+			toMove.setPlaying(true);
+		}else {
+			addVisitorToMountain(current.getNextVisitorInGame(), toMove);
+		}
+	}
+	public ArrayList<Visitor> createVisitorsInMontana(){
+		
+		ArrayList<Visitor> currentVisitors = new ArrayList<Visitor>();
+		
+		if(mountain.getVisitors()!=null) {
+			currentVisitors.add(mountain.getVisitors());
+			Visitor tmp = mountain.getVisitors().getNextVisitorInGame();
+			while(tmp!=null){
+				currentVisitors.add(tmp);
+				tmp = tmp.getNextVisitorInGame();
+				System.out.println("Esta entrando parte 2");
+			}
+		}
+	
+		
+		return currentVisitors; 
 	}
 	private void addVisitorToRoallerCoaster(Visitor current,Visitor toMove) {
 		
@@ -297,7 +330,7 @@ public class ParqueDelCafe implements Serializable{
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
 		}else {
-			addVisitor(current.getNextVisitorInGame(), toMove);
+			addVisitorToRoallerCoaster(current.getNextVisitorInGame(), toMove);
 		}
 		
 	}
@@ -306,7 +339,7 @@ public class ParqueDelCafe implements Serializable{
 		ArrayList<Visitor> currentVisitors = new ArrayList<Visitor>();
 		
 		if(rollerCoaster.getVisitors()!=null) {
-			currentVisitors.add(customer.getFirstVisitor());
+			currentVisitors.add(rollerCoaster.getVisitors());
 			Visitor tmp = rollerCoaster.getVisitors().getNextVisitorInGame();
 			while(tmp!=null){
 				currentVisitors.add(tmp);
@@ -318,43 +351,267 @@ public class ParqueDelCafe implements Serializable{
 		
 		return currentVisitors; 
 	}
+	public ArrayList<Visitor> createVisitorInKarts(){
+		
+		ArrayList<Visitor> currentVisitors = new ArrayList<Visitor>();
+		
+		if(karts.getVisitors()!=null) {
+			currentVisitors.add(karts.getVisitors());
+			Visitor tmp = karts.getVisitors().getNextVisitorInGame();
+			while(tmp!=null){
+				currentVisitors.add(tmp);
+				tmp = tmp.getNextVisitorInGame();
+				System.out.println("Esta entrando parte 2");
+			}
+		}
+	
+		
+		return currentVisitors; 
+	}
 	private void addVisitorToYipe(Visitor toMove) {
-		// TODO Auto-generated method stub
+		if(yipe.getVisitors()==null) {
+			
+			 yipe.setVisitors(toMove);
+			toMove.setPlaying(true);
+			System.out.println("Esta entrando parte 1.5");
+		}else {
+			addVisitorToYipe(yipe.getVisitors(),toMove);
+		}
 		
 	}
-
+	private void addVisitorToYipe(Visitor current, Visitor toMove) {
+		if(current.getNextVisitorInGame()==null) {
+			current.setNextVisitorInGame(toMove);
+			toMove.setPlaying(true);
+		}else {
+			addVisitorToYipe(current.getNextVisitorInGame(), toMove);
+		}
+	}
+	public ArrayList<Visitor> createVisitorsInYipe(){
+		
+		ArrayList<Visitor> currentVisitors = new ArrayList<Visitor>();
+		
+		if(yipe.getVisitors()!=null) {
+			currentVisitors.add(yipe.getVisitors());
+			Visitor tmp = yipe.getVisitors().getNextVisitorInGame();
+			while(tmp!=null){
+				currentVisitors.add(tmp);
+				tmp = tmp.getNextVisitorInGame();
+				System.out.println("Esta entrando parte 2");
+			}
+	
+		}
+		return currentVisitors;
+	}
 	private void addVisitorToFast(Visitor toMove) {
-		// TODO Auto-generated method stub
+		
+		if(fast.getVisitors()==null) {
+	
+			fast.setVisitors(toMove);
+			toMove.setPlaying(true);
+			System.out.println("Esta entrando parte 1.5");
+		}else {
+			addVisitorToFast(fast.getVisitors(),toMove);
+		}
 		
 	}
-
-	private void addVisitorToCrashingBoats(Visitor toMove) {
-		// TODO Auto-generated method stub
+	private void addVisitorToFast(Visitor current, Visitor toMove){
 		
+		if(current.getNextVisitorInGame()==null) {
+			current.setNextVisitorInGame(toMove);
+			toMove.setPlaying(true);
+		}else {
+			addVisitorToFast(current.getNextVisitorInGame(), toMove);
+		}
+	}
+	public ArrayList<Visitor> createVisitorInFast(){
+		ArrayList<Visitor> currentVisitors = new ArrayList<Visitor>();
+		
+		if(fast.getVisitors()!=null) {
+			currentVisitors.add(fast.getVisitors());
+			Visitor tmp = fast.getVisitors().getNextVisitorInGame();
+			while(tmp!=null){
+				currentVisitors.add(tmp);
+				tmp = tmp.getNextVisitorInGame();
+				System.out.println("Esta entrando parte 2");
+			}
+	
+		}
+		return currentVisitors;
+	}
+	private void addVisitorToCrashingBoats(Visitor toMove) {
+		if(crashingBoats.getVisitors()==null) {
+			
+			crashingBoats.setVisitors(toMove);
+			toMove.setPlaying(true);
+			System.out.println("Esta entrando parte 1.5");
+		}else {
+			addVisitorToCrashingBoats(crashingBoats.getVisitors(),toMove);
+		}
+		
+	}
+	private void addVisitorToCrashingBoats(Visitor current, Visitor toMove) {
+		
+		if(current.getNextVisitorInGame()==null) {
+			current.setNextVisitorInGame(toMove);
+			toMove.setPlaying(true);
+		}else {
+			addVisitorToCrashingBoats(current.getNextVisitorInGame(), toMove);
+		}
+	}
+	public ArrayList<Visitor> createVisitorsInCrashingBoats(){
+		
+		ArrayList<Visitor> currentVisitors = new ArrayList<Visitor>();
+		
+		if(crashingBoats.getVisitors()!=null) {
+			currentVisitors.add(crashingBoats.getVisitors());
+			Visitor tmp = crashingBoats.getVisitors().getNextVisitorInGame();
+			while(tmp!=null){
+				currentVisitors.add(tmp);
+				tmp = tmp.getNextVisitorInGame();
+				System.out.println("Esta entrando parte 2");
+			}
+	
+		}
+		return currentVisitors;
 	}
 
 	private void addVisitorToKrater(Visitor toMove) {
-		// TODO Auto-generated method stub
 		
+		if(krater.getVisitors()==null) {
+			
+			 krater.setVisitors(toMove);
+			toMove.setPlaying(true);
+			System.out.println("Esta entrando parte 1.5");
+		}else {
+			addVisitorToKrater(carousel.getVisitors(),toMove);
+		}
 	}
+	private void addVisitorToKrater(Visitor current,Visitor toMove) {
 
+		if(current.getNextVisitorInGame()==null) {
+			current.setNextVisitorInGame(toMove);
+			toMove.setPlaying(true);
+		}else {
+			addVisitorToKrater(current.getNextVisitorInGame(), toMove);
+		}
+	}
+	public ArrayList<Visitor> createVisitorInKrater(){
+		ArrayList<Visitor> currentVisitors = new ArrayList<Visitor>();
+		
+		if(krater.getVisitors()!=null) {
+			currentVisitors.add(krater.getVisitors());
+			Visitor tmp = krater.getVisitors().getNextVisitorInGame();
+			while(tmp!=null){
+				currentVisitors.add(tmp);
+				tmp = tmp.getNextVisitorInGame();
+				System.out.println("Esta entrando parte 2");
+			}
+	
+		}
+		return currentVisitors;
+	}
 	private void addVisitorToCarousel(Visitor toMove) {
-		// TODO Auto-generated method stub
-		
+		if(carousel.getVisitors()==null) {
+			
+			 carousel.setVisitors(toMove);
+			toMove.setPlaying(true);
+			System.out.println("Esta entrando parte 1.5");
+		}else {
+			addVisitorToCarousel(carousel.getVisitors(),toMove);
+		}
+	
 	}
-
+	private void addVisitorToCarousel(Visitor current,Visitor toMove) {
+	
+		if(current.getNextVisitorInGame()==null) {
+			current.setNextVisitorInGame(toMove);
+			toMove.setPlaying(true);
+		}else {
+			addVisitorToCarousel(current.getNextVisitorInGame(), toMove);
+		}
+	
+	}
+	public ArrayList<Visitor> createVisitorsInCarousel(){
+		
+		ArrayList<Visitor> currentVisitors = new ArrayList<Visitor>();
+		
+		if(wheel.getVisitors()!=null) {
+			currentVisitors.add(carousel.getVisitors());
+			Visitor tmp = carousel.getVisitors().getNextVisitorInGame();
+			while(tmp!=null){
+				currentVisitors.add(tmp);
+				tmp = tmp.getNextVisitorInGame();
+				System.out.println("Esta entrando parte 2");
+			}
+	
+		}
+		return currentVisitors;
+	}
 	private void addVisitorToWheel(Visitor toMove) {
-		// TODO Auto-generated method stub
 		
+		if(wheel.getVisitors()==null) {
+			
+			wheel.setVisitors(toMove);
+			toMove.setPlaying(true);
+			System.out.println("Esta entrando parte 1.5");
+		}else {
+			addVisitorToWheel(rollerCoaster.getVisitors(),toMove);
+		}
 	}
+	private void addVisitorToWheel(Visitor current,Visitor toMove) {
+		
+		if(current.getNextVisitorInGame()==null) {
+			current.setNextVisitorInGame(toMove);
+			toMove.setPlaying(true);
+		}else {
+			addVisitorToWheel(current.getNextVisitorInGame(), toMove);
+		}
+	}
+	
 
 	private void addVisitorToKarts(Visitor toMove) {
-		// TODO Auto-generated method stub
 		
+		if(karts.getVisitors()==null) {
+			
+			karts.setVisitors(toMove);
+			toMove.setPlaying(true);
+			System.out.println("Esta entrando parte 1.5");
+		}else {
+			addVisitorToKarts(karts.getVisitors(),toMove);
+		}
 	}
+		
+	
 
+	private void addVisitorToKarts(Visitor current, Visitor toMove) {
+		
+		if(current.getNextVisitorInGame()==null) {
+			current.setNextVisitorInGame(toMove);
+			toMove.setPlaying(true);
+		}else {
+			addVisitorToKarts(current.getNextVisitorInGame(), toMove);
+		}
+	}
+	public ArrayList<Visitor> createVisitorsInWheel(){
+		
+		ArrayList<Visitor> currentVisitors = new ArrayList<Visitor>();
+		
+		if(wheel.getVisitors()!=null) {
+			currentVisitors.add(wheel.getVisitors());
+			Visitor tmp = wheel.getVisitors().getNextVisitorInGame();
+			while(tmp!=null){
+				currentVisitors.add(tmp);
+				tmp = tmp.getNextVisitorInGame();
+				System.out.println("Esta entrando parte 2");
+			}
+	
+		}
+		return currentVisitors;
+	}
 	private void addVisitorToRollerCoaster(Visitor toMove) {
-if(rollerCoaster.getVisitors()==null) {
+	
+		if(rollerCoaster.getVisitors()==null) {
 			
 			rollerCoaster.setVisitors(toMove);
 			toMove.setPlaying(true);
