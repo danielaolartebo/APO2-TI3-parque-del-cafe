@@ -584,6 +584,14 @@ public class ParqueDelCafeGUI{
 	   }
 	   
    }
+   public void initializeWaterMountainCombBox() {
+	   
+	   for(int i=0; i < parqueDelCafe.namesList().size();i++) {
+		   String name = parqueDelCafe.namesList().get(i);
+		   namesMontanaAcuatica.getItems().add(name);
+		   System.out.println(name);
+	   }
+   }
    public void initializeKartsComboBox() {
 	   for(int i=0; i < parqueDelCafe.namesList().size();i++) {
 		   String name = parqueDelCafe.namesList().get(i);
@@ -608,6 +616,15 @@ public class ParqueDelCafeGUI{
 		   System.out.println(name);
 	   }
 	   
+   }
+   public void initializeWaterMountainTableView() {
+	   
+	   ObservableList<Visitor> observableList;
+	   	observableList = FXCollections.observableArrayList(parqueDelCafe.createVisitorsInMontana());
+	   	tbMontanaAcuaticaList.setItems(observableList);
+	   	
+	   	tcMontanaAcuaticaName.setCellValueFactory(new PropertyValueFactory<Visitor,String>("name"));
+	   	tbMontanaAcuaticaList.refresh();
    }
    public void initializeKraterTableView() {
 	   ObservableList<Visitor> observableList;
@@ -641,13 +658,29 @@ public class ParqueDelCafeGUI{
 		   System.out.println(name);
 	   }
    }
+   public void initializeCumbreComboBox() {
+	   for(int i=0; i < parqueDelCafe.namesList().size();i++) {
+		   String name = parqueDelCafe.namesList().get(i);
+		   namesTorreCumbre.getItems().add(name);
+		   System.out.println(name);
+	   }
+   }
    public void initializeYipeComboBox() {
 	
 	   for(int i=0; i < parqueDelCafe.namesList().size();i++) {
 		   String name = parqueDelCafe.namesList().get(i);
-		   namesMontanaRusa.getItems().add(name);
+		   namesYippe.getItems().add(name);
 		   System.out.println(name);
 	   }
+   }
+   public void initializeCumbreTableView() {
+	   
+	   ObservableList<Visitor> observableList;
+	   	observableList = FXCollections.observableArrayList(parqueDelCafe.createVisitorsInCumbre());
+	   	tbTorreCumbreList.setItems(observableList);
+	   	
+	   	tcTorreCumbreName.setCellValueFactory(new PropertyValueFactory<Visitor,String>("name"));
+	   	tbTorreCumbreList.refresh();
    }
    public void initializeYipeTableView() {
 	   
@@ -959,6 +992,8 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent montanaAcuaticaPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(montanaAcuaticaPane);
+    	initializeWaterMountainCombBox();
+    	initializeWaterMountainTableView();
     }
 
     @FXML
@@ -997,6 +1032,8 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent torreCumbrePane = fxmlLoader.load();
     	mainPane.getChildren().setAll(torreCumbrePane);
+    	initializeCumbreComboBox();
+    	initializeCumbreTableView();
     }
 
     @FXML
@@ -1217,7 +1254,10 @@ public class ParqueDelCafeGUI{
     
     @FXML
     public void AddMontanaAcuatica(ActionEvent event) {
-
+    	
+    	parqueDelCafe.moveVisitor(namesMontanaAcuatica.getValue(), 9);
+    	initializeWaterMountainTableView();
+    	tbMontanaAcuaticaList.refresh();
     }
 
     @FXML
@@ -1264,7 +1304,10 @@ public class ParqueDelCafeGUI{
     
     @FXML
     public void AddTorreCumbre(ActionEvent event) {
-
+    	
+    	parqueDelCafe.moveVisitor(namesTorreCumbre.getValue(), 10);
+    	initializeCumbreTableView();
+    	tbTorreCumbreList.refresh();
     }
 
     @FXML
@@ -1287,9 +1330,9 @@ public class ParqueDelCafeGUI{
     @FXML
     public void AddBotesChocones(ActionEvent event) {
     	
-    	parqueDelCafe.moveVisitor(namesBotesChocones.getValue(), 6);
-    	initializeCrashingBoatsTableView();
-    	tbBotesChoconesList.refresh();
+    	parqueDelCafe.moveVisitor(namesMontanaAcuatica.getValue(), 6);
+    	initializeWaterMountainTableView();
+    	tbMontanaAcuaticaList.refresh();
     }
 
     @FXML

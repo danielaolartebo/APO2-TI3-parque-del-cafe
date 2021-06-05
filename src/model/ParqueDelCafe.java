@@ -25,6 +25,7 @@ public class ParqueDelCafe implements Serializable{
 	private Game fast;
 	private Game yipe;
 	private Game mountain;
+	private Game cumbre;
 	//Food court
 	private FoodCourt heladerias;
 	private FoodCourt subway;
@@ -61,8 +62,11 @@ public class ParqueDelCafe implements Serializable{
 		yipe = new Game("Yipe");
 		fast.setNextGame(crashingBoats);
 		
-		mountain = new Game("Monta�a");
+		mountain = new Game("Monta�a Acuatica");
 		yipe.setNextGame(mountain);
+		
+		cumbre = new Game("Torre Cumbre");
+		mountain.setNextGame(cumbre);
 		
 		heladerias = new FoodCourt("Heladerias del Parque");
 		subway = new FoodCourt("Subway");
@@ -235,8 +239,9 @@ public class ParqueDelCafe implements Serializable{
 	 5: krater - -
 	 6: botes chocones - -
 	 7: rapidos - -
-	 8: yipe - 
-	 9:	montana -
+	 8: yipe - - 
+	 9:	montana acuatica -
+	 10: Cumbre 
 	 Tambien podria cambiarse tanto metodo addVisitantTo usando un switch con los mismos
 	 numeros, luego me dicen, att: Esteban UmU
 	 */
@@ -274,6 +279,8 @@ public class ParqueDelCafe implements Serializable{
 			
 			case 9: addVisitorToMontana(toMove);
 			break;
+			case 10: addVisitorToCumbre(toMove);
+			break;
 			}
 		}
 		
@@ -306,6 +313,44 @@ public class ParqueDelCafe implements Serializable{
 		}else {
 			addVisitorToMountain(current.getNextVisitorInGame(), toMove);
 		}
+	}
+	private void addVisitorToCumbre(Visitor toMove) {
+		
+		if(cumbre.getVisitors()==null) {
+			
+			 cumbre.setVisitors(toMove);
+			toMove.setPlaying(true);
+			System.out.println("Esta entrando parte 1.5");
+		}else {
+			addVisitorToCumbre(cumbre.getVisitors(),toMove);
+		}
+	}
+	private void addVisitorToCumbre(Visitor current, Visitor toMove) {
+		
+		if(current.getNextVisitorInGame()==null) {
+			current.setNextVisitorInGame(toMove);
+			toMove.setPlaying(true);
+		}else {
+			addVisitorToCumbre(current.getNextVisitorInGame(), toMove);
+		}
+	}
+	public ArrayList<Visitor> createVisitorsInCumbre(){
+		
+		ArrayList<Visitor> currentVisitors = new ArrayList<Visitor>();
+		
+		if(cumbre.getVisitors()!=null) {
+			currentVisitors.add(cumbre.getVisitors());
+			Visitor tmp = cumbre.getVisitors().getNextVisitorInGame();
+			while(tmp!=null){
+				currentVisitors.add(tmp);
+				tmp = tmp.getNextVisitorInGame();
+				System.out.println("Esta entrando parte 2");
+			}
+		}
+	
+		
+		return currentVisitors; 
+	
 	}
 	public ArrayList<Visitor> createVisitorsInMontana(){
 		
