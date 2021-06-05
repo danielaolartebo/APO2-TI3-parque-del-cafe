@@ -16,12 +16,15 @@ public class Visitor {
 	
 	private Visitor nextVisitorInGame;
 	
+	private Game inGame;
+	
 	public Visitor(String name,String age,String gender) {
 		
 		this.name = name;
 		this.age = age;
 		this.gender = gender;
 		playing = false;
+		inGame = null;
 	}
 	public String getName() {
 		return name;
@@ -82,5 +85,11 @@ public class Visitor {
 	}
 	public Boolean getPlaying() {
 		return playing;
+	}
+	public void setInGame(Game newGame) {
+		inGame = newGame;
+	}
+	public Game getInGame() {
+		return inGame;
 	}
 }

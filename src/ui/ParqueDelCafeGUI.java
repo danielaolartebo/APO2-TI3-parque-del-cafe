@@ -1330,9 +1330,9 @@ public class ParqueDelCafeGUI{
     @FXML
     public void AddBotesChocones(ActionEvent event) {
     	
-    	parqueDelCafe.moveVisitor(namesMontanaAcuatica.getValue(), 6);
-    	initializeWaterMountainTableView();
-    	tbMontanaAcuaticaList.refresh();
+    	parqueDelCafe.moveVisitor(namesBotesChocones.getValue(), 6);
+    	initializeCrashingBoatsTableView();
+    	tbBotesChoconesList.refresh();
     }
 
     @FXML

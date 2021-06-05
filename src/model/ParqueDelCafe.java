@@ -232,16 +232,16 @@ public class ParqueDelCafe implements Serializable{
 	/*
 	 Esto es muy provisional pero mientras sera el mismo que en el costructor
 	 Como con los rapidos, se aceptan ideas UwU
-	 1: Montana Rusa - -
-	 2: karts - -
-	 3: wheel - -
-	 4: carousel - -
-	 5: krater - -
-	 6: botes chocones - -
-	 7: rapidos - -
-	 8: yipe - - 
-	 9:	montana acuatica -
-	 10: Cumbre 
+	 1: Montana Rusa - - -
+	 2: karts - - -
+	 3: wheel - - -
+	 4: carousel - - -
+	 5: krater - - -
+	 6: botes chocones - - -
+	 7: rapidos - - - 
+	 8: yipe - - -
+	 9:	montana acuatica - - -
+	 10: Cumbre - - -
 	 Tambien podria cambiarse tanto metodo addVisitantTo usando un switch con los mismos
 	 numeros, luego me dicen, att: Esteban UmU
 	 */
@@ -282,17 +282,123 @@ public class ParqueDelCafe implements Serializable{
 			case 10: addVisitorToCumbre(toMove);
 			break;
 			}
+		}else {
+			
+			Game gameIn = findGame(toMove, rollerCoaster);
+			Visitor previusVisitorInGame = null;
+			if(gameIn.equals(rollerCoaster)) {
+				if(rollerCoaster.getVisitors().getNextVisitorInGame()!=null) {
+				previusVisitorInGame = findNextVisitorInGame(name, rollerCoaster.getVisitors());
+				}else {
+					previusVisitorInGame = null;
+				}
+			}else if(gameIn.equals(crashingBoats)) {
+				if(crashingBoats.getVisitors().getNextVisitorInGame()!=null) {
+				previusVisitorInGame = findNextVisitorInGame(name, crashingBoats.getVisitors());
+				}else {
+					previusVisitorInGame = null;
+				}
+			}else if(gameIn.equals(cumbre)) {
+				if(cumbre.getVisitors().getNextVisitorInGame()!=null) {
+				previusVisitorInGame = findNextVisitorInGame(name, cumbre.getVisitors());
+				}else {
+					previusVisitorInGame = null;
+				}
+			}else if(gameIn.equals(fast)) {
+				if(fast.getVisitors().getNextVisitorInGame()!=null) {
+				previusVisitorInGame = findNextVisitorInGame(name, fast.getVisitors());
+				}else {
+					previusVisitorInGame = null;
+				}
+			}else if(gameIn.equals(karts)) {
+				if(karts.getVisitors().getNextVisitorInGame()!=null) {
+				previusVisitorInGame = findNextVisitorInGame(name, karts.getVisitors());
+				}else {
+					previusVisitorInGame = null;
+				}
+			}else if(gameIn.equals(krater)) {
+				if(krater.getVisitors().getNextVisitor()!=null) {
+				previusVisitorInGame = findNextVisitorInGame(name, krater.getVisitors());
+				}else {
+					previusVisitorInGame = null;
+				}
+			}else if(gameIn.equals(mountain)) {
+				if(mountain.getVisitors().getNextVisitorInGame()!=null) {
+				previusVisitorInGame = findNextVisitorInGame(name, mountain.getVisitors());
+				}else {
+					previusVisitorInGame = null;
+				}
+			}else if(gameIn.equals(wheel)) {
+				if(wheel.getVisitors().getNextVisitorInGame()!=null) {
+				previusVisitorInGame = findNextVisitorInGame(name, wheel.getVisitors());
+				}else {
+					previusVisitorInGame = null;
+				}
+			}else if(gameIn.equals(yipe)){
+				if(yipe.getVisitors().getNextVisitorInGame()!=null) {
+				previusVisitorInGame = findNextVisitorInGame(name, yipe.getVisitors());
+				}else {
+					previusVisitorInGame = null;
+				}
+			}else {
+				if(carousel.getVisitors()!=null) {
+				previusVisitorInGame = findNextVisitorInGame(name, carousel.getVisitors());
+				}
+			}
+			
+			Visitor nextVisitorInGame = toMove.getNextVisitorInGame();
+			if(previusVisitorInGame==null) {
+				
+			}else {
+			previusVisitorInGame.setNextVisitorInGame(nextVisitorInGame);
+			}
+			toMove.setNextVisitorInGame(null);
+			toMove.setPlaying(false);
+			switch(gameToMove) {
+			
+			case 1: addVisitorToRollerCoaster(toMove);
+			break;
+			
+			case 2: addVisitorToKarts(toMove);
+			break;
+			
+			case 3: addVisitorToWheel(toMove);
+			break;
+			
+			case 4: addVisitorToCarousel(toMove);
+			break;
+			
+			case 5: addVisitorToKrater(toMove);
+			break;
+			
+			case 6: addVisitorToCrashingBoats(toMove);
+			break;
+			
+			case 7: addVisitorToFast(toMove);
+			break;
+			
+			case 8: addVisitorToYipe(toMove);
+			break;
+			
+			case 9: addVisitorToMontana(toMove);
+			break;
+			case 10: addVisitorToCumbre(toMove);
+			break;			
+			}
 		}
 		
 	}
-	/*
-	public Visitor findVisitorInGame(String name,Game game) {
+	
+	public Game findGame(Visitor toMove,Game current) {
 		
-		Visitor toReturn;
+		if(toMove.getInGame().equals(current)) {
+			return current;
+		}else {
+			return findGame(toMove, current.getnextGame());
+		}
 		
-		
-		return toReturn;
-		}*/
+	
+	}
 
 	public void addVisitorToMontana(Visitor toMove) {
 		
@@ -300,6 +406,7 @@ public class ParqueDelCafe implements Serializable{
 			
 			 mountain.setVisitors(toMove);
 			toMove.setPlaying(true);
+			toMove.setInGame(mountain);
 			System.out.println("Esta entrando parte 1.5");
 		}else {
 			addVisitorToMountain(mountain.getVisitors(),toMove);
@@ -310,6 +417,7 @@ public class ParqueDelCafe implements Serializable{
 		if(current.getNextVisitorInGame()==null) {
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
+			toMove.setInGame(mountain);
 		}else {
 			addVisitorToMountain(current.getNextVisitorInGame(), toMove);
 		}
@@ -320,6 +428,7 @@ public class ParqueDelCafe implements Serializable{
 			
 			 cumbre.setVisitors(toMove);
 			toMove.setPlaying(true);
+			toMove.setInGame(cumbre);
 			System.out.println("Esta entrando parte 1.5");
 		}else {
 			addVisitorToCumbre(cumbre.getVisitors(),toMove);
@@ -330,6 +439,7 @@ public class ParqueDelCafe implements Serializable{
 		if(current.getNextVisitorInGame()==null) {
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
+			toMove.setInGame(cumbre);
 		}else {
 			addVisitorToCumbre(current.getNextVisitorInGame(), toMove);
 		}
@@ -374,6 +484,7 @@ public class ParqueDelCafe implements Serializable{
 		if(current.getNextVisitorInGame()==null) {
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
+			toMove.setInGame(rollerCoaster);
 		}else {
 			addVisitorToRoallerCoaster(current.getNextVisitorInGame(), toMove);
 		}
@@ -418,6 +529,7 @@ public class ParqueDelCafe implements Serializable{
 			
 			 yipe.setVisitors(toMove);
 			toMove.setPlaying(true);
+			toMove.setInGame(yipe);
 			System.out.println("Esta entrando parte 1.5");
 		}else {
 			addVisitorToYipe(yipe.getVisitors(),toMove);
@@ -428,6 +540,7 @@ public class ParqueDelCafe implements Serializable{
 		if(current.getNextVisitorInGame()==null) {
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
+			toMove.setInGame(yipe);
 		}else {
 			addVisitorToYipe(current.getNextVisitorInGame(), toMove);
 		}
@@ -454,6 +567,7 @@ public class ParqueDelCafe implements Serializable{
 	
 			fast.setVisitors(toMove);
 			toMove.setPlaying(true);
+			toMove.setInGame(fast);
 			System.out.println("Esta entrando parte 1.5");
 		}else {
 			addVisitorToFast(fast.getVisitors(),toMove);
@@ -465,6 +579,7 @@ public class ParqueDelCafe implements Serializable{
 		if(current.getNextVisitorInGame()==null) {
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
+			toMove.setInGame(fast);
 		}else {
 			addVisitorToFast(current.getNextVisitorInGame(), toMove);
 		}
@@ -490,6 +605,7 @@ public class ParqueDelCafe implements Serializable{
 			crashingBoats.setVisitors(toMove);
 			toMove.setPlaying(true);
 			System.out.println("Esta entrando parte 1.5");
+			toMove.setInGame(crashingBoats);
 		}else {
 			addVisitorToCrashingBoats(crashingBoats.getVisitors(),toMove);
 		}
@@ -500,6 +616,7 @@ public class ParqueDelCafe implements Serializable{
 		if(current.getNextVisitorInGame()==null) {
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
+			toMove.setInGame(crashingBoats);
 		}else {
 			addVisitorToCrashingBoats(current.getNextVisitorInGame(), toMove);
 		}
@@ -528,6 +645,7 @@ public class ParqueDelCafe implements Serializable{
 			 krater.setVisitors(toMove);
 			toMove.setPlaying(true);
 			System.out.println("Esta entrando parte 1.5");
+			toMove.setInGame(krater);
 		}else {
 			addVisitorToKrater(carousel.getVisitors(),toMove);
 		}
@@ -537,6 +655,7 @@ public class ParqueDelCafe implements Serializable{
 		if(current.getNextVisitorInGame()==null) {
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
+			toMove.setInGame(krater);
 		}else {
 			addVisitorToKrater(current.getNextVisitorInGame(), toMove);
 		}
@@ -562,6 +681,7 @@ public class ParqueDelCafe implements Serializable{
 			 carousel.setVisitors(toMove);
 			toMove.setPlaying(true);
 			System.out.println("Esta entrando parte 1.5");
+			toMove.setInGame(carousel);
 		}else {
 			addVisitorToCarousel(carousel.getVisitors(),toMove);
 		}
@@ -572,6 +692,7 @@ public class ParqueDelCafe implements Serializable{
 		if(current.getNextVisitorInGame()==null) {
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
+			toMove.setInGame(carousel);
 		}else {
 			addVisitorToCarousel(current.getNextVisitorInGame(), toMove);
 		}
@@ -599,6 +720,7 @@ public class ParqueDelCafe implements Serializable{
 			
 			wheel.setVisitors(toMove);
 			toMove.setPlaying(true);
+			toMove.setInGame(wheel);
 			System.out.println("Esta entrando parte 1.5");
 		}else {
 			addVisitorToWheel(rollerCoaster.getVisitors(),toMove);
@@ -609,6 +731,7 @@ public class ParqueDelCafe implements Serializable{
 		if(current.getNextVisitorInGame()==null) {
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
+			toMove.setInGame(wheel);
 		}else {
 			addVisitorToWheel(current.getNextVisitorInGame(), toMove);
 		}
@@ -621,6 +744,7 @@ public class ParqueDelCafe implements Serializable{
 			
 			karts.setVisitors(toMove);
 			toMove.setPlaying(true);
+			toMove.setInGame(karts);
 			System.out.println("Esta entrando parte 1.5");
 		}else {
 			addVisitorToKarts(karts.getVisitors(),toMove);
@@ -634,6 +758,7 @@ public class ParqueDelCafe implements Serializable{
 		if(current.getNextVisitorInGame()==null) {
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
+			toMove.setInGame(karts);
 		}else {
 			addVisitorToKarts(current.getNextVisitorInGame(), toMove);
 		}
@@ -660,9 +785,21 @@ public class ParqueDelCafe implements Serializable{
 			
 			rollerCoaster.setVisitors(toMove);
 			toMove.setPlaying(true);
+			toMove.setInGame(rollerCoaster);
 			System.out.println("Esta entrando parte 1.5");
 		}else {
 			addVisitorToRoallerCoaster(rollerCoaster.getVisitors(),toMove);
 		}
+	}
+	private Visitor findNextVisitorInGame(String name, Visitor visitor) {
+		
+		if(visitor.getNextVisitorInGame().getName().equals(name)) {
+			
+			return visitor;
+			
+		}else {
+			return findNextVisitorInGame(name, visitor.getNextVisitorInGame());
+		}
+		
 	}
 	}
