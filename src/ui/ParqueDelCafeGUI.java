@@ -275,11 +275,11 @@ public class ParqueDelCafeGUI{
     // RUEDA MINI TABLE VIEW
 
     @FXML
-    private TableView<?> tbRuedaList;
+    private TableView<Visitor> tbRuedaList;
     @FXML
-    private TableColumn<?, ?> tcRuedaName;
+    private TableColumn<Visitor, String> tcRuedaName;
     @FXML
-    private ComboBox<?> namesRueda;
+    private ComboBox<String> namesRueda;
     
     // CARRUSEL MINI TABLE VIEW
 
@@ -591,6 +591,41 @@ public class ParqueDelCafeGUI{
 		   System.out.println(name);
 	   }
    }
+   public void initializeKraterComboBox() {
+	   
+	   for(int i=0; i < parqueDelCafe.namesList().size();i++) {
+		   String name = parqueDelCafe.namesList().get(i);
+		   namesKrater.getItems().add(name);
+		   System.out.println(name);
+	   }
+   }
+   
+   public void initializeWheelComboBox() {
+	
+	   for(int i=0; i < parqueDelCafe.namesList().size();i++) {
+		   String name = parqueDelCafe.namesList().get(i);
+		   namesRueda.getItems().add(name);
+		   System.out.println(name);
+	   }
+	   
+   }
+   public void initializeKraterTableView() {
+	   ObservableList<Visitor> observableList;
+	   	observableList = FXCollections.observableArrayList(parqueDelCafe.createVisitorInKrater());
+	   	tbKraterList.setItems(observableList);
+	   	
+	   	tcKraterName.setCellValueFactory(new PropertyValueFactory<Visitor,String>("name"));
+	   	tbKraterList.refresh();
+   }
+   public void initializeWheelTableView() {
+	   
+	   ObservableList<Visitor> observableList;
+	   	observableList = FXCollections.observableArrayList(parqueDelCafe.createVisitorsInWheel());
+	   	tbRuedaList.setItems(observableList);
+	   	
+	   	tcRuedaName.setCellValueFactory(new PropertyValueFactory<Visitor,String>("name"));
+	   	tbRuedaList.refresh();
+   }
    public void initializeKartsTableView() {
 	   ObservableList<Visitor> observableList;
 	   	observableList = FXCollections.observableArrayList(parqueDelCafe.createVisitorInKarts());
@@ -613,6 +648,50 @@ public class ParqueDelCafeGUI{
 		   namesMontanaRusa.getItems().add(name);
 		   System.out.println(name);
 	   }
+   }
+   public void initializeYipeTableView() {
+	   
+	   ObservableList<Visitor> observableList;
+	   	observableList = FXCollections.observableArrayList(parqueDelCafe.createVisitorsInYipe());
+	   	tbYippeList.setItems(observableList);
+	   	
+	   	tcYippeName.setCellValueFactory(new PropertyValueFactory<Visitor,String>("name"));
+	   	tbYippeList.refresh();
+   }
+   public void initializeCarouselCombobox() {
+	   
+	   for(int i=0; i < parqueDelCafe.namesList().size();i++) {
+		   String name = parqueDelCafe.namesList().get(i);
+		   namesCarrusel.getItems().add(name);
+		   System.out.println(name);
+	   }
+   }
+   public void initializeFastComboBox() {
+	   
+	   for(int i=0; i < parqueDelCafe.namesList().size();i++) {
+		   String name = parqueDelCafe.namesList().get(i);
+		   namesRapidos.getItems().add(name);
+		   System.out.println(name);
+	   }
+   }
+   public void initializeCarouselTableView() {
+	   
+	   ObservableList<Visitor> observableList;
+	   	observableList = FXCollections.observableArrayList(parqueDelCafe.createVisitorsInCarousel());
+	   	tbCarruselList.setItems(observableList);
+	   	
+	   	tcCarruselName.setCellValueFactory(new PropertyValueFactory<Visitor,String>("name"));
+	   	tbCarruselList.refresh();
+   }
+   public void initializeFastTableView() {
+	   
+	   
+	   ObservableList<Visitor> observableList;
+	   	observableList = FXCollections.observableArrayList(parqueDelCafe.createVisitorInFast());
+	   	tbRapidosList.setItems(observableList);
+	   	
+	   	tcRapidosName.setCellValueFactory(new PropertyValueFactory<Visitor,String>("name"));
+	   	tbRapidosList.refresh();
    }
    public void initializeCrashingBoatsTableView() {
 	   
@@ -839,6 +918,8 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent botesChoconesPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(botesChoconesPane);
+    	initializeCrashingBoatsComboBox();
+    	initializeCrashingBoatsTableView();
     }
 
     @FXML
@@ -847,6 +928,8 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent kartsPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(kartsPane);
+    	initializeKartsComboBox();
+    	initializeKartsTableView();
     }
     
     @FXML
@@ -855,6 +938,8 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent carruselPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(carruselPane);
+    	initializeCarouselCombobox();
+    	initializeCarouselTableView();
     }
 
     @FXML
@@ -863,6 +948,9 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent kraterPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(kraterPane);
+    	initializeKraterComboBox();
+    	initializeKraterTableView();
+    	
     }
 
     @FXML
@@ -889,6 +977,8 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent rapidosPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(rapidosPane);
+    	initializeFastComboBox();
+    	initializeFastTableView();
     }
 
     @FXML
@@ -897,6 +987,8 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent ruedaPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(ruedaPane);
+    	initializeWheelComboBox();
+    	initializeWheelTableView();
     }
 
     @FXML
@@ -913,6 +1005,9 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent yippePane = fxmlLoader.load();
     	mainPane.getChildren().setAll(yippePane);
+    	initializeYipeComboBox();
+    	initializeYipeTableView();
+    	
     }
 
     @FXML
@@ -1097,7 +1192,10 @@ public class ParqueDelCafeGUI{
     
     @FXML
     public void AddKarts(ActionEvent event) {
-
+    	
+    	parqueDelCafe.moveVisitor(namesKarts.getValue(), 2);
+    	initializeKartsTableView();
+    	tbKartsList.refresh();
     }
 
     @FXML
@@ -1141,7 +1239,10 @@ public class ParqueDelCafeGUI{
     
     @FXML
     public void AddYippe(ActionEvent event) {
-
+    	
+    	parqueDelCafe.moveVisitor(namesYippe.getValue(), 8);
+    	initializeYipeTableView();
+    	tbYippeList.refresh();
     }
 
     @FXML
@@ -1185,7 +1286,10 @@ public class ParqueDelCafeGUI{
     
     @FXML
     public void AddBotesChocones(ActionEvent event) {
-
+    	
+    	parqueDelCafe.moveVisitor(namesBotesChocones.getValue(), 6);
+    	initializeCrashingBoatsTableView();
+    	tbBotesChoconesList.refresh();
     }
 
     @FXML
@@ -1207,7 +1311,11 @@ public class ParqueDelCafeGUI{
     
     @FXML
     public void AddRapidos(ActionEvent event) {
-
+    	
+    	parqueDelCafe.moveVisitor(namesRapidos.getValue(), 7);
+    	initializeFastTableView();
+    	tbRapidosList.refresh();
+    	
     }
 
     @FXML
@@ -1230,6 +1338,9 @@ public class ParqueDelCafeGUI{
     @FXML
     public void AddRueda(ActionEvent event) {
 
+    	parqueDelCafe.moveVisitor(namesRueda.getValue(), 3);
+    	initializeWheelTableView();
+    	tbRuedaList.refresh();
     }
 
     @FXML
@@ -1251,7 +1362,10 @@ public class ParqueDelCafeGUI{
     
     @FXML
     public void AddCarrusel(ActionEvent event) {
-
+    	
+    	parqueDelCafe.moveVisitor(namesCarrusel.getValue(), 4);
+    	initializeCarouselTableView();
+    	tbCarruselList.refresh();
     }
 
     @FXML
@@ -1274,6 +1388,9 @@ public class ParqueDelCafeGUI{
     @FXML
     public void AddKrater(ActionEvent event) {
 
+    	parqueDelCafe.moveVisitor(namesKrater.getValue(), 5);
+    	initializeKraterTableView();
+    	tbKraterList.refresh();
     }
 
     @FXML

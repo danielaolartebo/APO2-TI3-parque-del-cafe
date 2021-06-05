@@ -228,13 +228,13 @@ public class ParqueDelCafe implements Serializable{
 	/*
 	 Esto es muy provisional pero mientras sera el mismo que en el costructor
 	 Como con los rapidos, se aceptan ideas UwU
-	 1: Montana Rusa - 
-	 2: karts -
-	 3: wheel -
-	 4: carousel -
-	 5: krater -
-	 6: botes chocones - 
-	 7: rapidos -
+	 1: Montana Rusa - -
+	 2: karts - -
+	 3: wheel - -
+	 4: carousel - -
+	 5: krater - -
+	 6: botes chocones - -
+	 7: rapidos - -
 	 8: yipe - 
 	 9:	montana -
 	 Tambien podria cambiarse tanto metodo addVisitantTo usando un switch con los mismos
