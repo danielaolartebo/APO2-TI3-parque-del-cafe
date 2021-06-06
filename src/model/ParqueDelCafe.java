@@ -245,6 +245,7 @@ public class ParqueDelCafe implements Serializable{
 	 Tambien podria cambiarse tanto metodo addVisitantTo usando un switch con los mismos
 	 numeros, luego me dicen, att: Esteban UmU
 	 */
+	/*
 	public void moveVisitor(String name, int gameToMove) {
 		
 		Visitor toMove = getVisitor(name);
@@ -354,6 +355,80 @@ public class ParqueDelCafe implements Serializable{
 			}
 			toMove.setNextVisitorInGame(null);
 			toMove.setPlaying(false);
+			switch(gameToMove) {
+			
+			case 1: addVisitorToRollerCoaster(toMove);
+			break;
+			
+			case 2: addVisitorToKarts(toMove);
+			break;
+			
+			case 3: addVisitorToWheel(toMove);
+			break;
+			
+			case 4: addVisitorToCarousel(toMove);
+			break;
+			
+			case 5: addVisitorToKrater(toMove);
+			break;
+			
+			case 6: addVisitorToCrashingBoats(toMove);
+			break;
+			
+			case 7: addVisitorToFast(toMove);
+			break;
+			
+			case 8: addVisitorToYipe(toMove);
+			break;
+			
+			case 9: addVisitorToMontana(toMove);
+			break;
+			case 10: addVisitorToCumbre(toMove);
+			break;			
+			}
+		}
+		
+	}*/
+	public void moveVisitor(String name, int gameToMove) {
+		
+		Visitor toMove = getVisitor(name);
+		System.out.println(toMove.getPlaying());
+		if(toMove.getPlaying()==false) {
+			
+			switch(gameToMove) {
+			
+			case 1: addVisitorToRollerCoaster(toMove);
+			break;
+			
+			case 2: addVisitorToKarts(toMove);
+			break;
+			
+			case 3: addVisitorToWheel(toMove);
+			break;
+			
+			case 4: addVisitorToCarousel(toMove);
+			break;
+			
+			case 5: addVisitorToKrater(toMove);
+			break;
+			
+			case 6: addVisitorToCrashingBoats(toMove);
+			break;
+			
+			case 7: addVisitorToFast(toMove);
+			break;
+			
+			case 8: addVisitorToYipe(toMove);
+			break;
+			
+			case 9: addVisitorToMontana(toMove);
+			break;
+			case 10: addVisitorToCumbre(toMove);
+			break;
+			}
+		}else {
+			deleteVisitorInGame(name);
+			
 			switch(gameToMove) {
 			
 			case 1: addVisitorToRollerCoaster(toMove);
@@ -791,6 +866,16 @@ public class ParqueDelCafe implements Serializable{
 			addVisitorToRoallerCoaster(rollerCoaster.getVisitors(),toMove);
 		}
 	}
+	public Visitor findNextVisitorInGame(String name, Game game) {
+		
+		Visitor toFind = getVisitor(name);
+		if(toFind.equals(game.getVisitors())) {
+			return null;
+		}else {
+			return findNextVisitorInGame(name, game.getVisitors());
+		}	
+	}
+	
 	private Visitor findNextVisitorInGame(String name, Visitor visitor) {
 		
 		if(visitor.getNextVisitorInGame().getName().equals(name)) {
@@ -802,4 +887,21 @@ public class ParqueDelCafe implements Serializable{
 		}
 		
 	}
+	public void deleteVisitorInGame(String name) {
+		
+		Game gameToSearch = findGame(getVisitor(name), carousel);
+		Visitor toDelete = getVisitor(name);
+		Visitor findPreVisitor = findNextVisitorInGame(name, gameToSearch);
+		Visitor nextVisitor = getVisitor(name).getNextVisitorInGame();
+		if(findPreVisitor == null) {
+		
+			gameToSearch.setVisitors(nextVisitor);
+			toDelete.setNextVisitorInGame(null);
+			toDelete.setPlaying(false);
+			}else{
+			findPreVisitor.setNextVisitorInGame(nextVisitor);
+			toDelete.setNextVisitorInGame(null);
+			toDelete.setPlaying(false);
+		}
 	}
+}
