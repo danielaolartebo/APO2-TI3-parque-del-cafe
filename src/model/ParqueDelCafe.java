@@ -428,7 +428,8 @@ public class ParqueDelCafe implements Serializable{
 			}
 		}else {
 			deleteVisitorInGame(name);
-			
+			moveVisitor(name, gameToMove);
+			/*
 			switch(gameToMove) {
 			
 			case 1: addVisitorToRollerCoaster(toMove);
@@ -459,7 +460,7 @@ public class ParqueDelCafe implements Serializable{
 			break;
 			case 10: addVisitorToCumbre(toMove);
 			break;			
-			}
+			}*/
 		}
 		
 	}

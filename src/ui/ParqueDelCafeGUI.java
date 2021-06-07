@@ -1220,7 +1220,12 @@ public class ParqueDelCafeGUI{
     
     @FXML
     public void DeleteMontanaRusa(ActionEvent event) {
-
+    	
+    	parqueDelCafe.deleteVisitorInGame(tbMontanaRusaList.getSelectionModel().getSelectedItem().getName());;
+    	initializeMontanaRusaTableView();
+    	tbMontanaRusaList.refresh();
+    	
+    	
     }
     
     /*
@@ -1237,7 +1242,10 @@ public class ParqueDelCafeGUI{
 
     @FXML
     public void DeleteKarts(ActionEvent event) {
-
+    	
+    	parqueDelCafe.deleteVisitorInGame(tbKartsList.getSelectionModel().getSelectedItem().getName());
+    	initializeKartsTableView();
+    	tbKartsList.refresh();
     }
 
     @FXML
@@ -1262,7 +1270,10 @@ public class ParqueDelCafeGUI{
 
     @FXML
     public void DeleteMontanaAcuatica(ActionEvent event) {
-
+    	
+    	parqueDelCafe.deleteVisitorInGame(tbMontanaAcuaticaList.getSelectionModel().getSelectedItem().getName());
+    	initializeWaterMountainTableView();
+    	tbMontanaAcuaticaList.refresh();
     }
 
     @FXML
@@ -1287,7 +1298,10 @@ public class ParqueDelCafeGUI{
 
     @FXML
     public void DeleteYippe(ActionEvent event) {
-
+    	
+    	parqueDelCafe.deleteVisitorInGame(tbYippeList.getSelectionModel().getSelectedItem().getName());
+    	initializeYipeTableView();
+    	tbYippeList.refresh();
     }
 
     @FXML
@@ -1313,6 +1327,9 @@ public class ParqueDelCafeGUI{
     @FXML
     public void DeleteTorreCumbre(ActionEvent event) {
 
+    	parqueDelCafe.deleteVisitorInGame(tbTorreCumbreList.getSelectionModel().getSelectedItem().getName());
+    	initializeCumbreTableView();
+    	tbTorreCumbreList.refresh();
     }
 
     @FXML
@@ -1337,7 +1354,10 @@ public class ParqueDelCafeGUI{
 
     @FXML
     public void DeleteBotesChocones(ActionEvent event) {
-
+    	
+    	parqueDelCafe.deleteVisitorInGame(tbBotesChoconesList.getSelectionModel().getSelectedItem().getName());
+    	initializeCrashingBoatsTableView();
+    	tbBotesChoconesList.refresh();
     }
 
     @FXML
@@ -1363,7 +1383,10 @@ public class ParqueDelCafeGUI{
 
     @FXML
     public void DeleteRapidos(ActionEvent event) {
-
+    	
+    	parqueDelCafe.deleteVisitorInGame(tbRapidosList.getSelectionModel().getSelectedItem().getName());
+    	initializeFastTableView();
+    	tbRapidosList.refresh();
     }
 
     @FXML
@@ -1388,7 +1411,11 @@ public class ParqueDelCafeGUI{
 
     @FXML
     public void DeleteRueda(ActionEvent event) {
-
+    	
+    	parqueDelCafe.deleteVisitorInGame(tbRuedaList.getSelectionModel().getSelectedItem().getName());
+    	initializeWheelTableView();
+    	tbRuedaList.refresh();
+    	
     }
 
     @FXML
@@ -1414,6 +1441,9 @@ public class ParqueDelCafeGUI{
     @FXML
     public void DeleteCarrusel(ActionEvent event) {
 
+    	parqueDelCafe.deleteVisitorInGame(tbCarruselList.getSelectionModel().getSelectedItem().getName());
+    	initializeCarouselTableView();
+    	tbCarruselList.refresh();
     }
 
     @FXML
@@ -1439,6 +1469,9 @@ public class ParqueDelCafeGUI{
     @FXML
     public void DeleteKrater(ActionEvent event) {
 
+    	parqueDelCafe.deleteVisitorInGame(tbKraterList.getSelectionModel().getSelectedItem().getName());
+    	initializeKraterTableView();
+    	tbKraterList.refresh();
     }
 
     @FXML
