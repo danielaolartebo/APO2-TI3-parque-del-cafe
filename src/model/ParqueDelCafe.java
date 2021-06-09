@@ -27,10 +27,11 @@ public class ParqueDelCafe implements Serializable{
 	private Game mountain;
 	private Game cumbre;
 	//Food court
-	private FoodCourt heladerias;
-	private FoodCourt subway;
-	private FoodCourt parrilla;
-	private FoodCourt guadual;
+	//Hice el cambio de FoodCourt a Game debido a que poseen los mismos atributos
+	private Game heladerias;
+	private Game subway;
+	private Game parrilla;
+	private Game guadual;
 	//user
 	private CustomerAccount customer;
 		
@@ -68,10 +69,18 @@ public class ParqueDelCafe implements Serializable{
 		cumbre = new Game("Torre Cumbre");
 		mountain.setNextGame(cumbre);
 		
-		heladerias = new FoodCourt("Heladerias del Parque");
-		subway = new FoodCourt("Subway");
-		parrilla = new FoodCourt("Parrilla del Parque");
-		guadual = new FoodCourt("El Guadual");
+		heladerias = new Game("Heladerias del Parque");
+		cumbre.setNextGame(heladerias);
+		
+		subway = new Game("Subway");
+		heladerias.setNextGame(subway);
+		
+		parrilla = new Game("Parrilla del Parque");
+		subway.setNextGame(parrilla);
+		
+		guadual = new Game("El Guadual");
+		parrilla.setNextGame(guadual);
+		
 		planTotalPrice = 0;
 	}
 		
@@ -242,6 +251,10 @@ public class ParqueDelCafe implements Serializable{
 	 8: yipe - - -
 	 9:	montana acuatica - - -
 	 10: Cumbre - - -
+	 11: heladeria -
+	 12: subway - 
+	 13: parrilla -
+	 14: guadual -
 	 Tambien podria cambiarse tanto metodo addVisitantTo usando un switch con los mismos
 	 numeros, luego me dicen, att: Esteban UmU
 	 */
@@ -423,8 +436,22 @@ public class ParqueDelCafe implements Serializable{
 			
 			case 9: addVisitorToMontana(toMove);
 			break;
+			
 			case 10: addVisitorToCumbre(toMove);
 			break;
+			
+			case 11: addVisitorToIceCreamParlour(toMove);
+			break;
+			
+			case 12: addVisitorToSubway(toMove);
+			break;
+			
+			case 13: addVisitorToParillaDelParque(toMove);
+			break;
+			
+			case 14: addVisitorToGuadal(toMove);
+			break;
+			
 			}
 		}else {
 			deleteVisitorInGame(name);
@@ -675,6 +702,67 @@ public class ParqueDelCafe implements Serializable{
 		}
 		return currentVisitors;
 	}
+	public ArrayList<Visitor> createVisitorInIceCreamParlour(){
+		
+		ArrayList<Visitor> currentVisitors = new ArrayList<Visitor>();
+		
+		if(heladerias.getVisitors()!=null) {
+			currentVisitors.add(heladerias.getVisitors());
+			Visitor tmp = heladerias.getVisitors().getNextVisitorInGame();
+			while(tmp!=null){
+				currentVisitors.add(tmp);
+				tmp = tmp.getNextVisitorInGame();
+				System.out.println("Esta entrando parte 2");
+			}
+	
+		}
+		return currentVisitors;
+	}
+	public ArrayList<Visitor> createVisitorInParilla(){
+		ArrayList<Visitor> currentVisitors = new ArrayList<Visitor>();
+		
+		if(parrilla.getVisitors()!=null) {
+			currentVisitors.add(parrilla.getVisitors());
+			Visitor tmp = parrilla.getVisitors().getNextVisitorInGame();
+			while(tmp!=null){
+				currentVisitors.add(tmp);
+				tmp = tmp.getNextVisitorInGame();
+				System.out.println("Esta entrando parte 2");
+			}
+	
+		}
+		return currentVisitors;
+	}
+	public ArrayList<Visitor> createVisitorInSubway(){
+		ArrayList<Visitor> currentVisitors = new ArrayList<Visitor>();
+		
+		if(subway.getVisitors()!=null) {
+			currentVisitors.add(subway.getVisitors());
+			Visitor tmp = subway.getVisitors().getNextVisitorInGame();
+			while(tmp!=null){
+				currentVisitors.add(tmp);
+				tmp = tmp.getNextVisitorInGame();
+				System.out.println("Esta entrando parte 2");
+			}
+	
+		}
+		return currentVisitors;
+	}
+	public ArrayList<Visitor> createVisitorInGuadual(){
+		ArrayList<Visitor> currentVisitors = new ArrayList<Visitor>();
+		
+		if(guadual.getVisitors()!=null) {
+			currentVisitors.add(guadual.getVisitors());
+			Visitor tmp = guadual.getVisitors().getNextVisitorInGame();
+			while(tmp!=null){
+				currentVisitors.add(tmp);
+				tmp = tmp.getNextVisitorInGame();
+				System.out.println("Esta entrando parte 2");
+			}
+	
+		}
+		return currentVisitors;
+	}
 	private void addVisitorToCrashingBoats(Visitor toMove) {
 		if(crashingBoats.getVisitors()==null) {
 			
@@ -865,6 +953,89 @@ public class ParqueDelCafe implements Serializable{
 			System.out.println("Esta entrando parte 1.5");
 		}else {
 			addVisitorToRoallerCoaster(rollerCoaster.getVisitors(),toMove);
+		}
+	}
+	public void addVisitorToIceCreamParlour(Visitor toMove) {
+		
+		if(heladerias.getVisitors()==null) {
+			
+			heladerias.setVisitors(toMove);
+			toMove.setPlaying(true);
+			toMove.setInGame(heladerias);
+			System.out.println("Esta entrando parte 1.5");
+		}else {
+			addVisitorToIceCreamParlour(rollerCoaster.getVisitors(),toMove);
+		}
+	}
+	public void addVisitorToSubway(Visitor toMove) {
+		
+		if(subway.getVisitors()==null) {
+			
+			subway.setVisitors(toMove);
+			toMove.setPlaying(true);
+			toMove.setInGame(subway);
+			System.out.println("Esta entrando parte 1.5");
+		}else {
+			addVisitorToSubway(subway.getVisitors(),toMove);
+		}
+	}
+	public void addVisitorToGuadal(Visitor toMove) {
+		if(guadual.getVisitors()==null) {
+			
+			guadual.setVisitors(toMove);
+			toMove.setPlaying(true);
+			toMove.setInGame(guadual);
+			System.out.println("Esta entrando parte 1.5");
+		}else {
+			addVisitorToGuadual(guadual.getVisitors(),toMove);
+		}
+	}
+	public void addVisitorToParillaDelParque(Visitor toMove) {
+		if(parrilla.getVisitors()==null) {
+			
+			parrilla.setVisitors(toMove);
+			toMove.setPlaying(true);
+			toMove.setInGame(parrilla);
+			System.out.println("Esta entrando parte 1.5");
+		}else {
+			addVisitorToParillaDelParque(parrilla.getVisitors(),toMove);
+		}
+	}
+	private void addVisitorToIceCreamParlour(Visitor current, Visitor toMove) {
+		
+		if(current.getNextVisitorInGame()==null) {
+			current.setNextVisitorInGame(toMove);
+			toMove.setPlaying(true);
+			toMove.setInGame(karts);
+		}else {
+			addVisitorToIceCreamParlour(current.getNextVisitorInGame(), toMove);
+		}
+	}
+	private void addVisitorToSubway(Visitor current, Visitor toMove) {
+		if(current.getNextVisitorInGame()==null) {
+			current.setNextVisitorInGame(toMove);
+			toMove.setPlaying(true);
+			toMove.setInGame(karts);
+		}else {
+			addVisitorToSubway(current.getNextVisitorInGame(), toMove);
+		}
+	}
+	private void addVisitorToGuadual(Visitor current, Visitor toMove) {
+		if(current.getNextVisitorInGame()==null) {
+			current.setNextVisitorInGame(toMove);
+			toMove.setPlaying(true);
+			toMove.setInGame(karts);
+		}else {
+			addVisitorToGuadual(current.getNextVisitorInGame(), toMove);
+		}
+	}
+	private void addVisitorToParillaDelParque(Visitor current, Visitor toMove) {
+		if(current.getNextVisitorInGame()==null) {
+			current.setNextVisitorInGame(toMove);
+			toMove.setPlaying(true);
+			toMove.setInGame(karts);
+		}else {
+			addVisitorToParillaDelParque(current.getNextVisitorInGame(), toMove);
 		}
 	}
 	public Visitor findNextVisitorInGame(String name, Game game) {

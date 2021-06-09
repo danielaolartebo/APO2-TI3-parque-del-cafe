@@ -23,4 +23,16 @@ public class Game{
 	public void setVisitors(Visitor visitors) {
 		this.visitors = visitors;
 	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getOccupancy() {
+		return occupancy;
+	}
+	public void setOccupancy(int occupancy) {
+		this.occupancy = occupancy;
+	}
+	public String getName() {
+		return name;
+	}
 }
