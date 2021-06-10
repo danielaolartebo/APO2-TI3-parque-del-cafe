@@ -174,21 +174,39 @@ public class ParqueDelCafeGUI{
     @FXML
     private TableView<?> tbOccupancyList;
     @FXML
-    private TableColumn<?, ?> tcNumberOccupancy;
+    private TableColumn<?, ?> tcRusaOccupancy;
     @FXML
-    private TableColumn<?, ?> tcNameOccupancy;
+    private TableColumn<?, ?> tcKartsOccupancy;
     @FXML
-    private TableColumn<?, ?> tcAgeOccupancy;
+    private TableColumn<?, ?> tcAcuaticaOccupancy;
     @FXML
-    private TableColumn<?, ?> tcGenderOccupancy;
+    private TableColumn<?, ?> tcYippeOccupancy;
     @FXML
-    private TableColumn<?, ?> tcGamesOccupancy;
+    private TableColumn<?, ?> tcCumbreOccupancy;
     @FXML
-    private TableColumn<?, ?> tcFoodCourtOccupancy;
+    private TableColumn<?, ?> tcChoconesOccupancy;
     @FXML
-    private TableColumn<?, ?> tcParkingOccupancy;
+    private TableColumn<?, ?> tcRapidosOccupancy;
     @FXML
-    private TableColumn<?, ?> tcTotalPriceOccupancy;
+    private TableColumn<?, ?> tcRuedaOccupancy;
+    @FXML
+    private TableColumn<?, ?> tcCarruselOccupancy;
+    @FXML
+    private TableColumn<?, ?> tcKraterOccupancy;
+    @FXML
+    private TableColumn<?, ?> tcGuadualOccupancy;
+    @FXML
+    private TableColumn<?, ?> tcParrillaOccupancy;
+    @FXML
+    private TableColumn<?, ?> tcSubwayOccupancy;
+    @FXML
+    private TableColumn<?, ?> tcHeladeriasOccupancy;
+    @FXML
+    private TableColumn<?, ?> tcParqueaderoOccupancy;
+    @FXML
+    private ComboBox<?> searchFriendOccupancy;
+    @FXML
+    private Label friendNameOccupancy;
     
     // USER ACCOUNT TABLE VIEW
     
@@ -1126,6 +1144,11 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent menuPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(menuPane);
+    }
+    
+    @FXML
+    public void searchOptOccupancy(ActionEvent event) {
+
     }
     
     /*
