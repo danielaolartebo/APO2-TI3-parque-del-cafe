@@ -886,7 +886,7 @@ public class ParqueDelCafe implements Serializable{
 			toMove.setInGame(wheel);
 			System.out.println("Esta entrando parte 1.5");
 		}else {
-			addVisitorToWheel(rollerCoaster.getVisitors(),toMove);
+			addVisitorToWheel(wheel.getVisitors(),toMove);
 		}
 	}
 	private void addVisitorToWheel(Visitor current,Visitor toMove) {
