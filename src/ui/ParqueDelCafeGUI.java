@@ -700,6 +700,39 @@ public class ParqueDelCafeGUI{
 	   	tcTorreCumbreName.setCellValueFactory(new PropertyValueFactory<Visitor,String>("name"));
 	   	tbTorreCumbreList.refresh();
    }
+   public void initializeHeladeriaTableView() {
+	   
+	   ObservableList<Visitor> observableList;
+	   	observableList = FXCollections.observableArrayList(parqueDelCafe.createVisitorInIceCreamParlour());
+	   	tbHeladeriasList.setItems(observableList);
+	   	
+	   	tcHeladeriasName.setCellValueFactory(new PropertyValueFactory<Visitor,String>("name"));
+	   	tbHeladeriasList.refresh();
+   }
+   public void initializeSubwayTableView() {
+	   ObservableList<Visitor> observableList;
+	   	observableList = FXCollections.observableArrayList(parqueDelCafe.createVisitorInSubway());
+	   	tbSubwayList.setItems(observableList);
+	   	
+	   	tcSubwayName.setCellValueFactory(new PropertyValueFactory<Visitor,String>("name"));
+	   	tbSubwayList.refresh();
+   }
+   public void initializeParrillaTableView() {
+	   ObservableList<Visitor> observableList;
+	   	observableList = FXCollections.observableArrayList(parqueDelCafe.createVisitorInParilla());
+	   	tbParrillaList.setItems(observableList);
+	   	
+	   	tcParrillaName.setCellValueFactory(new PropertyValueFactory<Visitor,String>("name"));
+	   	tbParrillaList.refresh();
+   }
+   public void initializeGuadalTableView() {
+	   ObservableList<Visitor> observableList;
+	   	observableList = FXCollections.observableArrayList(parqueDelCafe.createVisitorInGuadual());
+	   	tbGuadualList.setItems(observableList);
+	   	
+	   	tcGuadualName.setCellValueFactory(new PropertyValueFactory<Visitor,String>("name"));
+	   	tbGuadualList.refresh();
+   }
    public void initializeIceCreamComboBox() {
 	   
 	   for(int i=0; i < parqueDelCafe.namesList().size();i++) {
@@ -1112,6 +1145,8 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent elGuadualPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(elGuadualPane);
+    	initializeGuadalComboBox();
+    	initializeGuadalTableView();
     }
 
     @FXML
@@ -1120,6 +1155,8 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent heladeriasDelParquePane = fxmlLoader.load();
     	mainPane.getChildren().setAll(heladeriasDelParquePane);
+    	initializeIceCreamComboBox();
+    	initializeHeladeriaTableView();
     }
 
     @FXML
@@ -1128,6 +1165,8 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent parrillaDelParquePane = fxmlLoader.load();
     	mainPane.getChildren().setAll(parrillaDelParquePane);
+    	initializeParrillaComboBox();
+    	initializeParrillaTableView();
     }
 
     @FXML
@@ -1136,6 +1175,8 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent subwayPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(subwayPane);
+    	initializeSubwayComboBox();
+    	initializeSubwayTableView();
     }
 
     @FXML
@@ -1540,12 +1581,19 @@ public class ParqueDelCafeGUI{
     
     @FXML
     public void AddGuadual(ActionEvent event) {
-
+    	
+    	parqueDelCafe.moveVisitor(namesGuadual.getValue(), 14);
+    	initializeGuadalTableView();
+    	tbGuadualList.refresh();
+    	
     }
 
     @FXML
     public void DeleteGuadual(ActionEvent event) {
-
+    	
+    	parqueDelCafe.deleteVisitorInGame(tbGuadualList.getSelectionModel().getSelectedItem().getName());
+    	initializeGuadalTableView();
+    	tbGuadualList.refresh();
     }
 
     @FXML
@@ -1562,12 +1610,18 @@ public class ParqueDelCafeGUI{
     
     @FXML
     public void AddParrilla(ActionEvent event) {
-
+    	
+    	parqueDelCafe.moveVisitor(namesParrilla.getValue(), 13);
+    	initializeParrillaTableView();
+    	tbParrillaList.refresh();
     }
 
     @FXML
     public void DeleteParrilla(ActionEvent event) {
-
+    	
+    	parqueDelCafe.deleteVisitorInGame(tbParrillaList.getSelectionModel().getSelectedItem().getName());
+    	initializeParrillaTableView();
+    	tbParrillaList.refresh();
     }
 
     @FXML
@@ -1584,12 +1638,18 @@ public class ParqueDelCafeGUI{
 
     @FXML
     public void AddSubway(ActionEvent event) {
-
+    	
+    	parqueDelCafe.moveVisitor(namesSubway.getValue(), 12);
+    	initializeSubwayTableView();
+    	tbSubwayList.refresh();
     }
 
     @FXML
     public void DeleteSubway(ActionEvent event) {
-
+    	
+    	parqueDelCafe.deleteVisitorInGame(tbSubwayList.getSelectionModel().getSelectedItem().getName());
+    	initializeSubwayTableView();
+    	tbSubwayList.refresh();
     }
 
     @FXML
@@ -1607,12 +1667,18 @@ public class ParqueDelCafeGUI{
     
     @FXML
     public void AddHeladerias(ActionEvent event) {
-
+    	
+    	parqueDelCafe.moveVisitor(namesHeladerias.getValue(), 11);
+    	initializeHeladeriaTableView();
+    	tbHeladeriasList.refresh();
     }
 
     @FXML
     public void DeleteHeladerias(ActionEvent event) {
-
+    	
+    	parqueDelCafe.deleteVisitorInGame(tbHeladeriasList.getSelectionModel().getSelectedItem().getName());
+    	initializeHeladeriaTableView();
+    	tbHeladeriasList.refresh();
     }
 
     @FXML
