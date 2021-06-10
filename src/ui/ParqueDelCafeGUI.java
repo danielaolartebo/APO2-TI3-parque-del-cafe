@@ -38,6 +38,7 @@ import javafx.scene.control.ToggleGroup;
 import model.CustomerAccount;
 import model.ParqueDelCafe;
 import model.Visitor;
+import thread.ParqueDelCafeThread;
 
 public class ParqueDelCafeGUI{
 
@@ -353,13 +354,15 @@ public class ParqueDelCafeGUI{
     @FXML
     private ComboBox<String> namesHeladerias;
     
-    
+    // Threads
+    private ParqueDelCafeThread pdct;
     
 	private ParqueDelCafe parqueDelCafe;
 	public final static String SAVE_PATH_FILE = "data.parqueDelCafe.csv";
 	
 	public ParqueDelCafeGUI(ParqueDelCafe pdc) {
 		parqueDelCafe = pdc;
+		pdct = new ParqueDelCafeThread(pdc, this, 60000);
 	}
 	
 	/*
@@ -936,6 +939,13 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent menuPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(menuPane);
+    	try {
+			pdct.sleep(2000);
+		} catch (InterruptedException e) {
+			
+			e.printStackTrace();
+		}
+    	pdct.run();
     }
 
     @FXML

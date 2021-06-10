@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -1077,6 +1078,53 @@ public class ParqueDelCafe implements Serializable{
 			findPreVisitor.setNextVisitorInGame(nextVisitor);
 			toDelete.setNextVisitorInGame(null);
 			toDelete.setPlaying(false);
+		}
+	}
+	public void takeOutFromGame() {
+		
+		ArrayList<Visitor> visitors = createVisitorList();
+		int size = visitors.size();
+		int first = 0;
+		int random = (int)((Math.random()*(size-first))+first);
+		Visitor visitorInPosition = visitors.get(random);
+		String name = visitorInPosition.getName();
+		deleteVisitorInGame(name);
+		
+	}
+	public int countAmountOfGames() {
+		
+		int games = 0;
+		
+		games = countAmountOfGames(games, rollerCoaster);
+		
+		
+		return games;
+	}
+	private int countAmountOfGames(int current, Game currentGame) {
+		
+		if(currentGame != null) {
+			
+			current+=1;
+			current = countAmountOfGames(current,currentGame.getnextGame());
+		}
+		return current;
+	}
+	
+	public void addPeopleToGame() {
+		
+		LocalTime current = java.time.LocalTime.now();
+		LocalTime toCompare = LocalTime.of(12,0,0,0);
+		LocalTime toCompare2 = LocalTime.of(15,0,0,0);
+		LocalTime toCompare3 = LocalTime.of(18, 0,0,0);
+		LocalTime toCompare4 = LocalTime.of(23, 0,0,0);
+		int resultOfToCompare = current.compareTo(toCompare);
+		int resultOfToCompare2 = current.compareTo(toCompare2);
+		int resultOfToCompare3 = current.compareTo(toCompare3);
+		int resultOfToCompare4 = current.compareTo(toCompare4);
+		
+		if(resultOfToCompare <=0) {
+			
+			
 		}
 	}
 }
