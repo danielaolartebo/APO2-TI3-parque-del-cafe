@@ -810,7 +810,7 @@ public class ParqueDelCafe implements Serializable{
 			System.out.println("Esta entrando parte 1.5");
 			toMove.setInGame(krater);
 		}else {
-			addVisitorToKrater(carousel.getVisitors(),toMove);
+			addVisitorToKrater(krater.getVisitors(),toMove);
 		}
 	}
 	private void addVisitorToKrater(Visitor current,Visitor toMove) {
@@ -1060,7 +1060,7 @@ public class ParqueDelCafe implements Serializable{
 	}
 	public void deleteVisitorInGame(String name) {
 		
-		Game gameToSearch = findGame(getVisitor(name), carousel);
+		Game gameToSearch = findGame(getVisitor(name), rollerCoaster);
 		Visitor toDelete = getVisitor(name);
 		Visitor findPreVisitor = findNextVisitorInGame(name, gameToSearch);
 		Visitor nextVisitor = getVisitor(name).getNextVisitorInGame();
