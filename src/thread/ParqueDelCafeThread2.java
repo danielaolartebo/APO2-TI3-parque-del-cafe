@@ -3,7 +3,7 @@ package thread;
 import model.ParqueDelCafe;
 import ui.ParqueDelCafeGUI;
 
-public class ParqueDelCafeThread2 {
+public class ParqueDelCafeThread2 extends Thread{
 	
 	private ParqueDelCafe pdc;
 	
@@ -18,6 +18,14 @@ public class ParqueDelCafeThread2 {
 	}
 	public void run() {
 		
+		pdc.addPeopleToGame();
+		
+		try {
+			Thread.sleep(sleepTime);
+		} catch (InterruptedException e) {
+		
+			e.printStackTrace();
+		}
 		
 	}
 }

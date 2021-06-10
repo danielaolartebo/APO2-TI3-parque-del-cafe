@@ -39,6 +39,7 @@ import model.CustomerAccount;
 import model.ParqueDelCafe;
 import model.Visitor;
 import thread.ParqueDelCafeThread;
+import thread.ParqueDelCafeThread2;
 
 public class ParqueDelCafeGUI{
 
@@ -356,6 +357,7 @@ public class ParqueDelCafeGUI{
     
     // Threads
     private ParqueDelCafeThread pdct;
+    private ParqueDelCafeThread2 pdct2;
     
 	private ParqueDelCafe parqueDelCafe;
 	public final static String SAVE_PATH_FILE = "data.parqueDelCafe.csv";
@@ -363,6 +365,7 @@ public class ParqueDelCafeGUI{
 	public ParqueDelCafeGUI(ParqueDelCafe pdc) {
 		parqueDelCafe = pdc;
 		pdct = new ParqueDelCafeThread(pdc, this, 60000);
+		pdct2 = new ParqueDelCafeThread2(pdc, this, 6000);
 	}
 	
 	/*
@@ -933,7 +936,8 @@ public class ParqueDelCafeGUI{
     	tbPlanList.refresh();
     }
 
-    @FXML
+    @SuppressWarnings("static-access")
+	@FXML
     public void planContinue(ActionEvent event) throws IOException {
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu.fxml"));
     	fxmlLoader.setController(this);
@@ -941,11 +945,13 @@ public class ParqueDelCafeGUI{
     	mainPane.getChildren().setAll(menuPane);
     	try {
 			pdct.sleep(2000);
+			pdct2.sleep(2000);
 		} catch (InterruptedException e) {
 			
 			e.printStackTrace();
 		}
     	pdct.run();
+    	pdct2.run();
     }
 
     @FXML
