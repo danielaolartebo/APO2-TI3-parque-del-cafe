@@ -499,7 +499,6 @@ public class ParqueDelCafe implements Serializable{
 		}else {
 			return findGame(toMove, current.getnextGame());
 		}
-		
 	
 	}
 
@@ -529,7 +528,7 @@ public class ParqueDelCafe implements Serializable{
 		
 		if(cumbre.getVisitors()==null) {
 			
-			 cumbre.setVisitors(toMove);
+			cumbre.setVisitors(toMove);
 			toMove.setPlaying(true);
 			toMove.setInGame(cumbre);
 			System.out.println("Esta entrando parte 1.5");
