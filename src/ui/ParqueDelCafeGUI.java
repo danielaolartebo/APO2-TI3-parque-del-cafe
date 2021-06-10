@@ -174,21 +174,39 @@ public class ParqueDelCafeGUI{
     @FXML
     private TableView<?> tbOccupancyList;
     @FXML
-    private TableColumn<?, ?> tcNumberOccupancy;
+    private TableColumn<?, ?> tcRusaOccupancy;
     @FXML
-    private TableColumn<?, ?> tcNameOccupancy;
+    private TableColumn<?, ?> tcKartsOccupancy;
     @FXML
-    private TableColumn<?, ?> tcAgeOccupancy;
+    private TableColumn<?, ?> tcAcuaticaOccupancy;
     @FXML
-    private TableColumn<?, ?> tcGenderOccupancy;
+    private TableColumn<?, ?> tcYippeOccupancy;
     @FXML
-    private TableColumn<?, ?> tcGamesOccupancy;
+    private TableColumn<?, ?> tcCumbreOccupancy;
     @FXML
-    private TableColumn<?, ?> tcFoodCourtOccupancy;
+    private TableColumn<?, ?> tcChoconesOccupancy;
     @FXML
-    private TableColumn<?, ?> tcParkingOccupancy;
+    private TableColumn<?, ?> tcRapidosOccupancy;
     @FXML
-    private TableColumn<?, ?> tcTotalPriceOccupancy;
+    private TableColumn<?, ?> tcRuedaOccupancy;
+    @FXML
+    private TableColumn<?, ?> tcCarruselOccupancy;
+    @FXML
+    private TableColumn<?, ?> tcKraterOccupancy;
+    @FXML
+    private TableColumn<?, ?> tcGuadualOccupancy;
+    @FXML
+    private TableColumn<?, ?> tcParrillaOccupancy;
+    @FXML
+    private TableColumn<?, ?> tcSubwayOccupancy;
+    @FXML
+    private TableColumn<?, ?> tcHeladeriasOccupancy;
+    @FXML
+    private TableColumn<?, ?> tcParqueaderoOccupancy;
+    @FXML
+    private ComboBox<?> searchFriendOccupancy;
+    @FXML
+    private Label friendNameOccupancy;
     
     // USER ACCOUNT TABLE VIEW
     
@@ -302,38 +320,38 @@ public class ParqueDelCafeGUI{
     // EL GUADUAL MINI TABLE VIEW
     
     @FXML
-    private TableView<?> tbGuadualList;
+    private TableView<Visitor> tbGuadualList;
     @FXML
-    private TableColumn<?, ?> tcGuadualName;
+    private TableColumn<Visitor, String> tcGuadualName;
     @FXML
-    private ComboBox<?> namesGuadual;
+    private ComboBox<String> namesGuadual;
     
     // PARRILLA DEL PARQUE MINI TABLE VIEW
     
     @FXML
-    private TableView<?> tbParrillaList;
+    private TableView<Visitor> tbParrillaList;
     @FXML
-    private TableColumn<?, ?> tcParrillaName;
+    private TableColumn<Visitor, String> tcParrillaName;
     @FXML
-    private ComboBox<?> namesParrilla;
+    private ComboBox<String> namesParrilla;
     
     // SUBWAY DEL PARQUE MINI TABLE VIEW
     
     @FXML
-    private TableView<?> tbSubwayList;
+    private TableView<Visitor> tbSubwayList;
     @FXML
-    private TableColumn<?, ?> tcSubwayName;
+    private TableColumn<Visitor, String> tcSubwayName;
     @FXML
-    private ComboBox<?> namesSubway;
+    private ComboBox<String> namesSubway;
     
     // HELADER�AS DEL PARQUE MINI TABLE VIEW
     
     @FXML
-    private TableView<?> tbHeladeriasList;
+    private TableView<Visitor> tbHeladeriasList;
     @FXML
-    private TableColumn<?, ?> tcHeladeriasName;
+    private TableColumn<Visitor, String> tcHeladeriasName;
     @FXML
-    private ComboBox<?> namesHeladerias;
+    private ComboBox<String> namesHeladerias;
     
     
     
@@ -681,6 +699,35 @@ public class ParqueDelCafeGUI{
 	   	
 	   	tcTorreCumbreName.setCellValueFactory(new PropertyValueFactory<Visitor,String>("name"));
 	   	tbTorreCumbreList.refresh();
+   }
+   public void initializeIceCreamComboBox() {
+	   
+	   for(int i=0; i < parqueDelCafe.namesList().size();i++) {
+		   String name = parqueDelCafe.namesList().get(i);
+		   namesHeladerias.getItems().add(name);
+		   System.out.println(name);
+	   }
+   }
+   public void initializeGuadalComboBox() {
+	   for(int i=0; i < parqueDelCafe.namesList().size();i++) {
+		   String name = parqueDelCafe.namesList().get(i);
+		   namesGuadual.getItems().add(name);
+		   System.out.println(name);
+	   }
+   }
+   public void initializeSubwayComboBox() {
+	   for(int i=0; i < parqueDelCafe.namesList().size();i++) {
+		   String name = parqueDelCafe.namesList().get(i);
+		   namesSubway.getItems().add(name);
+		   System.out.println(name);
+	   }
+   }
+   public void initializeParrillaComboBox() {
+	   for(int i=0; i < parqueDelCafe.namesList().size();i++) {
+		   String name = parqueDelCafe.namesList().get(i);
+		   namesParrilla.getItems().add(name);
+		   System.out.println(name);
+	   }
    }
    public void initializeYipeTableView() {
 	   
@@ -1126,6 +1173,11 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent menuPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(menuPane);
+    }
+    
+    @FXML
+    public void searchOptOccupancy(ActionEvent event) {
+
     }
     
     /*

@@ -498,7 +498,6 @@ public class ParqueDelCafe implements Serializable{
 		}else {
 			return findGame(toMove, current.getnextGame());
 		}
-		
 	
 	}
 
@@ -528,7 +527,7 @@ public class ParqueDelCafe implements Serializable{
 		
 		if(cumbre.getVisitors()==null) {
 			
-			 cumbre.setVisitors(toMove);
+			cumbre.setVisitors(toMove);
 			toMove.setPlaying(true);
 			toMove.setInGame(cumbre);
 			System.out.println("Esta entrando parte 1.5");
@@ -670,6 +669,8 @@ public class ParqueDelCafe implements Serializable{
 			fast.setVisitors(toMove);
 			toMove.setPlaying(true);
 			toMove.setInGame(fast);
+			int people = fast.getOccupancy();
+			fast.setOccupancy(people+1);
 			System.out.println("Esta entrando parte 1.5");
 		}else {
 			addVisitorToFast(fast.getVisitors(),toMove);
@@ -682,6 +683,8 @@ public class ParqueDelCafe implements Serializable{
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
 			toMove.setInGame(fast);
+			int people = fast.getOccupancy();
+			fast.setOccupancy(people+1);
 		}else {
 			addVisitorToFast(current.getNextVisitorInGame(), toMove);
 		}
@@ -810,7 +813,7 @@ public class ParqueDelCafe implements Serializable{
 			System.out.println("Esta entrando parte 1.5");
 			toMove.setInGame(krater);
 		}else {
-			addVisitorToKrater(carousel.getVisitors(),toMove);
+			addVisitorToKrater(krater.getVisitors(),toMove);
 		}
 	}
 	private void addVisitorToKrater(Visitor current,Visitor toMove) {
@@ -886,7 +889,7 @@ public class ParqueDelCafe implements Serializable{
 			toMove.setInGame(wheel);
 			System.out.println("Esta entrando parte 1.5");
 		}else {
-			addVisitorToWheel(rollerCoaster.getVisitors(),toMove);
+			addVisitorToWheel(wheel.getVisitors(),toMove);
 		}
 	}
 	private void addVisitorToWheel(Visitor current,Visitor toMove) {
@@ -1060,7 +1063,7 @@ public class ParqueDelCafe implements Serializable{
 	}
 	public void deleteVisitorInGame(String name) {
 		
-		Game gameToSearch = findGame(getVisitor(name), carousel);
+		Game gameToSearch = findGame(getVisitor(name), rollerCoaster);
 		Visitor toDelete = getVisitor(name);
 		Visitor findPreVisitor = findNextVisitorInGame(name, gameToSearch);
 		Visitor nextVisitor = getVisitor(name).getNextVisitorInGame();

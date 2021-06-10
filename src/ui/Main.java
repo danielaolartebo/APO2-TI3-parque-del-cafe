@@ -43,7 +43,7 @@ public class Main extends Application{
 		
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
-		primaryStage.setTitle("El Parque Del Caf�");
+		primaryStage.setTitle("El Parque Del Cafe");
 		primaryStage.show();
 		
 		primaryStage.setMinHeight(640);
