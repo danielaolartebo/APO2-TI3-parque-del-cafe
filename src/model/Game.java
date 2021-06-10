@@ -10,6 +10,7 @@ public class Game{
 	
 	public Game(String name) {
 		this.name = name;
+		occupancy = 0;
 	}
 	public Game getnextGame() {
 		return nextGame;

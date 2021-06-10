@@ -670,6 +670,8 @@ public class ParqueDelCafe implements Serializable{
 			fast.setVisitors(toMove);
 			toMove.setPlaying(true);
 			toMove.setInGame(fast);
+			int people = fast.getOccupancy();
+			fast.setOccupancy(people+1);
 			System.out.println("Esta entrando parte 1.5");
 		}else {
 			addVisitorToFast(fast.getVisitors(),toMove);
@@ -682,6 +684,8 @@ public class ParqueDelCafe implements Serializable{
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
 			toMove.setInGame(fast);
+			int people = fast.getOccupancy();
+			fast.setOccupancy(people+1);
 		}else {
 			addVisitorToFast(current.getNextVisitorInGame(), toMove);
 		}
