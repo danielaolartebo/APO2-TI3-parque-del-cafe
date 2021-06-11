@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -1078,4 +1079,132 @@ public class ParqueDelCafe implements Serializable{
 			toDelete.setPlaying(false);
 		}
 	}
+	public void takeOutFromGame() {
+		
+		ArrayList<Visitor> visitors = createVisitorList();
+		int size = visitors.size();
+		int first = 0;
+		int random = (int)((Math.random()*(size-first))+first);
+		Visitor visitorInPosition = visitors.get(random);
+		String name = visitorInPosition.getName();
+		deleteVisitorInGame(name);
+		
+	}
+	public int countAmountOfGames() {
+		
+		int games = 0;
+		
+		games = countAmountOfGames(games, rollerCoaster);
+		
+		
+		return games;
+	}
+	private int countAmountOfGames(int current, Game currentGame) {
+		
+		if(currentGame != null) {
+			
+			current+=1;
+			current = countAmountOfGames(current,currentGame.getnextGame());
+		}
+		return current;
+	}
+	public Game findGameinPostion(int pos) {
+		
+		if(pos==1) {
+			
+			return rollerCoaster;
+		}
+		else {
+			
+			return findGameInPosition(pos, pos+1, rollerCoaster.getnextGame());
+		}
+	}
+	private Game findGameInPosition(int toFind, int current, Game currentGame) {
+		
+		if(current==toFind) {
+			return currentGame;
+			
+		}else {
+			return findGameInPosition(toFind, current+1, currentGame.getnextGame());
+		}	
+	}
+	public void addPeopleToGame() {
+		
+		LocalTime current = java.time.LocalTime.now();
+		LocalTime toCompare = LocalTime.of(12,0,0,0);
+		LocalTime toCompare2 = LocalTime.of(15,0,0,0);
+		LocalTime toCompare3 = LocalTime.of(18, 0,0,0);
+
+		int totalGames = countAmountOfGames();
+		int resultOfToCompare = current.compareTo(toCompare);
+		int resultOfToCompare2 = current.compareTo(toCompare2);
+		int resultOfToCompare3 = current.compareTo(toCompare3);
+		int gameToAdd = (int)((Math.random()*(totalGames-0))+0);
+		Game game = findGameinPostion(gameToAdd);
+		if(resultOfToCompare <=0) {
+			
+			int amountToAdd = (int)((Math.random()*(10-2))+2);
+			game.setOccupancy(game.getOccupancy()+amountToAdd);
+		}else if(resultOfToCompare>=1 && resultOfToCompare2<=0) {
+			
+			int amountToAdd = (int)((Math.random()*(18-4))+4);
+			game.setOccupancy(game.getOccupancy()+amountToAdd);
+			
+		}else if(resultOfToCompare2>=1 && resultOfToCompare3<=0) {
+			
+			int amountToAdd = (int)((Math.random()*(13-6))+6);
+			game.setOccupancy(game.getOccupancy()+amountToAdd);
+		}else {
+			int amountToAdd = (int)((Math.random()*(5-0))+0);
+			game.setOccupancy(game.getOccupancy()+amountToAdd);
+		}
+	}
+	public String findVisitorBinary(String name) {
+		
+		
+		int found = -1;
+		
+		int i = 0;
+			
+		ArrayList<Visitor> visitors = createVisitorList();
+		
+		int j =  visitors.size()-1;
+		
+		int m = 0;
+		
+		Visitor getVisitor = getVisitor(name);
+		
+		long toFind = getVisitor.getCode();
+		
+		
+		while(found<0 && i<=j) {
+		
+			m = (j+i)/2;	
+			
+			long current = visitors.get(m).getCode();
+			
+			if(toFind==current) {
+				
+				found = 1;
+				
+			}else if(toFind>current){
+				
+				i = m+1;
+				
+			}else if((current)>toFind){
+				
+				j = m-1;
+				
+			}			
+		}
+		String toReturn = "";
+		if(visitors.get(m).getInGame().getName()==null) {
+			toReturn = "Descansando";
+		}else {
+			toReturn = visitors.get(m).getInGame().getName();	
+		}		
+		
+		return toReturn;
+		
+}
 }
