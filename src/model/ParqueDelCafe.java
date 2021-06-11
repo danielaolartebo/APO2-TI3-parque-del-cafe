@@ -1,5 +1,12 @@
 package model;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -11,7 +18,8 @@ import java.util.List;
 public class ParqueDelCafe implements Serializable{
 		
 	private static final long serialVersionUID = 1;
-		
+	public final static String USERS_SAVE_PATH_FILE = "data/users.parqueDelCafe";	
+	
 	private int planTotalPrice;
 	private List<CustomerAccount> customers;
 	private List<Parking> parkings;
@@ -82,9 +90,9 @@ public class ParqueDelCafe implements Serializable{
 		planTotalPrice = 0;
 	}
 		
-	public void addCustomer(String userName, String password, String name, String gender, int age) {
+	public void addCustomer(String userName, String password, String name, String gender, int age) throws FileNotFoundException, IOException {
 		customers.add(new CustomerAccount(userName, password, name, gender, age));
-			
+		saveData();	
 	}
 		
 	public List<CustomerAccount> getCustomers(){
@@ -1262,5 +1270,25 @@ public class ParqueDelCafe implements Serializable{
 		Collections.sort(games,occupancyAndNamesComparator);
 		
 		return games;
+	}
+	public void saveData() throws FileNotFoundException, IOException {
+		
+		ObjectOutputStream ooo = new ObjectOutputStream(new FileOutputStream(USERS_SAVE_PATH_FILE));
+		
+		ooo.writeObject(customers);
+		ooo.close();
+	}
+	@SuppressWarnings("unchecked")
+	public void loadData() throws FileNotFoundException, IOException, ClassNotFoundException {
+		
+		File f = new File(USERS_SAVE_PATH_FILE);
+		if(f.exists()) {
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(USERS_SAVE_PATH_FILE));
+			customers = (List<CustomerAccount>)ois.readObject();
+			ois.close();
+		}else {
+			
+		}
+		
 	}
 }

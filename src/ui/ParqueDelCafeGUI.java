@@ -290,7 +290,7 @@ public class ParqueDelCafeGUI{
     private TableColumn<Visitor, String> tcBotesChoconesName;
     @FXML
     private ComboBox<String> namesBotesChocones;
-    
+   
     // RAPIDOS MINI TABLE VIEW
     
     @FXML
@@ -384,6 +384,7 @@ public class ParqueDelCafeGUI{
     	ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(SAVE_PATH_FILE));
     	oos.writeObject(parqueDelCafe);
     	oos.close();
+
     }
     
     public void loadData() throws IOException, ClassNotFoundException{
@@ -392,6 +393,7 @@ public class ParqueDelCafeGUI{
     		ObjectInputStream ois = new ObjectInputStream(new FileInputStream(SAVE_PATH_FILE));
     		parqueDelCafe = (ParqueDelCafe)ois.readObject();
     		ois.close();
+    		parqueDelCafe.loadData();
     	}
     }
     
