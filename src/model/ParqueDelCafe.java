@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -13,8 +14,6 @@ public class ParqueDelCafe implements Serializable{
 		
 	private int planTotalPrice;
 	private List<CustomerAccount> customers;
-	private List<Game> games;
-	private List<FoodCourt> foods;
 	private List<Parking> parkings;
 	//Games
 	private Game rollerCoaster;
@@ -38,8 +37,6 @@ public class ParqueDelCafe implements Serializable{
 		
 	public ParqueDelCafe() {
 		customers = new ArrayList<>();
-		games = new ArrayList<>();
-		foods = new ArrayList<>();
 		parkings = new ArrayList<>();
 		rollerCoaster = new Game("Monta�a Rusa");
 		
@@ -168,6 +165,20 @@ public class ParqueDelCafe implements Serializable{
 			}
 		}
 		return visitorList;
+	}
+	public ArrayList<Game> createGamesList(){
+		
+		ArrayList<Game> gameList = new ArrayList<Game>();
+		
+		if(rollerCoaster !=null) {
+			gameList.add(rollerCoaster);
+			Game tmp = rollerCoaster.getnextGame();
+			while(tmp!=null) {
+				gameList.add(tmp);
+				tmp = tmp.getnextGame();
+			}
+		}
+		return gameList;
 	}
 	public ArrayList<String> namesList(){
 		
@@ -1242,5 +1253,14 @@ public class ParqueDelCafe implements Serializable{
 		
 		return visitors;
 		
+	}
+	
+	public ArrayList<Game> sortGamesByOccupancyAndName(){
+		
+		ArrayList<Game> games = createGamesList();
+		Comparator<Game> occupancyAndNamesComparator = new GamesVisitorsNamesComparator();
+		Collections.sort(games,occupancyAndNamesComparator);
+		
+		return games;
 	}
 }
