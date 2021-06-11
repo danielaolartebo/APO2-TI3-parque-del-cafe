@@ -28,6 +28,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -36,6 +37,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
 import model.CustomerAccount;
+import model.Parking;
 import model.ParqueDelCafe;
 import model.Visitor;
 import thread.ParqueDelCafeThread;
@@ -116,6 +118,12 @@ public class ParqueDelCafeGUI{
     @FXML
     private Label lbChooserUser;
     
+    //PARKING CAR
+    
+    @FXML
+    private ImageView car1;
+    
+    private Parking parking;
     
     // PLAN MINI TABLE VIEW 
     
@@ -1216,11 +1224,48 @@ public class ParqueDelCafeGUI{
      *****************************************************************************************************NINETH SCREEN PARKING (parking.fxml) ******************************************************************************
      */
     
+    public void initializeCar() {
+    	parking = new Parking(car1.getLayoutX(),car1.getLayoutY());
+    }
+    
+    // SPACES (2,8,13,16,18,20,23,27,28,30,31,34,36,39)
     @FXML
     public void optSelectParking(ActionEvent event) {
-
+    	int number = Integer.parseInt(txtParkingNumber.getText());
+    	
+    	if(number<=40 && number>0) {
+    		if(number==2) {
+    			
+    		}else if(number==8){
+    			
+    		}else if(number==13){
+    			
+    		}else if(number==16){
+    		}else if(number==18){
+    			
+    		}else if(number==20){
+    			
+    		}else if(number==23){
+    		}else if(number==27){
+    			
+    		}else if(number==28){
+    			
+    		}else if(number==30){
+    		}else if(number==8){
+    			
+    		}else if(number==13){
+    			
+    		}else if(number==16){
+    		}
+    		
+    	}else {
+    		
+    	}
+    	
     }
-
+    
+    
+    
     @FXML
     public void sub7GoBack(ActionEvent event) throws IOException {
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu.fxml"));
