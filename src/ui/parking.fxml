@@ -12,7 +12,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="parkingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="parkingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.ParqueDelCafeGUI">
    <center>
       <Pane prefHeight="364.0" prefWidth="600.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
@@ -287,6 +287,141 @@
             <ImageView fitHeight="181.0" fitWidth="401.0" layoutY="431.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../docs/parq.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="273.0" layoutY="272.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="568.0" layoutY="272.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="645.0" layoutY="272.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="721.0" layoutY="272.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="455.0" layoutY="272.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="421.0" layoutY="272.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="380.0" layoutY="272.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="62.0" layoutY="174.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="54.0" layoutY="272.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="128.0" layoutY="272.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="165.0" layoutY="272.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="202.0" layoutY="272.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="236.0" layoutY="272.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="345.0" layoutY="272.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="133.0" layoutY="174.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="236.0" layoutY="174.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="353.0" layoutY="174.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="455.0" layoutY="174.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="568.0" layoutY="174.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="528.0" layoutY="272.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="721.0" layoutY="174.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="758.0" layoutY="174.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="645.0" layoutY="174.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="169.0" layoutY="174.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="313.0" layoutY="174.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="43.0" layoutX="609.0" layoutY="174.0">
+               <image>
+                  <Image url="@../../docs/coche-blanco-arriba.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="car1" fitHeight="81.0" fitWidth="69.0" layoutX="78.0" layoutY="271.0">
+               <image>
+                  <Image url="@../../docs/coche.png" />
                </image>
             </ImageView>
          </children>
