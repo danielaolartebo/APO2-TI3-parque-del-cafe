@@ -1159,6 +1159,32 @@ public class ParqueDelCafe implements Serializable{
 			game.setOccupancy(game.getOccupancy()+amountToAdd);
 		}
 	}
+	
+	public ArrayList<Visitor> visitorsSortedById(){
+		
+		ArrayList<Visitor> visitorsToSort = createVisitorList();
+		
+		for(int i=1; i < visitorsToSort.size();i++) {
+			
+			Visitor visitorToUse = visitorsToSort.get(i);
+			boolean ended = false;
+			
+			for(int j=i; j > 0 && !ended;j--) {
+				
+				Visitor current = visitorsToSort.get(j-1);
+				
+				if(current.compareVisitantsbyId(visitorToUse)>0) {
+					
+					visitorsToSort.set(j, current);
+					visitorsToSort.set(j-1, visitorToUse);
+				}else {
+					ended = true;
+				}
+			}
+		}
+		
+		return visitorsToSort;
+	}
 	public String findVisitorBinary(String name) {
 		
 		
@@ -1166,7 +1192,7 @@ public class ParqueDelCafe implements Serializable{
 		
 		int i = 0;
 			
-		ArrayList<Visitor> visitors = createVisitorList();
+		ArrayList<Visitor> visitors = visitorsSortedById();
 		
 		int j =  visitors.size()-1;
 		

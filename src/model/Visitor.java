@@ -99,4 +99,15 @@ public class Visitor {
 	public long getCode() {
 		return code;
 	}
+	public int compareVisitantsbyId(Visitor  anotherVisitor) {
+		
+	if(code == anotherVisitor.getCode()) {	
+		
+			return 0;
+		}else if(code>anotherVisitor.getCode()) {
+			return 1;
+		}else {
+			return -1;
+		}
+	}
 }
