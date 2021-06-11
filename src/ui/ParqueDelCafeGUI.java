@@ -206,7 +206,7 @@ public class ParqueDelCafeGUI{
     @FXML
     private TableColumn<?, ?> tcParqueaderoOccupancy;
     @FXML
-    private ComboBox<?> searchFriendOccupancy;
+    private ComboBox<String> searchFriendOccupancy;
     @FXML
     private Label friendNameOccupancy;
     
@@ -641,6 +641,14 @@ public class ParqueDelCafeGUI{
 	   }
 	   
    }
+   public void initializeFriendSearchComboBox() {
+	   
+	   for(int i=0; i < parqueDelCafe.namesList().size();i++) {
+		   String name = parqueDelCafe.namesList().get(i);
+		   searchFriendOccupancy.getItems().add(name);
+		   System.out.println(name);
+	   }
+   }
    public void initializeWaterMountainTableView() {
 	   
 	   ObservableList<Visitor> observableList;
@@ -1006,6 +1014,7 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent occupancyPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(occupancyPane);
+    	initializeFriendSearchComboBox();
     }
     
     @FXML
@@ -1234,7 +1243,9 @@ public class ParqueDelCafeGUI{
     
     @FXML
     public void searchOptOccupancy(ActionEvent event) {
-
+    	
+    	String toSet = parqueDelCafe.findVisitorBinary(searchFriendOccupancy.getValue());
+    	friendNameOccupancy.setText(toSet);
     }
     
     /*

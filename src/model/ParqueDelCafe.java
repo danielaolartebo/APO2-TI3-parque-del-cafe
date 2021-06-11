@@ -1160,4 +1160,52 @@ public class ParqueDelCafe implements Serializable{
 			game.setOccupancy(game.getOccupancy()+amountToAdd);
 		}
 	}
+	public String findVisitorBinary(String name) {
+		
+		
+		int found = -1;
+		
+		int i = 0;
+			
+		ArrayList<Visitor> visitors = createVisitorList();
+		
+		int j =  visitors.size()-1;
+		
+		int m = 0;
+		
+		Visitor getVisitor = getVisitor(name);
+		
+		long toFind = getVisitor.getCode();
+		
+		
+		while(found<0 && i<=j) {
+		
+			m = (j+i)/2;	
+			
+			long current = visitors.get(m).getCode();
+			
+			if(toFind==current) {
+				
+				found = 1;
+				
+			}else if(toFind>current){
+				
+				i = m+1;
+				
+			}else if((current)>toFind){
+				
+				j = m-1;
+				
+			}			
+		}
+		String toReturn = "";
+		if(visitors.get(m).getInGame().getName()==null) {
+			toReturn = "Descansando";
+		}else {
+			toReturn = visitors.get(m).getInGame().getName();	
+		}		
+		
+		return toReturn;
+		
+}
 }

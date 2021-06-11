@@ -12,6 +12,8 @@ public class Visitor {
 	
 	private Boolean playing;
 	
+	private long code;
+	
 	private Visitor nextVisitor;
 	
 	private Visitor nextVisitorInGame;
@@ -25,6 +27,8 @@ public class Visitor {
 		this.gender = gender;
 		playing = false;
 		inGame = null;
+		code = (long)((Math.random()*(1000000-00000001))+00000001);
+		
 	}
 	public String getName() {
 		return name;
@@ -91,5 +95,8 @@ public class Visitor {
 	}
 	public Game getInGame() {
 		return inGame;
+	}
+	public long getCode() {
+		return code;
 	}
 }
