@@ -1,10 +1,12 @@
 package model;
 
-public class Visitor {
+import java.util.Comparator;
+
+public class Visitor implements Comparable<Visitor>{
 
 	private String name;
 	
-	private String age;
+	private int age;
 	
 	private String gender;
 	
@@ -20,7 +22,7 @@ public class Visitor {
 	
 	private Game inGame;
 	
-	public Visitor(String name,String age,String gender) {
+	public Visitor(String name,int age,String gender) {
 		
 		this.name = name;
 		this.age = age;
@@ -46,11 +48,11 @@ public class Visitor {
 		this.gender = gender;
 	}
 
-	public String getAge() {
+	public int getAge() {
 		return age;
 	}
 
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 	public Visitor getNextVisitor() {
@@ -109,5 +111,24 @@ public class Visitor {
 		}else {
 			return -1;
 		}
+	}
+	/*
+	@Override
+	public int compareTo(Visitor v) {
+		
+		int i = this.name.compareTo(v.name); 
+		if(i!=0) {
+			return i;
+		}
+		i = this.gender.compareTo(v.gender);
+		if(i!=0) {
+			return i;
+		}
+		
+	}*/
+	@Override
+	public int compareTo(Visitor v) {
+		
+		return Comparator.comparing(Visitor::getName).thenComparing(Visitor::getGender).compare(this,v);
 	}
 }

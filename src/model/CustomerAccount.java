@@ -2,18 +2,19 @@ package model;
 
 import java.io.Serializable;
 
-public class CustomerAccount implements Serializable{
+public class CustomerAccount extends Visitor implements Serializable{
 
 	private static final long serialVersionUID = 1;
 	private String userName;
 	private String password;
 	private String name;
 	private String gender;
-	private String age;
+	private int age;
 	
 	private Visitor firstVisitor;
 	
-	public CustomerAccount(String userName, String password, String name, String gender, String age) {
+	public CustomerAccount(String userName, String password, String name, String gender, int age) {
+		super(name,age,gender);
 		this.userName=userName;
 		this.password=password;
 		this.name=name;
@@ -54,11 +55,11 @@ public class CustomerAccount implements Serializable{
 		this.name = name;
 	}
 	
-	public String getAge() {
+	public int getAge() {
 		return age;
 		}
 
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 	public void setFirstVisitor(Visitor first) {

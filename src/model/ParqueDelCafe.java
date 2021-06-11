@@ -3,6 +3,7 @@ package model;
 import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -84,7 +85,7 @@ public class ParqueDelCafe implements Serializable{
 		planTotalPrice = 0;
 	}
 		
-	public void addCustomer(String userName, String password, String name, String gender, String age) {
+	public void addCustomer(String userName, String password, String name, String gender, int age) {
 		customers.add(new CustomerAccount(userName, password, name, gender, age));
 			
 	}
@@ -126,7 +127,7 @@ public class ParqueDelCafe implements Serializable{
 	public CustomerAccount getCurrentCustomer() {
 		return customer;
 	}
-	public void addVisitorToUser(String name, String age, String sex) {
+	public void addVisitorToUser(String name, int  age, String sex) {
 		
 		Visitor tmp = new Visitor(name,age,sex);
 		if(customer.getFirstVisitor()==null) {
@@ -147,7 +148,7 @@ public class ParqueDelCafe implements Serializable{
 	public Visitor customerAsVisitor() {
 		
 		String name = customer.getName();
-		String age = customer.getAge();
+		int age = customer.getAge();
 		String gender = customer.getGender();
 		Visitor customerVisitor = new Visitor(name,age,gender);
 		customer.setFirstVisitor(customerVisitor);
@@ -1232,5 +1233,14 @@ public class ParqueDelCafe implements Serializable{
 		
 		return toReturn;
 		
-}
+	}
+	public ArrayList<Visitor> sortingVisitorsByNameAndGender(){
+		
+		ArrayList<Visitor> visitors = createVisitorList();
+		
+		Collections.sort(visitors);
+		
+		return visitors;
+		
+	}
 }

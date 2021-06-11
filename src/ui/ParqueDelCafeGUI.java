@@ -142,7 +142,7 @@ public class ParqueDelCafeGUI{
     @FXML
     private TableColumn<Visitor, String> tcDateName;
     @FXML
-    private TableColumn<Visitor, String> tcDateAge;
+    private TableColumn<Visitor, Integer> tcDateAge;
     @FXML
     private TableColumn<Visitor, String> tcDateGender;
     @FXML
@@ -468,9 +468,9 @@ public class ParqueDelCafeGUI{
     	}
     	RadioButton rbSelected = (RadioButton)genderGroup.getSelectedToggle();
     	String txtGender=rbSelected.getText();   
-    	String age="";
+    	int age=0;
     	if(!txtAge.getText().equals("")) {
-    		age = txtAge.getText();
+    		age = Integer.parseInt(txtAge.getText());
     	}
 
     	if(!(txtUsername.getText().equals("")) && !(txtPassword.getText().equals("")) && !(txtName.getText().equals("")) && !(txtAge.getText().equals("")))  {
@@ -481,7 +481,7 @@ public class ParqueDelCafeGUI{
         	mainPane.getChildren().clear();
         	Parent signInPane = fxmlLoader.load();
         	mainPane.getChildren().setAll(signInPane);
-        	}else if (userName.isEmpty() || password.isEmpty() || name.isEmpty() || txtGender=="" || age.isEmpty()) {
+        	}else if (userName.isEmpty() || password.isEmpty() || name.isEmpty() || txtGender=="" || age==0) {
             	validationErrorAlert();
             }else{
         		customerValidationAlert();
@@ -542,7 +542,8 @@ public class ParqueDelCafeGUI{
         	chooseDate = date2.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         }
         String chooseName = dateName.getText();
-    	String chooseAge = dateAge.getText();
+    	String chooseAge = (dateAge.getText());
+    	int numericAge = Integer.parseInt(dateAge.getText());
     	int choose = 0;
     	String sex = "";
     	if(dateMale.isSelected()) {
@@ -554,11 +555,11 @@ public class ParqueDelCafeGUI{
     	}
     	switch(choose) {
     	
-    	case 1: sex = "Male";
+    	case 1: sex = "Hombre";
     	break;
-    	case 2: sex = "Female";
+    	case 2: sex = "Mujer";
     	break;
-    	case 3: sex = "Other";
+    	case 3: sex = "Otro";
     	break;
     	}
     	
@@ -568,7 +569,7 @@ public class ParqueDelCafeGUI{
     		
     	}else {
     		if(((dateMale.isSelected()==false)&&(dateFemale.isSelected()==false)&&(dateOther.isSelected()==true)||(dateMale.isSelected()==false)&&(dateFemale.isSelected()==true)&&(dateOther.isSelected()==false))||(dateMale.isSelected()==true)&&(dateFemale.isSelected()==false)&&(dateOther.isSelected()==false)) {
-    			parqueDelCafe.addVisitorToUser(chooseName, chooseAge, sex);	
+    			parqueDelCafe.addVisitorToUser(chooseName, numericAge, sex);	
     			tbDatePickerList.refresh();
     			initializeMiniVisitorTableView();
     		}else {
@@ -585,7 +586,7 @@ public class ParqueDelCafeGUI{
     	tbDatePickerList.setItems(observableList);
     	
     	tcDateName.setCellValueFactory(new PropertyValueFactory<Visitor,String>("name"));
-    	tcDateAge.setCellValueFactory(new PropertyValueFactory<Visitor,String>("age"));
+    	tcDateAge.setCellValueFactory(new PropertyValueFactory<Visitor,Integer>("age"));
     	tcDateGender.setCellValueFactory(new PropertyValueFactory<Visitor,String>("gender"));
     	
     }
@@ -1301,7 +1302,7 @@ public class ParqueDelCafeGUI{
              System.out.println("Old age: " + data.getOldValue());
 
              CustomerAccount ca = data.getRowValue();
-             ca.setAge(data.getNewValue());
+             ca.setAge(Integer.parseInt(data.getNewValue()));
 
              System.out.println(ca);
          });
