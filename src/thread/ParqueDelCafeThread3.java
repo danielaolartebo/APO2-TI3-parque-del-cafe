@@ -1,35 +1,38 @@
 package thread;
 
 import javafx.application.Platform;
+import model.Parking;
 import model.ParqueDelCafe;
 import ui.ParqueDelCafeGUI;
 
 public class ParqueDelCafeThread3 extends Thread{
-	private double x;
-	private double y;
-	private ParqueDelCafe parking;
-	private ParqueDelCafeGUI pdcG;
+
+private ParqueDelCafe pdc;
 	
-	public ParqueDelCafeThread3(ParqueDelCafe parking, ParqueDelCafeGUI pdcG) {
-		this.pdcG=pdcG;
-		this.parking=parking;
-		
+	
+	private long sleepTime;
+	
+	public ParqueDelCafeThread3(ParqueDelCafe pdc, long sleepTime) {
+		this.pdc = pdc;
+		this.sleepTime = sleepTime;
 	}
-	
 	@Override
 	public void run() {
-		
-		Platform.runLater(new Thread() {
-			public void run() {
-				for(int i=0; i<10;i++) {
-					parking.getParking().moveCar();
-					pdcG.moveCarParking();
-				}
-			}
-		});
-		
-	}
-	
+		try {
+			Thread.sleep(18000);
+		} catch (InterruptedException e) {
 
+			e.printStackTrace();
+		}
+		for(int i=0;i < 200;i++) {
+			pdc.removePeopleOfGame();
+			System.out.println("Esta en el hilo3");
+			try {
+				Thread.sleep(sleepTime);
+			} catch (InterruptedException e) {
 	
-}
+				e.printStackTrace();
+			}
+		}
+		}
+	}

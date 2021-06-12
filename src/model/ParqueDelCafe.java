@@ -1293,6 +1293,58 @@ public class ParqueDelCafe implements Serializable{
 		}
 	}
 	
+public void removePeopleOfGame() {
+		
+		LocalTime current = java.time.LocalTime.now();
+		LocalTime toCompare = LocalTime.of(12,0,0,0);
+		LocalTime toCompare2 = LocalTime.of(15,0,0,0);
+		LocalTime toCompare3 = LocalTime.of(18, 0,0,0);
+
+		int totalGames = countAmountOfGames();
+		int resultOfToCompare = current.compareTo(toCompare);
+		int resultOfToCompare2 = current.compareTo(toCompare2);
+		int resultOfToCompare3 = current.compareTo(toCompare3);
+		int gameToAdd = (int)((Math.random()*(totalGames-1))+1);
+		System.out.println(gameToAdd);
+		Game game = findGameinPostion(gameToAdd);
+
+		
+		if(resultOfToCompare <=0) {
+			
+			int amountToAdd = (int)((Math.random()*(10-2))+2);
+			if(game.getOccupancy()-amountToAdd <0) {
+				removePeopleOfGame();
+			}else {
+				game.setOccupancy(game.getOccupancy()-amountToAdd);
+			}
+		}else if(resultOfToCompare>=1 && resultOfToCompare2<=0) {
+			
+			int amountToAdd = (int)((Math.random()*(18-4))+4);
+			if(game.getOccupancy()-amountToAdd <0) {
+				removePeopleOfGame();
+			}else {
+				game.setOccupancy(game.getOccupancy()-amountToAdd);
+			}
+		}else if(resultOfToCompare2>=1 && resultOfToCompare3<=0) {
+			
+			int amountToAdd = (int)((Math.random()*(13-6))+6);
+			
+			if(game.getOccupancy()-amountToAdd <0) {
+				removePeopleOfGame();
+			}else {
+				game.setOccupancy(game.getOccupancy()-amountToAdd);
+			}
+		}else {
+			int amountToAdd = (int)((Math.random()*(5-0))+0);
+			if(game.getOccupancy()-amountToAdd <0) {
+				removePeopleOfGame();
+			}else {
+				game.setOccupancy(game.getOccupancy()-amountToAdd);
+			}
+		}
+		
+	}
+	
 	public ArrayList<Visitor> visitorsSortedById(){
 		
 		ArrayList<Visitor> visitorsToSort = createVisitorList();

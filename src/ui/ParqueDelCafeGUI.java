@@ -357,14 +357,16 @@ public class ParqueDelCafeGUI{
     // Threads
     private ParqueDelCafeThread pdct;
     private ParqueDelCafeThread2 pdct2;
+    private ParqueDelCafeThread3 pdct3;
     
 	private ParqueDelCafe parqueDelCafe;
 	public final static String SAVE_PATH_FILE = "data.parqueDelCafe.csv";
 	
 	public ParqueDelCafeGUI(ParqueDelCafe pdc) {
 		parqueDelCafe = pdc;
-		pdct = new ParqueDelCafeThread(pdc, this, 60000);
-		pdct2 = new ParqueDelCafeThread2(pdc, this, 6000);
+		pdct = new ParqueDelCafeThread(pdc, 60000);
+		pdct2 = new ParqueDelCafeThread2(pdc, 4000);
+		pdct3 = new ParqueDelCafeThread3(pdc, 16000);
 	}
 	
 	/*
@@ -502,6 +504,7 @@ public class ParqueDelCafeGUI{
     	mainPane.getChildren().setAll(menuPane);
     	pdct.start();
     	pdct2.start();
+    	pdct3.start();
     }
 
     @FXML
@@ -1022,6 +1025,7 @@ public void initializeBarChar() {
     	mainPane.getChildren().setAll(menuPane);
     	pdct.start();
     	pdct2.start();
+    	pdct3.start();
     }
 
     @FXML
@@ -1299,20 +1303,9 @@ public void initializeBarChar() {
     
     // SPACES (2,8,13,16,18,20,23,27,28,30,31,34,36,39)
     
-    public void moveCarParking() {
-    	car1.setLayoutX(parking.getX());
-		try {
-			Thread.sleep(100);
-		}catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-    }
-    
     @FXML
     public void optSelectParking(ActionEvent event) throws ParkingException {
     	int number = Integer.parseInt(txtParkingNumber.getText());
-    	
-    	car = new ParqueDelCafeThread3(parqueDelCafe, this);
     	
     	if(number<=40 && number>0) {    		
     		

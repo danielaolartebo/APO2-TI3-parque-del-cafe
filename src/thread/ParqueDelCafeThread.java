@@ -7,13 +7,10 @@ public class ParqueDelCafeThread extends Thread{
 
 	private ParqueDelCafe pdc;
 	
-	private ParqueDelCafeGUI pdcG;
-	
 	private long sleepTime;
 	
-	public ParqueDelCafeThread(ParqueDelCafe pdc, ParqueDelCafeGUI pdcG, long sleepTime) {
+	public ParqueDelCafeThread(ParqueDelCafe pdc, long sleepTime) {
 		this.pdc = pdc;
-		this.pdcG = pdcG;
 		this.sleepTime = sleepTime;
 	}
 	@Override

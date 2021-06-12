@@ -11,7 +11,7 @@ public class Parking {
 	}
 	
 	public void moveCar() {
-		x=x+10;
+		x=x+3;
 	}
 	
 	public void posCar(double x, double y) {
