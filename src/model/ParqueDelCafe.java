@@ -25,8 +25,6 @@ public class ParqueDelCafe implements Serializable{
 	private int planTotalPrice;
 	private List<CustomerAccount> customers;
 
-	private List<Game> games;
-	private List<FoodCourt> foods;
 	private Parking parking;
 
 	private List<Parking> parkings;
@@ -54,9 +52,6 @@ public class ParqueDelCafe implements Serializable{
 	
 	public ParqueDelCafe() {
 		customers = new ArrayList<>();
-
-		games = new ArrayList<>();
-		foods = new ArrayList<>();
 
 		parkings = new ArrayList<>();
 

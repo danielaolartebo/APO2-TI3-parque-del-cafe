@@ -497,12 +497,22 @@ public class ParqueDelCafeGUI{
      ********************************************************************************************** SCREEN CHOOSER (chooser.fxml) ****************************************************************************************************
      */
     
-    @FXML
+    @SuppressWarnings("static-access")
+	@FXML
     public void continueMenu(ActionEvent event) throws IOException {
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu.fxml"));
     	fxmlLoader.setController(this);
     	Parent menuPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(menuPane);
+    	try {
+			pdct.sleep(2000);
+			pdct2.sleep(200);
+		} catch (InterruptedException e) {
+			
+			e.printStackTrace();
+		}
+    	pdct.start();
+    	pdct2.start();
     }
 
     @FXML
@@ -1023,13 +1033,13 @@ public void initializeBarChar() {
     	mainPane.getChildren().setAll(menuPane);
     	try {
 			pdct.sleep(2000);
-			pdct2.sleep(2000);
+			pdct2.sleep(200);
 		} catch (InterruptedException e) {
 			
 			e.printStackTrace();
 		}
-    	pdct.run();
-    	pdct2.run();
+    	pdct.start();
+    	pdct2.start();
     }
 
     @FXML
@@ -1233,12 +1243,14 @@ public void initializeBarChar() {
     	
     }
 
-    @FXML
+    @SuppressWarnings("static-access")
+	@FXML
     public void sub13GoBack(ActionEvent event) throws IOException {
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu.fxml"));
     	fxmlLoader.setController(this);
     	Parent menuPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(menuPane);
+  
     }
     
     /*
@@ -1285,12 +1297,14 @@ public void initializeBarChar() {
     	initializeSubwayTableView();
     }
 
-    @FXML
+    @SuppressWarnings("static-access")
+	@FXML
     public void sub6GoBack(ActionEvent event) throws IOException {
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu.fxml"));
     	fxmlLoader.setController(this);
     	Parent menuPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(menuPane);
+    	
     }
     
     /*
@@ -1395,24 +1409,28 @@ public void initializeBarChar() {
     
     
     
-    @FXML
+    @SuppressWarnings("static-access")
+	@FXML
     public void sub7GoBack(ActionEvent event) throws IOException {
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu.fxml"));
     	fxmlLoader.setController(this);
     	Parent menuPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(menuPane);
+    
     }
     
     /*
      *****************************************************************************************************TENTH SCREEN OCCUPANCY (occupancy.fxml) ************************************************************************
      */
     
-    @FXML
+    @SuppressWarnings("static-access")
+	@FXML
     public void sub8GoBack(ActionEvent event) throws IOException {
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu.fxml"));
     	fxmlLoader.setController(this);
     	Parent menuPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(menuPane);
+    	
     }
     
     @FXML
@@ -1427,12 +1445,15 @@ public void initializeBarChar() {
      *****************************************************************************************************TENTH SCREEN USER ACCOUNT (user-account.fxml) *******************************************************************
      */
 
-    @FXML
+    @SuppressWarnings("static-access")
+	@FXML
     public void sub10GoBack(ActionEvent event) throws IOException {
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu.fxml"));
     	fxmlLoader.setController(this);
     	Parent menuPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(menuPane);
+  
+    	
     }
     
     private void initializeCustomerTableView() {
