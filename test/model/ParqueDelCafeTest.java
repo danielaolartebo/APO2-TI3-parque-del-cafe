@@ -11,7 +11,6 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import exceptions.PlanException;
 import exceptions.YoungerException;
 
 public class ParqueDelCafeTest {
@@ -33,6 +32,10 @@ public class ParqueDelCafeTest {
 		parque.addCustomer("Est2", "2222", "Esteban", "Male",20);
 		parque.addCustomer("Soph12", "3333", "Sophie", "Female",30);
 		
+	}
+	
+	public void setupScenary4() {
+		parque = new ParqueDelCafe();
 	}
 	
 	@Test
@@ -77,12 +80,11 @@ public class ParqueDelCafeTest {
 	public void testValidate_1() throws FileNotFoundException, YoungerException, IOException {
 		setupScenary3();
 		
-		String userName = "Dob01";
+		String userName = "dob01";
 		String password = "1234";
+	
 		
-		ParqueDelCafe pdc = new ParqueDelCafe();
-		
-		boolean validate = pdc.validateCustomer(userName, password);
+		boolean validate = parque.validateCustomer(userName, password);
 		assertTrue(validate);	
 		
 	}
@@ -93,10 +95,9 @@ public class ParqueDelCafeTest {
 		
 		String userName = "Est2";
 		String password = "2222";
+
 		
-		ParqueDelCafe pdc = new ParqueDelCafe();
-		
-		boolean validate = pdc.validateCustomer(userName, password);
+		boolean validate = parque.validateCustomer(userName, password);
 		assertTrue(validate);	
 		
 	}
@@ -108,9 +109,9 @@ public class ParqueDelCafeTest {
 		String userName = "Soph12";
 		String password = "3333";
 		
-		ParqueDelCafe pdc = new ParqueDelCafe();
 		
-		boolean validate = pdc.validateCustomer(userName, password);
+		
+		boolean validate = parque.validateCustomer(userName, password);
 		assertTrue(validate);	
 		
 	}
@@ -135,12 +136,9 @@ public class ParqueDelCafeTest {
 		
 		String userName = "dob01";
 		
+		List<CustomerAccount> cus = parque.getCustomers();
 		
-		ParqueDelCafe pdc = new ParqueDelCafe();
-		
-		List<CustomerAccount> cus = pdc.getCustomers();
 		CustomerAccount customer = cus.get(0);
-		
 		assertEquals(userName, customer.getUserName());
 		
 	}
@@ -152,9 +150,7 @@ public class ParqueDelCafeTest {
 		String userName = "Est2";
 		
 		
-		ParqueDelCafe pdc = new ParqueDelCafe();
-		
-		List<CustomerAccount> cus = pdc.getCustomers();
+		List<CustomerAccount> cus = parque.getCustomers();
 		CustomerAccount customer = cus.get(1);
 		
 		assertEquals(userName, customer.getUserName());
@@ -167,17 +163,14 @@ public class ParqueDelCafeTest {
 		
 		String userName = "Soph12";
 		
-		
-		ParqueDelCafe pdc = new ParqueDelCafe();
-		
-		List<CustomerAccount> cus = pdc.getCustomers();
+		List<CustomerAccount> cus = parque.getCustomers();
 		CustomerAccount customer = cus.get(2);
 		
 		assertEquals(userName, customer.getUserName());
 		
 	}
 	
-	
+	@Test
 	public void testSetUser() throws FileNotFoundException, YoungerException, IOException {
 		setupScenary2();
 		
@@ -196,5 +189,6 @@ public class ParqueDelCafeTest {
 		assertEquals(userName, customer.getUserName());
 		
 	}
+	
 	
 }
