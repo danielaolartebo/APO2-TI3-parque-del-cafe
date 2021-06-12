@@ -1193,8 +1193,14 @@ public class ParqueDelCafe implements Serializable{
 		int size = visitors.size();
 		int first = 0;
 		int random = (int)((Math.random()*(size-first))+first);
+		System.out.println(random);
 		Visitor visitorInPosition = visitors.get(random);
+		if(visitorInPosition.getInGame()==null) {
+
+		}
+		
 		String name = visitorInPosition.getName();
+		System.out.println(name);
 		deleteVisitorInGame(name);
 		
 	}

@@ -2,7 +2,6 @@ package ui;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -19,15 +18,12 @@ import java.util.Date;
 import exceptions.ParkingException;
 import exceptions.PlanException;
 import exceptions.YoungerException;
-import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
@@ -504,13 +500,6 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent menuPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(menuPane);
-    	try {
-			pdct.sleep(2000);
-			pdct2.sleep(200);
-		} catch (InterruptedException e) {
-			
-			e.printStackTrace();
-		}
     	pdct.start();
     	pdct2.start();
     }
@@ -1031,13 +1020,6 @@ public void initializeBarChar() {
     	fxmlLoader.setController(this);
     	Parent menuPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(menuPane);
-    	try {
-			pdct.sleep(2000);
-			pdct2.sleep(200);
-		} catch (InterruptedException e) {
-			
-			e.printStackTrace();
-		}
     	pdct.start();
     	pdct2.start();
     }

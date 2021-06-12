@@ -18,13 +18,22 @@ public class ParqueDelCafeThread extends Thread{
 	}
 	@Override
 	public void run() {
-		
+		try {
+			Thread.sleep(20000);
+		} catch (InterruptedException e1) {
+			
+			e1.printStackTrace();
+		}
+		for(int i=0; i < 200;i++) {
+			System.out.println("Entro al Hilo 1");
 		pdc.takeOutFromGame();
 		try {
+			
 			Thread.sleep(sleepTime);
 		} catch (InterruptedException e) {
 			
 			e.printStackTrace();
+		}
 		}
 	}
 }
