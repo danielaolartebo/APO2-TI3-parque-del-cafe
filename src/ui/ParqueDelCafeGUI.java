@@ -1420,6 +1420,7 @@ public void initializeBarChar() {
     	
     	String toSet = parqueDelCafe.findVisitorBinary(searchFriendOccupancy.getValue());
     	friendNameOccupancy.setText(toSet);
+    	System.out.println("Esto deberia entrar");
     }
     
     /*

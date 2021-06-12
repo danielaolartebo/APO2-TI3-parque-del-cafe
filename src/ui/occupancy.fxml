@@ -76,7 +76,7 @@
                   <Font name="Wide Latin" size="21.0" />
                </font>
             </Label>
-            <Label fx:id="friendNameOccupancy" layoutX="491.0" layoutY="364.0" prefHeight="47.0" prefWidth="262.0">
+            <Label fx:id="friendNameOccupancy" layoutX="245.0" layoutY="411.0" prefHeight="47.0" prefWidth="356.0">
                <font>
                   <Font name="Wide Latin" size="21.0" />
                </font>
