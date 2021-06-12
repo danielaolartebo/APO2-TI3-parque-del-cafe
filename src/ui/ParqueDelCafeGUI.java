@@ -121,6 +121,8 @@ public class ParqueDelCafeGUI{
     private BorderPane chooserPane;
     @FXML
     private Label lbChooserUser;
+    @FXML
+    private Label menuUser;
     
     //PARKING CAR
     
@@ -502,6 +504,7 @@ public class ParqueDelCafeGUI{
     	mainPane.getChildren().setAll(menuPane);
     	pdct.start();
     	pdct2.start();
+    	menuUser.setText("Usuario: " +parqueDelCafe.getCurrentCustomer().getUserName());
     }
 
     @FXML
