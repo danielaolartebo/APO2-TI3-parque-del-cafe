@@ -1025,6 +1025,8 @@ public void initializeBarChar() {
     	mainPane.getChildren().setAll(menuPane);
     	pdct.start();
     	pdct2.start();
+    	menuUser.setText("Usuario: " +parqueDelCafe.getCurrentCustomer().getUserName());
+
     }
 
     @FXML
@@ -1047,6 +1049,7 @@ public void initializeBarChar() {
     	fxmlLoader.setController(this);
     	Parent signInPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(signInPane);
+    	
     }
     
     @FXML
@@ -1236,7 +1239,8 @@ public void initializeBarChar() {
     	fxmlLoader.setController(this);
     	Parent menuPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(menuPane);
-  
+    	menuUser.setText("Usuario: " +parqueDelCafe.getCurrentCustomer().getUserName());
+
     }
     
     /*
@@ -1290,7 +1294,8 @@ public void initializeBarChar() {
     	fxmlLoader.setController(this);
     	Parent menuPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(menuPane);
-    	
+    	menuUser.setText("Usuario: " +parqueDelCafe.getCurrentCustomer().getUserName());
+
     }
     
     /*
@@ -1402,7 +1407,8 @@ public void initializeBarChar() {
     	fxmlLoader.setController(this);
     	Parent menuPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(menuPane);
-    
+    	menuUser.setText("Usuario: " +parqueDelCafe.getCurrentCustomer().getUserName());
+
     }
     
     /*
@@ -1438,7 +1444,8 @@ public void initializeBarChar() {
     	fxmlLoader.setController(this);
     	Parent menuPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(menuPane);
-  
+    	menuUser.setText("Usuario: " +parqueDelCafe.getCurrentCustomer().getUserName());
+
     	
     }
     
