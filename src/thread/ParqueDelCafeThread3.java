@@ -1,9 +1,6 @@
 package thread;
-
-import javafx.application.Platform;
-import model.Parking;
 import model.ParqueDelCafe;
-import ui.ParqueDelCafeGUI;
+
 
 public class ParqueDelCafeThread3 extends Thread{
 

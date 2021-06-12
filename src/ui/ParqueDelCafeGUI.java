@@ -121,6 +121,8 @@ public class ParqueDelCafeGUI{
     private BorderPane chooserPane;
     @FXML
     private Label lbChooserUser;
+    @FXML
+    private Label menuUser;
     
     //PARKING CAR
     
@@ -128,8 +130,6 @@ public class ParqueDelCafeGUI{
     private ImageView car1;
     
     private Parking parking;
-    
-    private ParqueDelCafeThread3 car;
     
     // PLAN MINI TABLE VIEW 
     
@@ -207,7 +207,7 @@ public class ParqueDelCafeGUI{
     @FXML
     private TableColumn<CustomerAccount, String> tcNameAccount;
     @FXML
-    private TableColumn<CustomerAccount, String> tcAgeAccount;
+    private TableColumn<CustomerAccount, Integer> tcAgeAccount;
     @FXML
     private TableColumn<CustomerAccount, String> tcGenderAccount;
 /*    @FXML
@@ -505,6 +505,9 @@ public class ParqueDelCafeGUI{
     	pdct.start();
     	pdct2.start();
     	pdct3.start();
+
+    	menuUser.setText("Usuario: " +parqueDelCafe.getCurrentCustomer().getUserName());
+
     }
 
     @FXML
@@ -1025,7 +1028,12 @@ public void initializeBarChar() {
     	mainPane.getChildren().setAll(menuPane);
     	pdct.start();
     	pdct2.start();
+
     	pdct3.start();
+
+    	menuUser.setText("Usuario: " +parqueDelCafe.getCurrentCustomer().getUserName());
+
+
     }
 
     @FXML
@@ -1048,6 +1056,7 @@ public void initializeBarChar() {
     	fxmlLoader.setController(this);
     	Parent signInPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(signInPane);
+    	
     }
     
     @FXML
@@ -1083,6 +1092,7 @@ public void initializeBarChar() {
     	mainPane.getChildren().setAll(occupancyPane);
     	initializeFriendSearchComboBox();
     	initializeOccupancyTableView();
+    	parqueDelCafe.createOccupancyTree();
     }
     
     @FXML
@@ -1236,7 +1246,8 @@ public void initializeBarChar() {
     	fxmlLoader.setController(this);
     	Parent menuPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(menuPane);
-  
+    	menuUser.setText("Usuario: " +parqueDelCafe.getCurrentCustomer().getUserName());
+
     }
     
     /*
@@ -1290,7 +1301,8 @@ public void initializeBarChar() {
     	fxmlLoader.setController(this);
     	Parent menuPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(menuPane);
-    	
+    	menuUser.setText("Usuario: " +parqueDelCafe.getCurrentCustomer().getUserName());
+
     }
     
     /*
@@ -1391,7 +1403,8 @@ public void initializeBarChar() {
     	fxmlLoader.setController(this);
     	Parent menuPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(menuPane);
-    
+    	menuUser.setText("Usuario: " +parqueDelCafe.getCurrentCustomer().getUserName());
+
     }
     
     /*
@@ -1427,7 +1440,8 @@ public void initializeBarChar() {
     	fxmlLoader.setController(this);
     	Parent menuPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(menuPane);
-  
+    	menuUser.setText("Usuario: " +parqueDelCafe.getCurrentCustomer().getUserName());
+
     	
     }
     
@@ -1439,12 +1453,11 @@ public void initializeBarChar() {
          
          tcUserAccount.setCellValueFactory(new PropertyValueFactory<CustomerAccount, String>("userName"));
          tcNameAccount.setCellValueFactory(new PropertyValueFactory<CustomerAccount, String>("name"));
-         tcAgeAccount.setCellValueFactory(new PropertyValueFactory<CustomerAccount, String>("age"));
+         tcAgeAccount.setCellValueFactory(new PropertyValueFactory<CustomerAccount, Integer>("age"));
          tcGenderAccount.setCellValueFactory(new PropertyValueFactory<CustomerAccount, String>("gender"));
          
          tcUserAccount.setCellFactory(TextFieldTableCell.forTableColumn());
          tcNameAccount.setCellFactory(TextFieldTableCell.forTableColumn());
-         tcAgeAccount.setCellFactory(TextFieldTableCell.forTableColumn());
          tcGenderAccount.setCellFactory(TextFieldTableCell.forTableColumn());
          
          tcUserAccount.setOnEditCommit(data -> {
@@ -1467,14 +1480,17 @@ public void initializeBarChar() {
              System.out.println(ca);
          });
          
+         
          tcAgeAccount.setOnEditCommit(data -> {
              System.out.println("New age: " +  data.getNewValue());
              System.out.println("Old age: " + data.getOldValue());
 
              CustomerAccount ca = data.getRowValue();
-             ca.setAge(Integer.parseInt(data.getNewValue()));
+             ca.setAge(data.getNewValue());
 
              System.out.println(ca);
+             
+            
          });
          
          tcGenderAccount.setOnEditCommit(data -> {

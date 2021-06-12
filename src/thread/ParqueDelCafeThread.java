@@ -1,7 +1,7 @@
 package thread;
 
 import model.ParqueDelCafe;
-import ui.ParqueDelCafeGUI;
+
 
 public class ParqueDelCafeThread extends Thread{
 
@@ -33,4 +33,5 @@ public class ParqueDelCafeThread extends Thread{
 		}
 		}
 	}
+	
 }

@@ -7,6 +7,11 @@ public class ParqueDelCafeThread2 extends Thread{
 	
 	private ParqueDelCafe pdc;
 	
+
+	@SuppressWarnings("unused")
+	private ParqueDelCafeGUI pdcG;
+	
+
 	private long sleepTime;
 	
 	public ParqueDelCafeThread2(ParqueDelCafe pdc, long sleepTime) {
