@@ -24,6 +24,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -337,6 +342,22 @@ public class ParqueDelCafeGUI{
     private TableColumn<Visitor, String> tcHeladeriasName;
     @FXML
     private ComboBox<String> namesHeladerias;
+    
+    //Graficas De Ocupacion
+    
+    @FXML
+    private BorderPane graficasBorderPane;
+
+    @FXML
+    private PieChart ocuppancyPieChart;
+
+    @FXML
+    private BarChart<?, ?> occupancyBarChart;
+
+    @FXML
+    void subGraficasGoBack(ActionEvent event) {
+
+    }
     
     // Threads
     private ParqueDelCafeThread pdct;
@@ -675,6 +696,56 @@ public class ParqueDelCafeGUI{
 		   namesBotesChocones.getItems().add(name);
 		   System.out.println(name);
 	   }
+   }
+   public void initializePieChart() {
+	   
+	   ObservableList<PieChart.Data> pieChartData =
+               FXCollections.observableArrayList(
+               new PieChart.Data("Montaña Rusa", parqueDelCafe.getRollerCoaster().getOccupancy()),
+               new PieChart.Data("Karts", parqueDelCafe.getKarts().getOccupancy()),
+               new PieChart.Data("Rueda", parqueDelCafe.getWheel().getOccupancy()),
+               new PieChart.Data("Carousel", parqueDelCafe.getCarousel().getOccupancy()),
+               new PieChart.Data("Krater", parqueDelCafe.getKrater().getOccupancy()),
+               new PieChart.Data("Botes Chocones", parqueDelCafe.getCrashingBoats().getOccupancy()),
+               new PieChart.Data("Rapidos", parqueDelCafe.getFast().getOccupancy()),
+               new PieChart.Data("Yipe", parqueDelCafe.getYipe().getOccupancy()),
+               new PieChart.Data("Montaña Acuatica", parqueDelCafe.getMountain().getOccupancy()),
+               new PieChart.Data("Cumbre", parqueDelCafe.getCumbre().getOccupancy()),
+			   new PieChart.Data("Heladerias", parqueDelCafe.getHeladerias().getOccupancy()),
+			   new PieChart.Data("Subway", parqueDelCafe.getSubway().getOccupancy()),
+               new PieChart.Data("Parrilla", parqueDelCafe.getParrilla().getOccupancy()),
+               new PieChart.Data("Guadual", parqueDelCafe.getGuadual().getOccupancy()))
+               ;
+	  ocuppancyPieChart = new PieChart(pieChartData); 
+	   
+   }
+   @SuppressWarnings({ "unchecked", "rawtypes" })
+public void initializeBarChar() {
+	   
+	   final CategoryAxis xAxis = new CategoryAxis();
+       final NumberAxis yAxis = new NumberAxis();
+       xAxis.setLabel("Ubicacion");       
+       yAxis.setLabel("Cantidad");
+	   XYChart.Series series1 = new XYChart.Series();
+	   
+	   series1.setName("Actual");       
+       series1.getData().add(new XYChart.Data("Montaña Rusa", parqueDelCafe.getRollerCoaster().getOccupancy()));
+       series1.getData().add(new XYChart.Data("Karts", parqueDelCafe.getKarts().getOccupancy()));
+       series1.getData().add(new XYChart.Data("Rueda", parqueDelCafe.getWheel().getOccupancy()));
+       series1.getData().add(new XYChart.Data("Carousel", parqueDelCafe.getCarousel().getOccupancy()));
+       series1.getData().add(new XYChart.Data("Krater", parqueDelCafe.getKrater().getOccupancy()));      
+       series1.getData().add(new XYChart.Data("Botes Chocones", parqueDelCafe.getCrashingBoats().getOccupancy()));
+       series1.getData().add(new XYChart.Data("Rapidos", parqueDelCafe.getFast().getOccupancy()));
+       series1.getData().add(new XYChart.Data("Yipe", parqueDelCafe.getYipe().getOccupancy()));
+       series1.getData().add(new XYChart.Data("Montaña Acuatica", parqueDelCafe.getMountain().getOccupancy()));
+       series1.getData().add(new XYChart.Data("Cumbre", parqueDelCafe.getCumbre().getOccupancy()));   
+       series1.getData().add(new XYChart.Data("Heladerias", parqueDelCafe.getHeladerias().getOccupancy()));
+       series1.getData().add(new XYChart.Data("Subway", parqueDelCafe.getSubway().getOccupancy()));
+       series1.getData().add(new XYChart.Data("Parrilla", parqueDelCafe.getParrilla().getOccupancy()));
+       series1.getData().add(new XYChart.Data("Guadual", parqueDelCafe.getGuadual().getOccupancy()));   
+   
+       occupancyBarChart = new BarChart<>(xAxis, yAxis);
+       occupancyBarChart.getData().addAll(series1);
    }
    public void initializeCumbreComboBox() {
 	   for(int i=0; i < parqueDelCafe.namesList().size();i++) {
@@ -1040,6 +1111,15 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent chooserPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(chooserPane);
+    }
+    @FXML
+    public void sub31GoBack(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("occupancy.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent chooserPane = fxmlLoader.load();
+    	graficasBorderPane.getChildren().setAll(chooserPane);
+    	initializeOccupancyTableView();
+    	initializeFriendSearchComboBox();
     }
     
     
@@ -1807,5 +1887,15 @@ public class ParqueDelCafeGUI{
 	    alert.setHeaderText("");
 	    alert.setContentText("Nueva cuenta ha sido creada");
 	    alert.showAndWait();
+    }
+    @FXML
+    public void optGraficas(ActionEvent event) throws IOException {
+    	
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("graficas.fxml"));
+    	fxmlLoader.setController(this);
+    	Parent graficasPane = fxmlLoader.load();
+    	mainPane.getChildren().setAll(graficasPane);
+    	initializeBarChar();
+    	initializePieChart();
     }
 }

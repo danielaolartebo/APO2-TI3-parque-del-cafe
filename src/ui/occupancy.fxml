@@ -81,6 +81,7 @@
                   <Font name="Wide Latin" size="21.0" />
                </font>
             </Label>
+            <Button layoutX="310.0" layoutY="464.0" mnemonicParsing="false" onAction="#optGraficas" text="VER GRAFICAS DE OCUPACION" />
          </children>
       </Pane>
    </center>
