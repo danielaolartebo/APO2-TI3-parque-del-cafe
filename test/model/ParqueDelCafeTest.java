@@ -1,5 +1,7 @@
 package model;
 
+import org.junit.jupiter.api.Test;
+
 import exceptions.PlanException;
 import exceptions.YoungerException;
 
@@ -15,11 +17,12 @@ public class ParqueDelCafeTest {
 		parque = new ParqueDelCafe();
 	}
 	
-	public void addUser_1() {
-		
+	@Test
+	public void testAdd_1() {
+		setupScenary1();
 	}
 	
-	public void addUser_2() {
+	public void testAdd_2() {
 		
 	}
 	

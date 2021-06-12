@@ -1,8 +1,11 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
-public class Visitor implements Comparable<Visitor>{
+public class Visitor implements Comparable<Visitor>,Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	private String name;
 	

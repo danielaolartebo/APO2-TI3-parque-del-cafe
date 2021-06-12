@@ -21,6 +21,7 @@ public class Main extends Application{
 		
 		try {
 			parqueDelCafeGUI.loadData();
+			parqueDelCafe.loadData();
 		} catch (ClassNotFoundException | IOException e) {
 			e.printStackTrace();
 			Alert alert = new Alert(AlertType.INFORMATION);
