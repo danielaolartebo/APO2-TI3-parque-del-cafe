@@ -42,7 +42,7 @@ public class ParqueDelCafe implements Serializable{
 	private Game guadual;
 	//user
 	private CustomerAccount customer;
-		
+
 	public ParqueDelCafe() {
 		customers = new ArrayList<>();
 		parkings = new ArrayList<>();
@@ -67,7 +67,7 @@ public class ParqueDelCafe implements Serializable{
 		crashingBoats.setNextGame(fast);
 		
 		yipe = new Game("Yipe");
-		fast.setNextGame(crashingBoats);
+		fast.setNextGame(yipe);
 		
 		mountain = new Game("Monta�a Acuatica");
 		yipe.setNextGame(mountain);
@@ -178,14 +178,22 @@ public class ParqueDelCafe implements Serializable{
 		
 		ArrayList<Game> gameList = new ArrayList<Game>();
 		
-		if(rollerCoaster !=null) {
 			gameList.add(rollerCoaster);
 			Game tmp = rollerCoaster.getnextGame();
+			gameList.add(tmp);
+			tmp = tmp.getnextGame();
+			System.out.println(tmp.getName());
 			while(tmp!=null) {
 				gameList.add(tmp);
 				tmp = tmp.getnextGame();
 			}
-		}
+			/*
+			while(tmp!=null) {
+				System.out.println(tmp.getName());
+				gameList.add(tmp);
+				Game tmp2 = tmp;
+				tmp = tmp2.getnextGame();
+			}*/
 		return gameList;
 	}
 	public ArrayList<String> namesList(){
@@ -203,6 +211,7 @@ public class ParqueDelCafe implements Serializable{
 		
 		return visitors;
 	}
+	
 	public int calculateTotalprice(int quantity, int price) {
 		
 		int newprice = quantity*price;
@@ -529,6 +538,7 @@ public class ParqueDelCafe implements Serializable{
 			 mountain.setVisitors(toMove);
 			toMove.setPlaying(true);
 			toMove.setInGame(mountain);
+			mountain.setOccupancy(mountain.getOccupancy()+1);
 			System.out.println("Esta entrando parte 1.5");
 		}else {
 			addVisitorToMountain(mountain.getVisitors(),toMove);
@@ -540,6 +550,7 @@ public class ParqueDelCafe implements Serializable{
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
 			toMove.setInGame(mountain);
+			mountain.setOccupancy(mountain.getOccupancy()+1);
 		}else {
 			addVisitorToMountain(current.getNextVisitorInGame(), toMove);
 		}
@@ -551,6 +562,7 @@ public class ParqueDelCafe implements Serializable{
 			cumbre.setVisitors(toMove);
 			toMove.setPlaying(true);
 			toMove.setInGame(cumbre);
+			cumbre.setOccupancy(cumbre.getOccupancy()+1);
 			System.out.println("Esta entrando parte 1.5");
 		}else {
 			addVisitorToCumbre(cumbre.getVisitors(),toMove);
@@ -562,6 +574,7 @@ public class ParqueDelCafe implements Serializable{
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
 			toMove.setInGame(cumbre);
+			cumbre.setOccupancy(cumbre.getOccupancy()+1);
 		}else {
 			addVisitorToCumbre(current.getNextVisitorInGame(), toMove);
 		}
@@ -607,6 +620,7 @@ public class ParqueDelCafe implements Serializable{
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
 			toMove.setInGame(rollerCoaster);
+			rollerCoaster.setOccupancy(rollerCoaster.getOccupancy()+1);
 		}else {
 			addVisitorToRoallerCoaster(current.getNextVisitorInGame(), toMove);
 		}
@@ -652,6 +666,7 @@ public class ParqueDelCafe implements Serializable{
 			 yipe.setVisitors(toMove);
 			toMove.setPlaying(true);
 			toMove.setInGame(yipe);
+			yipe.setOccupancy(yipe.getOccupancy()+1);
 			System.out.println("Esta entrando parte 1.5");
 		}else {
 			addVisitorToYipe(yipe.getVisitors(),toMove);
@@ -663,6 +678,7 @@ public class ParqueDelCafe implements Serializable{
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
 			toMove.setInGame(yipe);
+			yipe.setOccupancy(yipe.getOccupancy()+1);
 		}else {
 			addVisitorToYipe(current.getNextVisitorInGame(), toMove);
 		}
@@ -793,6 +809,7 @@ public class ParqueDelCafe implements Serializable{
 			toMove.setPlaying(true);
 			System.out.println("Esta entrando parte 1.5");
 			toMove.setInGame(crashingBoats);
+			crashingBoats.setOccupancy(crashingBoats.getOccupancy()+1);
 		}else {
 			addVisitorToCrashingBoats(crashingBoats.getVisitors(),toMove);
 		}
@@ -804,6 +821,7 @@ public class ParqueDelCafe implements Serializable{
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
 			toMove.setInGame(crashingBoats);
+			crashingBoats.setOccupancy(crashingBoats.getOccupancy()+1);
 		}else {
 			addVisitorToCrashingBoats(current.getNextVisitorInGame(), toMove);
 		}
@@ -833,6 +851,7 @@ public class ParqueDelCafe implements Serializable{
 			toMove.setPlaying(true);
 			System.out.println("Esta entrando parte 1.5");
 			toMove.setInGame(krater);
+			krater.setOccupancy(krater.getOccupancy()+1);
 		}else {
 			addVisitorToKrater(krater.getVisitors(),toMove);
 		}
@@ -843,6 +862,7 @@ public class ParqueDelCafe implements Serializable{
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
 			toMove.setInGame(krater);
+			krater.setOccupancy(krater.getOccupancy()+1);
 		}else {
 			addVisitorToKrater(current.getNextVisitorInGame(), toMove);
 		}
@@ -869,6 +889,7 @@ public class ParqueDelCafe implements Serializable{
 			toMove.setPlaying(true);
 			System.out.println("Esta entrando parte 1.5");
 			toMove.setInGame(carousel);
+			carousel.setOccupancy(carousel.getOccupancy()+1);
 		}else {
 			addVisitorToCarousel(carousel.getVisitors(),toMove);
 		}
@@ -880,6 +901,7 @@ public class ParqueDelCafe implements Serializable{
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
 			toMove.setInGame(carousel);
+			carousel.setOccupancy(carousel.getOccupancy()+1);
 		}else {
 			addVisitorToCarousel(current.getNextVisitorInGame(), toMove);
 		}
@@ -908,6 +930,7 @@ public class ParqueDelCafe implements Serializable{
 			wheel.setVisitors(toMove);
 			toMove.setPlaying(true);
 			toMove.setInGame(wheel);
+			wheel.setOccupancy(wheel.getOccupancy()+1);
 			System.out.println("Esta entrando parte 1.5");
 		}else {
 			addVisitorToWheel(wheel.getVisitors(),toMove);
@@ -919,6 +942,7 @@ public class ParqueDelCafe implements Serializable{
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
 			toMove.setInGame(wheel);
+			wheel.setOccupancy(wheel.getOccupancy()+1);
 		}else {
 			addVisitorToWheel(current.getNextVisitorInGame(), toMove);
 		}
@@ -933,6 +957,7 @@ public class ParqueDelCafe implements Serializable{
 			toMove.setPlaying(true);
 			toMove.setInGame(karts);
 			System.out.println("Esta entrando parte 1.5");
+			karts.setOccupancy(karts.getOccupancy()+1);
 		}else {
 			addVisitorToKarts(karts.getVisitors(),toMove);
 		}
@@ -946,6 +971,7 @@ public class ParqueDelCafe implements Serializable{
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
 			toMove.setInGame(karts);
+			karts.setOccupancy(karts.getOccupancy()+1);
 		}else {
 			addVisitorToKarts(current.getNextVisitorInGame(), toMove);
 		}
@@ -974,6 +1000,7 @@ public class ParqueDelCafe implements Serializable{
 			toMove.setPlaying(true);
 			toMove.setInGame(rollerCoaster);
 			System.out.println("Esta entrando parte 1.5");
+			rollerCoaster.setOccupancy(rollerCoaster.getOccupancy()+1);
 		}else {
 			addVisitorToRoallerCoaster(rollerCoaster.getVisitors(),toMove);
 		}
@@ -985,9 +1012,10 @@ public class ParqueDelCafe implements Serializable{
 			heladerias.setVisitors(toMove);
 			toMove.setPlaying(true);
 			toMove.setInGame(heladerias);
+			heladerias.setOccupancy(heladerias.getOccupancy()+1);
 			System.out.println("Esta entrando parte 1.5");
 		}else {
-			addVisitorToIceCreamParlour(rollerCoaster.getVisitors(),toMove);
+			addVisitorToIceCreamParlour(heladerias.getVisitors(),toMove);
 		}
 	}
 	public void addVisitorToSubway(Visitor toMove) {
@@ -997,6 +1025,7 @@ public class ParqueDelCafe implements Serializable{
 			subway.setVisitors(toMove);
 			toMove.setPlaying(true);
 			toMove.setInGame(subway);
+			subway.setOccupancy(subway.getOccupancy()+1);
 			System.out.println("Esta entrando parte 1.5");
 		}else {
 			addVisitorToSubway(subway.getVisitors(),toMove);
@@ -1008,6 +1037,7 @@ public class ParqueDelCafe implements Serializable{
 			guadual.setVisitors(toMove);
 			toMove.setPlaying(true);
 			toMove.setInGame(guadual);
+			guadual.setOccupancy(guadual.getOccupancy()+1);
 			System.out.println("Esta entrando parte 1.5");
 		}else {
 			addVisitorToGuadual(guadual.getVisitors(),toMove);
@@ -1019,6 +1049,7 @@ public class ParqueDelCafe implements Serializable{
 			parrilla.setVisitors(toMove);
 			toMove.setPlaying(true);
 			toMove.setInGame(parrilla);
+			parrilla.setOccupancy(parrilla.getOccupancy()+1);
 			System.out.println("Esta entrando parte 1.5");
 		}else {
 			addVisitorToParillaDelParque(parrilla.getVisitors(),toMove);
@@ -1029,7 +1060,8 @@ public class ParqueDelCafe implements Serializable{
 		if(current.getNextVisitorInGame()==null) {
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
-			toMove.setInGame(karts);
+			toMove.setInGame(heladerias);
+			heladerias.setOccupancy(heladerias.getOccupancy()+1);
 		}else {
 			addVisitorToIceCreamParlour(current.getNextVisitorInGame(), toMove);
 		}
@@ -1038,7 +1070,8 @@ public class ParqueDelCafe implements Serializable{
 		if(current.getNextVisitorInGame()==null) {
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
-			toMove.setInGame(karts);
+			toMove.setInGame(subway);
+			subway.setOccupancy(subway.getOccupancy()+1);
 		}else {
 			addVisitorToSubway(current.getNextVisitorInGame(), toMove);
 		}
@@ -1047,7 +1080,8 @@ public class ParqueDelCafe implements Serializable{
 		if(current.getNextVisitorInGame()==null) {
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
-			toMove.setInGame(karts);
+			toMove.setInGame(guadual);
+			guadual.setOccupancy(guadual.getOccupancy()+1);
 		}else {
 			addVisitorToGuadual(current.getNextVisitorInGame(), toMove);
 		}
@@ -1056,7 +1090,8 @@ public class ParqueDelCafe implements Serializable{
 		if(current.getNextVisitorInGame()==null) {
 			current.setNextVisitorInGame(toMove);
 			toMove.setPlaying(true);
-			toMove.setInGame(karts);
+			toMove.setInGame(parrilla);
+			parrilla.setOccupancy(parrilla.getOccupancy()+1);
 		}else {
 			addVisitorToParillaDelParque(current.getNextVisitorInGame(), toMove);
 		}
@@ -1098,6 +1133,7 @@ public class ParqueDelCafe implements Serializable{
 			toDelete.setNextVisitorInGame(null);
 			toDelete.setPlaying(false);
 		}
+		gameToSearch.setOccupancy(gameToSearch.getOccupancy()-1);
 	}
 	public void takeOutFromGame() {
 		
@@ -1290,5 +1326,69 @@ public class ParqueDelCafe implements Serializable{
 			
 		}
 		
+	}
+
+	public List<Parking> getParkings() {
+		return parkings;
+	}
+
+	public Game getRollerCoaster() {
+		return rollerCoaster;
+	}
+
+	public Game getKarts() {
+		return karts;
+	}
+
+	public Game getWheel() {
+		return wheel;
+	}
+
+	public Game getCarousel() {
+		return carousel;
+	}
+
+	public Game getKrater() {
+		return krater;
+	}
+
+	public Game getCrashingBoats() {
+		return crashingBoats;
+	}
+
+	public Game getFast() {
+		return fast;
+	}
+
+	public Game getYipe() {
+		return yipe;
+	}
+
+	public Game getMountain() {
+		return mountain;
+	}
+
+	public Game getCumbre() {
+		return cumbre;
+	}
+
+	public Game getHeladerias() {
+		return heladerias;
+	}
+
+	public Game getSubway() {
+		return subway;
+	}
+
+	public Game getParrilla() {
+		return parrilla;
+	}
+
+	public Game getGuadual() {
+		return guadual;
+	}
+
+	public CustomerAccount getCustomer() {
+		return customer;
 	}
 }

@@ -37,6 +37,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
 import model.CustomerAccount;
+import model.Game;
 import model.Parking;
 import model.ParqueDelCafe;
 import model.Visitor;
@@ -182,37 +183,11 @@ public class ParqueDelCafeGUI{
     // OCCUPANCY TABLE VIEW
     
     @FXML
-    private TableView<?> tbOccupancyList;
+    private TableView<Game> tbOccupancyList;
     @FXML
-    private TableColumn<?, ?> tcRusaOccupancy;
+    private TableColumn<Game, String> tcOccupacyName;
     @FXML
-    private TableColumn<?, ?> tcKartsOccupancy;
-    @FXML
-    private TableColumn<?, ?> tcAcuaticaOccupancy;
-    @FXML
-    private TableColumn<?, ?> tcYippeOccupancy;
-    @FXML
-    private TableColumn<?, ?> tcCumbreOccupancy;
-    @FXML
-    private TableColumn<?, ?> tcChoconesOccupancy;
-    @FXML
-    private TableColumn<?, ?> tcRapidosOccupancy;
-    @FXML
-    private TableColumn<?, ?> tcRuedaOccupancy;
-    @FXML
-    private TableColumn<?, ?> tcCarruselOccupancy;
-    @FXML
-    private TableColumn<?, ?> tcKraterOccupancy;
-    @FXML
-    private TableColumn<?, ?> tcGuadualOccupancy;
-    @FXML
-    private TableColumn<?, ?> tcParrillaOccupancy;
-    @FXML
-    private TableColumn<?, ?> tcSubwayOccupancy;
-    @FXML
-    private TableColumn<?, ?> tcHeladeriasOccupancy;
-    @FXML
-    private TableColumn<?, ?> tcParqueaderoOccupancy;
+    private TableColumn<Game, Integer> tcOccupacyCuantity;
     @FXML
     private ComboBox<String> searchFriendOccupancy;
     @FXML
@@ -782,7 +757,7 @@ public class ParqueDelCafeGUI{
    }
    public void initializeParrillaComboBox() {
 	   for(int i=0; i < parqueDelCafe.namesList().size();i++) {
-		   String name = parqueDelCafe.namesList().get(i);
+		   String name = parqueDelCafe.visitorsSortedById().get(i).getName();
 		   namesParrilla.getItems().add(name);
 		   System.out.println(name);
 	   }
@@ -799,7 +774,7 @@ public class ParqueDelCafeGUI{
    public void initializeCarouselCombobox() {
 	   
 	   for(int i=0; i < parqueDelCafe.namesList().size();i++) {
-		   String name = parqueDelCafe.namesList().get(i);
+		   String name = parqueDelCafe.sortingVisitorsByNameAndGender().get(i).getName();
 		   namesCarrusel.getItems().add(name);
 		   System.out.println(name);
 	   }
@@ -850,6 +825,16 @@ public class ParqueDelCafeGUI{
 	   	tcMontanaRusaName.setCellValueFactory(new PropertyValueFactory<Visitor,String>("name"));
 	   	tbMontanaRusaList.refresh();
 	   
+   }
+   public void initializeOccupancyTableView() {
+	
+	   ObservableList<Game> observableList;
+	   observableList = FXCollections.observableArrayList(parqueDelCafe.createGamesList());
+	   tbOccupancyList.setItems(observableList);	
+	   	
+	   tcOccupacyName.setCellValueFactory(new PropertyValueFactory<Game,String>("name"));
+	   tcOccupacyCuantity.setCellValueFactory(new PropertyValueFactory<Game,Integer>("occupancy"));
+	   tbOccupancyList.refresh();
    }
    public void initializePlansMiniTableView() {
 	   
@@ -1026,6 +1011,7 @@ public class ParqueDelCafeGUI{
     	Parent occupancyPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(occupancyPane);
     	initializeFriendSearchComboBox();
+    	initializeOccupancyTableView();
     }
     
     @FXML

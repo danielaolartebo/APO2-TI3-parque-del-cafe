@@ -14,7 +14,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="occupancyPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="occupancyPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <Pane prefHeight="364.0" prefWidth="600.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
@@ -49,23 +49,10 @@
                   <Font name="System Bold" size="11.0" />
                </font>
             </Button>
-            <TableView fx:id="tbOccupancyList" editable="true" layoutX="-5.0" layoutY="86.0" prefHeight="75.0" prefWidth="808.0" style="-fx-background-color: black;">
+            <TableView fx:id="tbOccupancyList" editable="true" layoutX="-5.0" layoutY="86.0" prefHeight="263.0" prefWidth="808.0" style="-fx-background-color: black;">
                <columns>
-                  <TableColumn fx:id="tcRusaOccupancy" prefWidth="37.0" text="Rusa" />
-                  <TableColumn fx:id="tcKartsOccupancy" prefWidth="34.0" text="Karts" />
-                  <TableColumn fx:id="tcAcuaticaOccupancy" maxWidth="279.0" prefWidth="53.0" text="Acuática" />
-                  <TableColumn fx:id="tcYippeOccupancy" maxWidth="152.0" prefWidth="37.0" text="Yippe" />
-                  <TableColumn fx:id="tcCumbreOccupancy" maxWidth="513.0" minWidth="0.0" prefWidth="49.0" text="Cumbre" />
-                  <TableColumn fx:id="tcChoconesOccupancy" maxWidth="513.0" prefWidth="59.0" text="Chocones" />
-                  <TableColumn fx:id="tcRapidosOccupancy" prefWidth="52.0" text="Rápidos" />
-                  <TableColumn fx:id="tcRuedaOccupancy" prefWidth="42.0" text="Rueda" />
-                  <TableColumn fx:id="tcCarruselOccupancy" prefWidth="56.0" text="Carrusel" />
-                  <TableColumn fx:id="tcKraterOccupancy" prefWidth="49.0" text="Krater" />
-                  <TableColumn fx:id="tcGuadualOccupancy" prefWidth="63.0" text="Guadual" />
-                  <TableColumn fx:id="tcParrillaOccupancy" prefWidth="56.0" text="Parrilla" />
-                  <TableColumn fx:id="tcSubwayOccupancy" prefWidth="61.0" text="Subway" />
-                  <TableColumn fx:id="tcHeladeriasOccupancy" prefWidth="75.0" text="Heladerías" />
-                  <TableColumn fx:id="tcParqueaderoOccupancy" prefWidth="83.0" text="Parqueadero" />
+                  <TableColumn fx:id="tcOccupacyName" prefWidth="479.0" text="Nombre" />
+                  <TableColumn fx:id="tcOccupacyCuantity" prefWidth="328.0" text="Personas Actualmente" />
                </columns>
             </TableView>
             <ImageView fitHeight="113.0" fitWidth="660.0" layoutX="95.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true">
@@ -73,18 +60,18 @@
                   <Image url="@../../docs/2021-05-13%20(23).png" />
                </image>
             </ImageView>
-            <Label layoutX="155.0" layoutY="215.0" prefHeight="33.0" prefWidth="155.0" text="Busca a tu amigo:" textFill="#900707">
+            <Label layoutX="110.0" layoutY="371.0" prefHeight="33.0" prefWidth="155.0" text="Busca a tu amigo:" textFill="#900707">
                <font>
                   <Font name="Gabriola" size="25.0" />
                </font>
             </Label>
-            <Button layoutX="622.0" layoutY="219.0" mnemonicParsing="false" onAction="#searchOptOccupancy" prefHeight="25.0" prefWidth="89.0" text="BUSCAR">
+            <Button layoutX="630.0" layoutY="375.0" mnemonicParsing="false" onAction="#searchOptOccupancy" prefHeight="25.0" prefWidth="89.0" text="BUSCAR">
                <font>
                   <Font name="System Bold" size="11.0" />
                </font>
             </Button>
-            <ComboBox fx:id="searchFriendOccupancy" layoutX="297.0" layoutY="216.0" prefHeight="31.0" prefWidth="310.0" />
-            <Label layoutX="40.0" layoutY="364.0" prefHeight="47.0" prefWidth="462.0" text="Tu amigo se encuentra en" textFill="#9a0707">
+            <ComboBox fx:id="searchFriendOccupancy" layoutX="289.0" layoutY="372.0" prefHeight="31.0" prefWidth="310.0" />
+            <Label layoutX="14.0" layoutY="411.0" prefHeight="47.0" prefWidth="462.0" text="Tu amigo se encuentra en" textFill="#9a0707">
                <font>
                   <Font name="Wide Latin" size="21.0" />
                </font>
