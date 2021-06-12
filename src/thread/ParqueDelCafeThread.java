@@ -16,6 +16,7 @@ public class ParqueDelCafeThread extends Thread{
 		this.pdcG = pdcG;
 		this.sleepTime = sleepTime;
 	}
+	@Override
 	public void run() {
 		
 		pdc.takeOutFromGame();

@@ -55,45 +55,45 @@ public class ParqueDelCafe implements Serializable{
 
 		parkings = new ArrayList<>();
 
-		rollerCoaster = new Game("Monta�a Rusa");
+		rollerCoaster = new Game("Monta�a Rusa",1);
 		
-		karts = new Game("Karts");
+		karts = new Game("Karts",2);
 		rollerCoaster.setNextGame(karts);
 		
-		wheel = new Game("Rueda");
+		wheel = new Game("Rueda",3);
 		karts.setNextGame(wheel);
 		
-		carousel = new Game("Carusel");
+		carousel = new Game("Carusel",4);
 		wheel.setNextGame(carousel);
 		
-		krater = new Game("Krater");
+		krater = new Game("Krater",5);
 		carousel.setNextGame(krater);
 		
-		crashingBoats = new Game("Botes Chocones");
+		crashingBoats = new Game("Botes Chocones",6);
 		krater.setNextGame(crashingBoats);
 		
-		fast = new Game("Rapidos");
+		fast = new Game("Rapidos",7);
 		crashingBoats.setNextGame(fast);
 		
-		yipe = new Game("Yipe");
+		yipe = new Game("Yipe",8);
 		fast.setNextGame(yipe);
 		
-		mountain = new Game("Monta�a Acuatica");
+		mountain = new Game("Monta�a Acuatica",9);
 		yipe.setNextGame(mountain);
 		
-		cumbre = new Game("Torre Cumbre");
+		cumbre = new Game("Torre Cumbre",10);
 		mountain.setNextGame(cumbre);
 		
-		heladerias = new Game("Heladerias del Parque");
+		heladerias = new Game("Heladerias del Parque",11);
 		cumbre.setNextGame(heladerias);
 		
-		subway = new Game("Subway");
+		subway = new Game("Subway",12);
 		heladerias.setNextGame(subway);
 		
-		parrilla = new Game("Parrilla del Parque");
+		parrilla = new Game("Parrilla del Parque",13);
 		subway.setNextGame(parrilla);
 		
-		guadual = new Game("El Guadual");
+		guadual = new Game("El Guadual",14);
 		parrilla.setNextGame(guadual);
 		
 		parking = new Parking(-7,350);
@@ -1217,24 +1217,42 @@ public class ParqueDelCafe implements Serializable{
 		return current;
 	}
 	public Game findGameinPostion(int pos) {
-		
-		if(pos==1) {
 			
-			return rollerCoaster;
-		}
-		else {
 			
-			return findGameInPosition(pos, pos+1, rollerCoaster.getnextGame());
-		}
-	}
-	private Game findGameInPosition(int toFind, int current, Game currentGame) {
-		
-		if(current==toFind) {
-			return currentGame;
+			int found = -1;
 			
-		}else {
-			return findGameInPosition(toFind, current+1, currentGame.getnextGame());
-		}	
+			int i = 0;
+				
+			ArrayList<Game> games = createGamesList();
+			
+			int j =  games.size()-1;
+			
+			int m = 0;
+			
+			
+			
+			while(found<0 && i<=j) {
+			
+				m = (j+i)/2;	
+				
+				int pos2 = games.get(m).getPosition();
+				
+				if(pos==pos2) {
+					
+					found = 1;
+					
+				}else if(pos>pos2){
+					
+					i = m+1;
+					
+				}else if((pos2)>pos){
+					
+					j = m-1;
+					
+				}			
+			}		
+			
+			return games.get(m);	
 	}
 	public void addPeopleToGame() {
 		
@@ -1247,7 +1265,8 @@ public class ParqueDelCafe implements Serializable{
 		int resultOfToCompare = current.compareTo(toCompare);
 		int resultOfToCompare2 = current.compareTo(toCompare2);
 		int resultOfToCompare3 = current.compareTo(toCompare3);
-		int gameToAdd = (int)((Math.random()*(totalGames-0))+0);
+		int gameToAdd = (int)((Math.random()*(totalGames-1))+1);
+		System.out.println(gameToAdd);
 		Game game = findGameinPostion(gameToAdd);
 		if(resultOfToCompare <=0) {
 			
