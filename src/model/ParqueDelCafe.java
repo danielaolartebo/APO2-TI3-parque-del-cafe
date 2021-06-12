@@ -49,13 +49,14 @@ public class ParqueDelCafe implements Serializable{
 	//user
 	private CustomerAccount customer;
 	private Visitor root;
+	private Game gameRoot;
 	
 	public ParqueDelCafe() {
 		customers = new ArrayList<>();
 
 		parkings = new ArrayList<>();
 
-		rollerCoaster = new Game("Montaña Rusa",1);
+		rollerCoaster = new Game("Montaï¿½a Rusa",1);
 		
 		karts = new Game("Karts",2);
 		rollerCoaster.setNextGame(karts);
@@ -78,7 +79,7 @@ public class ParqueDelCafe implements Serializable{
 		yipe = new Game("Yipe",8);
 		fast.setNextGame(yipe);
 		
-		mountain = new Game("Montaña Acuatica",9);
+		mountain = new Game("Montaï¿½a Acuatica",9);
 		yipe.setNextGame(mountain);
 		
 		cumbre = new Game("Torre Cumbre",10);
@@ -100,6 +101,7 @@ public class ParqueDelCafe implements Serializable{
 		
 		planTotalPrice = 0;
 		root = null;
+		gameRoot = null;
 	}
 		
 
@@ -204,11 +206,14 @@ public class ParqueDelCafe implements Serializable{
 		ArrayList<Game> gameList = new ArrayList<Game>();
 		
 			gameList.add(rollerCoaster);
+			
 			Game tmp = rollerCoaster.getnextGame();
+			
 			gameList.add(tmp);
 			tmp = tmp.getnextGame();
 			System.out.println(tmp.getName());
 			while(tmp!=null) {
+				
 				gameList.add(tmp);
 				tmp = tmp.getnextGame();
 			}
@@ -267,7 +272,7 @@ public class ParqueDelCafe implements Serializable{
 		
 		getVisitor(name).setManyPlans(plan);
 		getVisitor(name).setToPay(toPaid+getVisitor(name).getToPay());
-		
+		addToTheTree(getVisitor(name));
 	}
 	public void addToTheTree(Visitor visitor) {
 		
@@ -293,6 +298,32 @@ public class ParqueDelCafe implements Serializable{
 				visitor.setPaidLess(visitor2);
 			} else {
 				addToTheTree(visitor.getPaidLess(), visitor2);
+			}
+		}
+	}
+	public void occupancyTree(Game game) {
+		
+		if(gameRoot==null) {
+			gameRoot = game;
+		}else {
+			
+			occupancyTree(gameRoot,game);
+		}
+	}
+	private void occupancyTree(Game game, Game game2) {
+		
+		if(game.getOccupancy()<game2.getOccupancy()) {
+			if(game.getWithMoreOccupancy()==null) {
+			game.setWithMoreOccupancy(game2);
+			} else {
+				occupancyTree(game.getWithMoreOccupancy(), game2);
+				
+			} 
+		} else if(game.getOccupancy()>=game2.getOccupancy()){
+			if(game.getWithLessOccupancy()==null) {
+				game.setWithLessOccupancy(game2);
+			} else {
+				occupancyTree(game.getWithLessOccupancy(), game2);
 			}
 		}
 	}
@@ -1473,5 +1504,16 @@ public class ParqueDelCafe implements Serializable{
 
 	public CustomerAccount getCustomer() {
 		return customer;
+	}
+	public void createOccupancyTree() {
+		
+		ArrayList<Game> games = createGamesList();
+		
+		for(int i=0; i < games.size();i++) {
+			
+			occupancyTree(games.get(i));
+			
+		}
+		
 	}
 }

@@ -1079,6 +1079,7 @@ public void initializeBarChar() {
     	mainPane.getChildren().setAll(occupancyPane);
     	initializeFriendSearchComboBox();
     	initializeOccupancyTableView();
+    	parqueDelCafe.createOccupancyTree();
     }
     
     @FXML
