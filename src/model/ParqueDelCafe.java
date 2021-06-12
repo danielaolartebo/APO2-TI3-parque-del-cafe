@@ -55,7 +55,7 @@ public class ParqueDelCafe implements Serializable{
 
 		parkings = new ArrayList<>();
 
-		rollerCoaster = new Game("Montaï¿½a Rusa",1);
+		rollerCoaster = new Game("Montaña Rusa",1);
 		
 		karts = new Game("Karts",2);
 		rollerCoaster.setNextGame(karts);
@@ -78,7 +78,7 @@ public class ParqueDelCafe implements Serializable{
 		yipe = new Game("Yipe",8);
 		fast.setNextGame(yipe);
 		
-		mountain = new Game("Montaï¿½a Acuatica",9);
+		mountain = new Game("Montaña Acuatica",9);
 		yipe.setNextGame(mountain);
 		
 		cumbre = new Game("Torre Cumbre",10);
