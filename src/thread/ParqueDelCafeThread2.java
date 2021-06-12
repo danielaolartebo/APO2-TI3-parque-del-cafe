@@ -16,8 +16,10 @@ public class ParqueDelCafeThread2 extends Thread{
 		this.pdcG = pdcG;
 		this.sleepTime = sleepTime;
 	}
+	@Override
 	public void run() {
 		
+		for(int i=0;i < 200;i++) {
 		pdc.addPeopleToGame();
 		System.out.println("Esta en el hilo2");
 		try {
@@ -25,6 +27,7 @@ public class ParqueDelCafeThread2 extends Thread{
 		} catch (InterruptedException e) {
 		
 			e.printStackTrace();
+		}
 		}
 		
 	}

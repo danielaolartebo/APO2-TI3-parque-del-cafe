@@ -4,13 +4,16 @@ public class Game{
 
 	private String name;
 	private int occupancy;
+	private int position;
 	private Visitor visitors;
+	
 	
 	private Game nextGame;
 	
-	public Game(String name) {
+	public Game(String name,int position) {
 		this.name = name;
 		occupancy = 0;
+		this.position = position;
 	}
 	public Game getnextGame() {
 		return nextGame;
@@ -36,4 +39,11 @@ public class Game{
 	public String getName() {
 		return name;
 	}
+	public int getPosition() {
+		return position;
+	}
+	public void setPosition(int position) {
+		this.position = position;
+	}
+	
 }
