@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="menuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="menuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <Pane prefHeight="449.0" prefWidth="359.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
@@ -100,7 +100,7 @@
                   <Font name="System Bold" size="11.0" />
                </font>
             </Button>
-            <Label fx:id="menuUser" layoutX="668.0" layoutY="25.0" prefHeight="31.0" prefWidth="134.0" text="Usuario: _________" textFill="#b52727">
+            <Label layoutX="668.0" layoutY="25.0" prefHeight="31.0" prefWidth="134.0" text="Usuario: _________" textFill="#b52727">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="16.0" />
                </font>
