@@ -715,20 +715,20 @@ public class ParqueDelCafeGUI{
                new PieChart.Data("Parrilla", parqueDelCafe.getParrilla().getOccupancy()),
                new PieChart.Data("Guadual", parqueDelCafe.getGuadual().getOccupancy()))
                ;
-	  ocuppancyPieChart = new PieChart(pieChartData); 
+	  @SuppressWarnings("unused")
+	final PieChart opc = new PieChart(pieChartData);
+	  ocuppancyPieChart.setData(pieChartData);
 	   
    }
    @SuppressWarnings({ "unchecked", "rawtypes" })
 public void initializeBarChar() {
 	   
-	   final CategoryAxis xAxis = new CategoryAxis();
-       final NumberAxis yAxis = new NumberAxis();
-       xAxis.setLabel("Ubicacion");       
-       yAxis.setLabel("Cantidad");
+
 	   XYChart.Series series1 = new XYChart.Series();
 	   
-	   series1.setName("Actual");       
+	   series1.setName("Montaña Rusa");       
        series1.getData().add(new XYChart.Data("Montaña Rusa", parqueDelCafe.getRollerCoaster().getOccupancy()));
+       
        series1.getData().add(new XYChart.Data("Karts", parqueDelCafe.getKarts().getOccupancy()));
        series1.getData().add(new XYChart.Data("Rueda", parqueDelCafe.getWheel().getOccupancy()));
        series1.getData().add(new XYChart.Data("Carousel", parqueDelCafe.getCarousel().getOccupancy()));
@@ -743,8 +743,8 @@ public void initializeBarChar() {
        series1.getData().add(new XYChart.Data("Parrilla", parqueDelCafe.getParrilla().getOccupancy()));
        series1.getData().add(new XYChart.Data("Guadual", parqueDelCafe.getGuadual().getOccupancy()));   
    
-       occupancyBarChart = new BarChart<>(xAxis, yAxis);
-       occupancyBarChart.getData().addAll(series1);
+       occupancyBarChart.getData().add(series1);
+       
    }
    public void initializeCumbreComboBox() {
 	   for(int i=0; i < parqueDelCafe.namesList().size();i++) {
@@ -998,7 +998,7 @@ public void initializeBarChar() {
     	}else {
     		throw new PlanException(quantity);
     	}
-    	
+    	}
     	if(plan.equals("Almuerzo")) {
     		price = 12000;
     	}else {
@@ -1011,7 +1011,7 @@ public void initializeBarChar() {
     	parqueDelCafe.addPlanToVisitor(name, plan,visitorToPaid);
     	initializePlansMiniTableView();
     	tbPlanList.refresh();
-    	}
+    	
     }
 
     @SuppressWarnings("static-access")

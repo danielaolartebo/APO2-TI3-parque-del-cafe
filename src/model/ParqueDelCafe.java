@@ -274,6 +274,33 @@ public class ParqueDelCafe implements Serializable{
 		getVisitor(name).setToPay(toPaid+getVisitor(name).getToPay());
 		
 	}
+	public void addToTheTree(Visitor visitor) {
+		
+		if(root==null) {
+			root = visitor;
+		}else {
+			
+			addToTheTree(root,visitor);
+		}
+		
+	}
+	private void addToTheTree(Visitor visitor,Visitor visitor2 ) {
+		
+		if(visitor.getToPay()<visitor2.getToPay()) {
+			if(visitor.getPaidMore()==null) {
+			visitor.setPaidMore(visitor2);
+			} else {
+				addToTheTree(visitor.getPaidMore(), visitor2);
+				
+			} 
+		} else if(visitor.getToPay()>=visitor2.getToPay()){
+			if(visitor.getPaidLess()==null) {
+				visitor.setPaidLess(visitor2);
+			} else {
+				addToTheTree(visitor.getPaidLess(), visitor2);
+			}
+		}
+	}
 	public void RemoveVisitor(String name) {
 		
 	
