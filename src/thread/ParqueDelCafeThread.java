@@ -13,7 +13,7 @@ public class ParqueDelCafeThread extends Thread{
 	
 	public ParqueDelCafeThread(ParqueDelCafe pdc, ParqueDelCafeGUI pdcG, long sleepTime) {
 		this.pdc = pdc;
-		this.pdcG = pdcG;
+		this.setPdcG(pdcG);
 		this.sleepTime = sleepTime;
 	}
 	@Override
@@ -35,5 +35,11 @@ public class ParqueDelCafeThread extends Thread{
 			e.printStackTrace();
 		}
 		}
+	}
+	public ParqueDelCafeGUI getPdcG() {
+		return pdcG;
+	}
+	public void setPdcG(ParqueDelCafeGUI pdcG) {
+		this.pdcG = pdcG;
 	}
 }

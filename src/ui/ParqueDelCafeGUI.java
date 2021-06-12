@@ -207,7 +207,7 @@ public class ParqueDelCafeGUI{
     @FXML
     private TableColumn<CustomerAccount, String> tcNameAccount;
     @FXML
-    private TableColumn<CustomerAccount, String> tcAgeAccount;
+    private TableColumn<CustomerAccount, Integer> tcAgeAccount;
     @FXML
     private TableColumn<CustomerAccount, String> tcGenderAccount;
 /*    @FXML
@@ -1447,12 +1447,11 @@ public void initializeBarChar() {
          
          tcUserAccount.setCellValueFactory(new PropertyValueFactory<CustomerAccount, String>("userName"));
          tcNameAccount.setCellValueFactory(new PropertyValueFactory<CustomerAccount, String>("name"));
-         tcAgeAccount.setCellValueFactory(new PropertyValueFactory<CustomerAccount, String>("age"));
+         tcAgeAccount.setCellValueFactory(new PropertyValueFactory<CustomerAccount, Integer>("age"));
          tcGenderAccount.setCellValueFactory(new PropertyValueFactory<CustomerAccount, String>("gender"));
          
          tcUserAccount.setCellFactory(TextFieldTableCell.forTableColumn());
          tcNameAccount.setCellFactory(TextFieldTableCell.forTableColumn());
-         tcAgeAccount.setCellFactory(TextFieldTableCell.forTableColumn());
          tcGenderAccount.setCellFactory(TextFieldTableCell.forTableColumn());
          
          tcUserAccount.setOnEditCommit(data -> {
@@ -1475,14 +1474,17 @@ public void initializeBarChar() {
              System.out.println(ca);
          });
          
+         
          tcAgeAccount.setOnEditCommit(data -> {
              System.out.println("New age: " +  data.getNewValue());
              System.out.println("Old age: " + data.getOldValue());
 
              CustomerAccount ca = data.getRowValue();
-             ca.setAge(Integer.parseInt(data.getNewValue()));
+             ca.setAge(data.getNewValue());
 
              System.out.println(ca);
+             
+            
          });
          
          tcGenderAccount.setOnEditCommit(data -> {
