@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import exceptions.YoungerException;
+
 
 public class ParqueDelCafe implements Serializable{
 		
@@ -15,7 +17,7 @@ public class ParqueDelCafe implements Serializable{
 	private List<CustomerAccount> customers;
 	private List<Game> games;
 	private List<FoodCourt> foods;
-	private List<Parking> parkings;
+	private Parking parking;
 	//Games
 	private Game rollerCoaster;
 	private Game karts;
@@ -40,7 +42,6 @@ public class ParqueDelCafe implements Serializable{
 		customers = new ArrayList<>();
 		games = new ArrayList<>();
 		foods = new ArrayList<>();
-		parkings = new ArrayList<>();
 		rollerCoaster = new Game("Monta�a Rusa");
 		
 		karts = new Game("Karts");
@@ -82,12 +83,18 @@ public class ParqueDelCafe implements Serializable{
 		guadual = new Game("El Guadual");
 		parrilla.setNextGame(guadual);
 		
+		parking = new Parking(-7,350);
+		
 		planTotalPrice = 0;
 	}
 		
-	public void addCustomer(String userName, String password, String name, String gender, int age) {
+	public void addCustomer(String userName, String password, String name, String gender, int age) throws YoungerException {
+		
+		if(age>=16) {
 		customers.add(new CustomerAccount(userName, password, name, gender, age));
-			
+		}else {
+			throw new YoungerException(age);
+		}
 	}
 		
 	public List<CustomerAccount> getCustomers(){
@@ -127,15 +134,20 @@ public class ParqueDelCafe implements Serializable{
 	public CustomerAccount getCurrentCustomer() {
 		return customer;
 	}
-	public void addVisitorToUser(String name, int  age, String sex) {
+	public void addVisitorToUser(String name, int  age, String sex) throws  YoungerException {
 		
+		if(age>=3) {
 		Visitor tmp = new Visitor(name,age,sex);
-		if(customer.getFirstVisitor()==null) {
-			customer.setFirstVisitor(tmp);
+			if(customer.getFirstVisitor()==null) {
+				customer.setFirstVisitor(tmp);
+			}else {
+				addVisitor(customer.getFirstVisitor(),tmp);
+			}
 		}else {
-			addVisitor(customer.getFirstVisitor(),tmp);
+			throw new YoungerException(age);
 		}
 	}
+	
 	private void addVisitor(Visitor current, Visitor tmp) {
 		
 		if(current.getNextVisitor()==null) {
@@ -1242,5 +1254,9 @@ public class ParqueDelCafe implements Serializable{
 		
 		return visitors;
 		
+	}
+
+	public Parking getParking() {
+		return parking;
 	}
 }

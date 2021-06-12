@@ -12,7 +12,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="parkingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.ParqueDelCafeGUI">
+<BorderPane fx:id="parkingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <Pane prefHeight="364.0" prefWidth="600.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
@@ -419,7 +419,7 @@
                   <Image url="@../../docs/coche-blanco-arriba.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="car1" fitHeight="81.0" fitWidth="69.0" layoutX="78.0" layoutY="271.0">
+            <ImageView fx:id="car1" fitHeight="81.0" fitWidth="69.0" layoutX="-7.0" layoutY="350.0">
                <image>
                   <Image url="@../../docs/coche.png" />
                </image>

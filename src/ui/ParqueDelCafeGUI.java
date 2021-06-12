@@ -16,8 +16,9 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
-
-
+import exceptions.ParkingException;
+import exceptions.PlanException;
+import exceptions.YoungerException;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -42,6 +43,7 @@ import model.ParqueDelCafe;
 import model.Visitor;
 import thread.ParqueDelCafeThread;
 import thread.ParqueDelCafeThread2;
+import thread.ParqueDelCafeThread3;
 
 public class ParqueDelCafeGUI{
 
@@ -124,6 +126,8 @@ public class ParqueDelCafeGUI{
     private ImageView car1;
     
     private Parking parking;
+    
+    private ParqueDelCafeThread3 car;
     
     // PLAN MINI TABLE VIEW 
     
@@ -461,7 +465,7 @@ public class ParqueDelCafeGUI{
     }
     
     @FXML
-    public void optCreateAccount(ActionEvent event) throws IOException {
+    public void optCreateAccount(ActionEvent event) throws IOException, YoungerException {
     	String userName=null;
     	if(!txtUsername.getText().equals("")) {
     		userName=txtUsername.getText();
@@ -531,7 +535,7 @@ public class ParqueDelCafeGUI{
      */
     
     @FXML
-    public void dateAdd(ActionEvent event) throws ParseException {
+    public void dateAdd(ActionEvent event) throws ParseException, YoungerException {
     	
     	
     	LocalDate chooseDate = dateDate.getValue();
@@ -924,7 +928,7 @@ public class ParqueDelCafeGUI{
     }
     
     @FXML
-    public void AddPlan(ActionEvent event) {
+    public void AddPlan(ActionEvent event) throws PlanException {
 
     	String name = planOptPlan1.getValue();
     	String plan = planOptPlan.getValue();
@@ -934,12 +938,15 @@ public class ParqueDelCafeGUI{
     	
     	int totalPrice = 0;
     	
+    	if(quantity==1 && plan.equals("Pasaporte Multiple")){
+    		if(plan.equals("Pasaporte Multiple")) {
+    		
+    			price = 50000;	
+    	}else {
+    		throw new PlanException(quantity);
+    	}
     	
-    	if(plan.equals("Pasaporte Multiple")) {
-    		
-    		price = 50000;
-    		
-    	}else if(plan.equals("Almuerzo")) {
+    	if(plan.equals("Almuerzo")) {
     		price = 12000;
     	}else {
     		price = 5000;
@@ -951,6 +958,7 @@ public class ParqueDelCafeGUI{
     	parqueDelCafe.addPlanToVisitor(name, plan);
     	initializePlansMiniTableView();
     	tbPlanList.refresh();
+    	}
     }
 
     @SuppressWarnings("static-access")
@@ -1015,6 +1023,7 @@ public class ParqueDelCafeGUI{
     	fxmlLoader.setController(this);
     	Parent parkingPane = fxmlLoader.load();
     	mainPane.getChildren().setAll(parkingPane);
+    	initializeCar();
     }
 
     @FXML
@@ -1230,38 +1239,94 @@ public class ParqueDelCafeGUI{
     }
     
     // SPACES (2,8,13,16,18,20,23,27,28,30,31,34,36,39)
+    
+    public void moveCarParking() {
+    	car1.setLayoutX(parking.getX());
+		try {
+			Thread.sleep(100);
+		}catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+    }
+    
     @FXML
-    public void optSelectParking(ActionEvent event) {
+    public void optSelectParking(ActionEvent event) throws ParkingException {
     	int number = Integer.parseInt(txtParkingNumber.getText());
     	
-    	if(number<=40 && number>0) {
+    	car = new ParqueDelCafeThread3(parqueDelCafe, this);
+    	
+    	if(number<=40 && number>0) {    		
+    		
     		if(number==2) {
+    			
+    			parking.posCar(77, 271);
     			
     		}else if(number==8){
     			
+    			parking.posCar(296, 271);
+    			
     		}else if(number==13){
     			
+    			parking.posCar(480, 271);
+    			
     		}else if(number==16){
+    			
+    			parking.posCar(596, 271);
+    			
     		}else if(number==18){
+    			
+    			parking.posCar(670, 271);
     			
     		}else if(number==20){
     			
+    			parking.posCar(748, 271);
+    			
     		}else if(number==23){
+    			
+    			parking.posCar(670, 173);
+    			
     		}else if(number==27){
+    			
+    			parking.posCar(520, 173);
     			
     		}else if(number==28){
     			
+    			parking.posCar(480, 173);
+    			
     		}else if(number==30){
-    		}else if(number==8){
     			
-    		}else if(number==13){
+    			parking.posCar(409, 173);
     			
-    		}else if(number==16){
+    		}else if(number==31){
+    			
+    			parking.posCar(374, 173);
+    			
+    		}else if(number==34){
+    			
+    			parking.posCar(260, 173);
+    			
+    		}else if(number==36){
+    			
+    			parking.posCar(189, 173);
+    			
+    		}else if(number==39) {
+    			
+    			parking.posCar(86, 173);
+    			
+    		}else {
+    			
+    			throw new ParkingException(number);
+    			
     		}
     		
-    	}else {
+    		car1.setLayoutX(parking.getX());
+    		car1.setLayoutY(parking.getY());
     		
+    	}else {
+    		throw new ParkingException(number);
     	}
+    	
+    	
     	
     }
     

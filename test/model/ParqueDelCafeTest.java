@@ -15,5 +15,14 @@ public class ParqueDelCafeTest {
 		parque = new ParqueDelCafe();
 	}
 	
+	public void addUser_1() {
+		
+	}
+	
+	public void addUser_2() {
+		
+	}
+	
+	
 	
 }
