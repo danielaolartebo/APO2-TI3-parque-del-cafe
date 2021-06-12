@@ -15,6 +15,8 @@ public class Visitor implements Comparable<Visitor>,Serializable{
 	
 	private String plan;
 	
+	private double toPay;
+	
 	private Boolean playing;
 	
 	private long code;
@@ -25,6 +27,9 @@ public class Visitor implements Comparable<Visitor>,Serializable{
 	
 	private Game inGame;
 	
+	private Visitor paidLess;
+	private Visitor paidMore;
+	
 	public Visitor(String name,int age,String gender) {
 		
 		this.name = name;
@@ -33,6 +38,7 @@ public class Visitor implements Comparable<Visitor>,Serializable{
 		playing = false;
 		inGame = null;
 		code = (long)((Math.random()*(1000000-00000001))+00000001);
+		toPay = 0;
 		
 	}
 	public String getName() {
@@ -134,4 +140,23 @@ public class Visitor implements Comparable<Visitor>,Serializable{
 		
 		return Comparator.comparing(Visitor::getName).thenComparing(Visitor::getGender).compare(this,v);
 	}
+	public double getToPay() {
+		return toPay;
+	}
+	public void setToPay(double toPay) {
+		this.toPay = toPay;
+	}
+	public Visitor getPaidLess() {
+		return paidLess;
+	}
+	public void setPaidLess(Visitor paidLess) {
+		this.paidLess = paidLess;
+	}
+	public Visitor getPaidMore() {
+		return paidMore;
+	}
+	public void setPaidMore(Visitor paidMore) {
+		this.paidMore = paidMore;
+	}
+	
 }

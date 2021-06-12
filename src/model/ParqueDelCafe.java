@@ -50,7 +50,8 @@ public class ParqueDelCafe implements Serializable{
 	private Game guadual;
 	//user
 	private CustomerAccount customer;
-
+	private Visitor root;
+	
 	public ParqueDelCafe() {
 		customers = new ArrayList<>();
 
@@ -103,6 +104,7 @@ public class ParqueDelCafe implements Serializable{
 		parking = new Parking(-7,350);
 		
 		planTotalPrice = 0;
+		root = null;
 	}
 		
 
@@ -184,6 +186,7 @@ public class ParqueDelCafe implements Serializable{
 		String gender = customer.getGender();
 		Visitor customerVisitor = new Visitor(name,age,gender);
 		customer.setFirstVisitor(customerVisitor);
+		root = customerVisitor;
 		return customerVisitor;
 		
 	}
@@ -265,10 +268,10 @@ public class ParqueDelCafe implements Serializable{
 		return visitorToReturn;
 	}	
 	
-	public void addPlanToVisitor(String name, String plan) {
+	public void addPlanToVisitor(String name, String plan,double toPaid) {
 		
 		getVisitor(name).setManyPlans(plan);
-		
+		getVisitor(name).setToPay(toPaid+getVisitor(name).getToPay());
 		
 	}
 	public void RemoveVisitor(String name) {

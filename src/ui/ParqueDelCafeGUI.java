@@ -357,12 +357,7 @@ public class ParqueDelCafeGUI{
 
     @FXML
     private BarChart<?, ?> occupancyBarChart;
-
-    @FXML
-    void subGraficasGoBack(ActionEvent event) {
-
-    }
-    
+   
     // Threads
     private ParqueDelCafeThread pdct;
     private ParqueDelCafeThread2 pdct2;
@@ -1010,10 +1005,10 @@ public void initializeBarChar() {
     		price = 5000;
     		
     	}
-    	
+    	double visitorToPaid = quantity*price;
     	totalPrice = parqueDelCafe.calculateTotalprice(quantity, price);
     	totalPricePlan.setText("$" + totalPrice);
-    	parqueDelCafe.addPlanToVisitor(name, plan);
+    	parqueDelCafe.addPlanToVisitor(name, plan,visitorToPaid);
     	initializePlansMiniTableView();
     	tbPlanList.refresh();
     	}
