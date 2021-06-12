@@ -22,4 +22,4 @@ In addition, you can find all documentation of this app [here](https://github.co
 Final Delivery: 
 
 
-Unitary Tests  added, binary tree for Visitors added, Threads added, New Screen added to show Graphics of the Occupacity Added, Car in Parking Moves, Binary Searchs added, Exceptions to the methods added.
+Unitary Tests  added, binary tree for Visitors added, Threads added, New Screen added to show Graphics of the Occupacity Added, Car in Parking Moves, Binary Searchs added, Exceptions to the methods added. Link of video: https://youtu.be/5Qxw_i11G1I
