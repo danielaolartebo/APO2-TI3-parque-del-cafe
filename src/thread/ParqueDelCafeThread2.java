@@ -22,7 +22,6 @@ public class ParqueDelCafeThread2 extends Thread{
 		for(int i=0;i < 200;i++) {
 		pdc.addPeopleToGame();
 		System.out.println("Esta en el hilo2");
-		pdcG.initializeOccupancyTableView();
 		try {
 			Thread.sleep(sleepTime);
 		} catch (InterruptedException e) {
